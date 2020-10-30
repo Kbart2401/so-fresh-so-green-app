@@ -3,6 +3,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require("express-session")
+const store = require("connect-pg-simple")
+const { sessionSecret } = require('./config');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -11,6 +14,15 @@ const app = express();
 
 // view engine setup
 app.set('view engine', 'pug');
+
+app.use(
+  session({
+    secret: sessionSecret,
+    resave: false,
+    saveUninitialized: false
+  })
+)
+
 
 app.use(logger('dev'));
 app.use(express.json());
