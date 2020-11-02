@@ -4,5 +4,14 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/navbar.css')
   body
+    div(class="navbar") Navbar
+      div(class="logo") Logo
+      div(class="searchBar") Search Bar
+      h1 So-Fresh-So-Green
+      button(class="logIn") Log In
+      button(class="logOut") Log Out
+    if user
+      div(class="welcomeDiv")= `Welcome ${user.name}`
     block content
