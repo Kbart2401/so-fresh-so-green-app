@@ -3,9 +3,9 @@ include utils.pug
 block content
     form(action="/users" method="POST")
         input(type="hidden" name="_csrf" value=csrfToken)
-        +field("Name", "name", user.name)
-        +field("City", "city", user.city)
-        +field("Email", "email", user.email, "email")
+        +field("Name", "name", "text")
+        +field("City", "city", "text")
+        +field("Email", "email", "email")
         div(class="form-group")
             label(for="bio") Biography
             textarea(type="text" name="bio" id="bio")
