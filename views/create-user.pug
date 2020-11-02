@@ -1,14 +1,24 @@
 extends layout.pug
 include utils.pug
 block content
+    if errors 
+        ul
+            each error in errors
+                li= error
+        
     form(action="/users" method="POST")
         input(type="hidden" name="_csrf" value=csrfToken)
-        +field("Name", "name", user.name)
-        +field("City", "city", user.city)
-        +field("Email", "email", user.email, "email")
+        +field("Name", "name", "text", name)
+        +field("City", "city", "text", city)
+        +field("Email", "email", "email", email)
+        +field('Password', 'password', 'password')
+        +field('Confirm Password', 'confirm-password', 'password')
+        //- label(for="")
+        //- select(name="")
+        //-     option(value="")
         div(class="form-group")
             label(for="bio") Biography
-            textarea(type="text" name="bio" id="bio")
+            textarea(type="text" name="bio" id="bio" value=bio)
         div(class="form-group")
             button(type="submit" class="button") Submit
         div(class="form-group")
