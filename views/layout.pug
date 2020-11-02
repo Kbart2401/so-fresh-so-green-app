@@ -10,7 +10,7 @@ html
       div(class="logo") Logo
       div(class="searchBar") Search Bar
       h1 So-Fresh-So-Green
-      button(class="logIn") Log In
+      a(href="/users/login" class="button") Log In
       button(class="logOut") Log Out
     if user
       div(class="welcomeDiv")= `Welcome ${user.name}`

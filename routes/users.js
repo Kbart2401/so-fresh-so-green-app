@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const { User, Tweet } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
-const { check } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const { logInUser, logoutUser } = require("../auth");
 
 // const { db } = require("../config");
@@ -61,7 +61,14 @@ const validateForm = [
     })
 ]
 
-const loginValidators = []
+const loginValidators = [
+  check("email")
+    .exists({ checkFalsy: true})
+    .withMessage("Please provide a value for email address"),
+  check("password")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for password")
+]
 
 router.get("/", csrfProtection, function (req, res, next) {
   // const user = User.build()
@@ -96,6 +103,34 @@ router.get("/login", csrfProtection, (req, res) => {
   res.render("index", {title: "Farm Feed!!!", user} )
 })
 router.post("/login", csrfProtection, loginValidators,asyncHandler(async (req, res) => {
+  const { email, password} = req.body;
+
+  let errors = [];
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const user = await User.findOne({where: {email}})
+
+    if(user) {
+      const isPassword = await bcrypt.compare(password, user.hashedPassword.toString())
+      if(isPassword) {
+        logInUser(req, res, user)
+        res.render("index", {title: "Farm Feed!!!", user} )
+      }
+    }
+    errors.push("Login failed for the provided email and password")
+  } else {
+    errors = validatorErrors.array().map((error) => error.msg)
+  }
+
+  res.render("login-user", {
+    title: "Login",
+    email,
+    errors,
+    csrfToken: req.csrfToken()
+  })
+
 
 }))
 

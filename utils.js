@@ -16,7 +16,8 @@ const handleValidationErrors = (req, res, next) => {
       name: req.body.name,
       city: req.body.city,
       email: req.body.email,
-      bio: req.body.bio
+      bio: req.body.bio,
+      csrfToken: req.csrfToken()
     })
   }
   next();
