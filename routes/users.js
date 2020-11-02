@@ -6,6 +6,8 @@ const { User, Tweet } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check } = require('express-validator');
+const { logInUser } = require("../auth");
+
 // const { db } = require("../config");
 /* GET users listing. */
 router.use(cookieParser());
@@ -73,8 +75,10 @@ router.post(
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const user = await User.create({ email, city, name, hashedPassword, bio });
+    logInUser(req, res, user);
     res.redirect('/')
   })
 );
+
 
 module.exports = router;
