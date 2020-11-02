@@ -6,7 +6,7 @@ const { User, Tweet } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check } = require('express-validator');
-const { db } = require("../config");
+// const { db } = require("../config");
 /* GET users listing. */
 router.use(cookieParser());
 const csrfProtection = csrf({ cookie: true });
@@ -30,32 +30,50 @@ const validateForm = [
     .isEmail()
     .withMessage('Input is not a valid email')
     .custom((value) => {
-      return db.User.findOne({
+      return User.findOne({
         where: {
           email: value
         }
-      }).then((user) => {
-        if (user) {
-          return Promise.reject('The provided email address is already in use by another account')
-        }
       })
+        .then((user) => {
+          if (user) {
+            return Promise.reject('The provided email address is already in use by another account')
+          }
+        })
+    }),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for password')
+    .isLength({ max: 20, min: 8 })
+    .withMessage('Password has to be between 8 and 20 characters'),
+  check('confirm-password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for confirm password')
+    .isLength({ max: 20, min: 8 })
+    .withMessage('Confirm Password has to be between 8 and 20 characters')
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error('Confirmed password does not match Password')
+      }
+      return true;
     })
-
-
 ]
 
 router.get("/", csrfProtection, function (req, res, next) {
+  // const user = User.build()
+  // console.log
   res.render("create-user", { title: 'Create User', csrfToken: req.csrfToken() });
 });
 
 router.post(
-  "/", csrfProtection, handleValidationErrors,
+  "/", csrfProtection, validateForm, handleValidationErrors,
   asyncHandler(async (req, res) => {
     const { name, city, email, password, bio } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const user = await User.create({ email, city, name, hashedPassword, bio });
+    res.redirect('/')
   })
 );
 
