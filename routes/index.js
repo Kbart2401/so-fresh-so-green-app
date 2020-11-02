@@ -8,7 +8,6 @@ router.get('/', asyncHandler( async function(req, res, next) {
   let user;
   if (req.session.auth) {
     user = await User.findByPk(req.session.auth.userId)
-
   }
   res.render('index', { title: 'Farm Feed!!!', user });
 }));

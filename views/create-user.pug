@@ -6,7 +6,7 @@ block content
             each error in errors
                 li= error
         
-    form(action="/users" method="POST")
+    form(action="/users" method="POST" class="sign-up")
         input(type="hidden" name="_csrf" value=csrfToken)
         +field("Name", "name", "text", name)
         +field("City", "city", "text", city)
@@ -21,5 +21,7 @@ block content
             textarea(type="text" name="bio" id="bio" value=bio)
         div(class="form-group")
             button(type="submit" class="button") Submit
+        div(class="form-group")
+            a(href="/users/login" class="button") Already have an account? Login!
         div(class="form-group")
             a(href="/" class="button") Cancel
