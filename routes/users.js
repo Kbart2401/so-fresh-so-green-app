@@ -61,10 +61,17 @@ const validateForm = [
     })
 ]
 
+const loginValidators = []
+
 router.get("/", csrfProtection, function (req, res, next) {
   // const user = User.build()
   // console.log
-  res.render("create-user", { title: 'Create User', csrfToken: req.csrfToken() });
+  let user;
+  if(!req.session.auth) {
+    res.render("create-user", { title: 'Create User', csrfToken: req.csrfToken() });
+  }
+  user = User.findByPk(req.session.auth.userId)
+  res.render("index", {title: "Farm Feed!!!", user} )
 });
 
 router.post(
@@ -79,6 +86,18 @@ router.post(
     res.render('index', { title: 'Farm Feed!!!', user });
   })
 );
+
+router.get("/login", csrfProtection, (req, res) => {
+  let user;
+  if(!req.session.auth) {
+    res.render("login-user", {title: "Login", csrfToken: req.csrfToken()})
+  }
+  user = User.findByPk(req.session.auth.userId)
+  res.render("index", {title: "Farm Feed!!!", user} )
+})
+router.post("/login", csrfProtection, loginValidators,asyncHandler(async (req, res) => {
+
+}))
 
 
 module.exports = router;
