@@ -6,7 +6,7 @@ const { User, Tweet } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check } = require('express-validator');
-const { logInUser } = require("../auth");
+const { logInUser, logoutUser } = require("../auth");
 
 // const { db } = require("../config");
 /* GET users listing. */
@@ -76,7 +76,7 @@ router.post(
 
     const user = await User.create({ email, city, name, hashedPassword, bio });
     logInUser(req, res, user);
-    res.redirect('/')
+    res.render('index', { title: 'Farm Feed!!!', user });
   })
 );
 

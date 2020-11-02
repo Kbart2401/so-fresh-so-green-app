@@ -4,5 +4,9 @@ const logInUser = (req, res, user) => {
     }
 }
 
+const logoutUser = (req, res) => {
+  delete req.session.auth;
+};
 
-module.exports = { logInUser }
+
+module.exports = { logInUser, logoutUser }
