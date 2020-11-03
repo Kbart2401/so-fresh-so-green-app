@@ -9,11 +9,11 @@ const { check, validationResult } = require('express-validator');
 const { logInUser, logoutUser } = require("../auth");
 const { route } = require(".");
 
-// const { db } = require("../config");
 /* GET users listing. */
 router.use(cookieParser());
 const csrfProtection = csrf({ cookie: true });
 
+/***********Registeration Validation***********/
 const validateForm = [
   check('name')
     .exists({ checkFalsy: true })
@@ -62,6 +62,7 @@ const validateForm = [
     })
 ]
 
+/**********Login Validation***********/
 const loginValidators = [
   check("email")
     .exists({ checkFalsy: true })
@@ -71,9 +72,8 @@ const loginValidators = [
     .withMessage("Please provide a value for password")
 ]
 
+/*************User Registration************/
 router.get("/", csrfProtection, asyncHandler(async function (req, res, next) {
-  // const user = User.build()
-  // console.log
   let user;
   if (!req.session.auth) {
     return res.render("create-user", { title: 'Create User', csrfToken: req.csrfToken() });
@@ -82,6 +82,7 @@ router.get("/", csrfProtection, asyncHandler(async function (req, res, next) {
   res.redirect('/')
 }));
 
+/*************Registration Submission***********/
 router.post(
   "/", csrfProtection, validateForm, handleValidationErrors,
   asyncHandler(async (req, res) => {
@@ -95,6 +96,7 @@ router.post(
   })
 );
 
+/************User Login Page*************/
 router.get("/login", csrfProtection, asyncHandler(async (req, res) => {
   let user;
   if (!req.session.auth) {
@@ -103,6 +105,8 @@ router.get("/login", csrfProtection, asyncHandler(async (req, res) => {
   user = await User.findByPk(req.session.auth.userId)
   res.redirect('/');
 }))
+
+/**********Login Submission*********/
 router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -133,6 +137,7 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
   })
 }))
 
+/************User Logout Button**************/
 router.get("/logout", asyncHandler(async (req, res) => {
   let user;
   if (req.session.auth) {
