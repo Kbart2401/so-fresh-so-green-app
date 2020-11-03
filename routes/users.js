@@ -116,7 +116,7 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
     if (user) {
       const isPassword = await bcrypt.compare(password, user.hashedPassword.toString())
       if (isPassword) {
-        logInUser(req, res, user)
+        await logInUser(req, res, user)
         return res.redirect('/');
       }
     }
