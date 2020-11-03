@@ -1,0 +1,16 @@
+extends layout.pug
+include utils.pug
+
+block content
+  div Submit a post here!
+  form(action="/posts" method="POST")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    label(for="content") Content
+    textarea(name="content")
+    label(for="announcements") Announcements
+    textarea(name="announcements")
+    label(for="imageUrl") Select an Image
+    select(name="imageUrl")
+      option(value='test')
+    button(type="submit") Submit 
+    a(href="/") Cancel

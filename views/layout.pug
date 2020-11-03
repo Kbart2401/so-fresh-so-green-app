@@ -9,32 +9,31 @@ html
         link(rel="stylesheet" href="/stylesheets/searchbar.css")
   body
     div(class="navbar") 
-        div(class="")
-        div(class="logo") 
-        div(class="wrap")
-        div(class="search") 
-            input(for="searchbar" type="text" placeholder="Search..." class="searchTerm")
-            button(type="submit" class="searchButton" id="searchbar")
-                i(class="fa fa-search")
-        div(class="categoryfam")
-            a(href="/locals" class="category1") Local
-            a(href="/topics" class="category2") Topics
-            a(href="/markets" class="category3") Markets
-            a(href="/farmers" class="category2") Farmers
-            a(href="/etc" class="category3") ...
-        div(class="navbuttonfam")
-            a(href="/users/login" class="navbutton") Login
-            a(href="/users/" class="navbutton") Sign Up
-            a(href="/users/logout" class="navbutton") Log Out
-    if user
-      div(class="welcomeDiv")= `Welcome ${user.name}`
+      div(class="")
+      div(class="logo") 
+      div(class="searchBar") 
+        form(method="POST" action="/")
+
+        input(type="search" placeholder="search")
+      div(class="categoryfam")
+        a(href="/locals" class="category1") Local
+        a(href="/topics" class="category2") Topics
+        a(href="/markets" class="category3") Markets
+        a(href="/farmers" class="category2") Farmers
+        a(href="/etc" class="category3") ...
+      div(class="navbuttonfam")
+       if !user
+        a(href="/users/login" class="navbutton") Login
+        a(href="/users/" class="navbutton") Sign Up
+       if user
+        div(class="welcomeDiv")= `Welcome ${user.name}`
+        a(href="/users/logout" class="navbutton") Log Out
+   
     block content
 
-//- <div class="wrap">
-//-    <div class="search">
-//-       <input type="text" class="searchTerm" placeholder="What are you looking for?">
-//-       <button type="submit" class="searchButton">
-//-         <i class="fa fa-search"></i>
-//-      </button>
-//-    </div>
-//- </div>
+            input(type="search" placeholder="search")
+      a(href="" class="category1") robin
+      a(href="" class="category2") max
+      a(href="" class="category3") kyle
+      h1(class="title") 
+    
