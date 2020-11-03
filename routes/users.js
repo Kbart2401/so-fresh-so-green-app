@@ -7,6 +7,7 @@ const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check, validationResult } = require('express-validator');
 const { logInUser, logoutUser } = require("../auth");
+const { route } = require(".");
 
 // const { db } = require("../config");
 /* GET users listing. */
@@ -130,8 +131,15 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
     errors,
     csrfToken: req.csrfToken()
   })
+}))
 
-
+router.get("/logout", asyncHandler(async (req, res) => {
+  let user;
+  if (req.session.auth) {
+    user = await User.findByPk(req.session.auth.userId)
+    await logoutUser(req, res, user)
+  }
+  res.redirect("/")
 }))
 
 

@@ -10,8 +10,9 @@ html
       div(class="logo") Logo
       div(class="searchBar") Search Bar
       h1 So-Fresh-So-Green
-      a(href="/users/login" class="button") Log In
-      button(class="logOut") Log Out
+      a(href="/users/login" class="button") Login
+      a(href="/users/" class="button") Sign Up
+      a(href="/users/logout" class="button") Log Out
     if user
       div(class="welcomeDiv")= `Welcome ${user.name}`
     block content
