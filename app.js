@@ -9,7 +9,7 @@ const { sessionSecret } = require("./config");
 const { sequelize } = require("./db/models");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-
+const extrasRouter = require("./routes/extras");
 const app = express();
 
 const store = new SequelizeStore({
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
+app.use(extrasRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -52,25 +52,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
-function searchBarFunction() {
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById("input");
-
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("ul");
-  li = ul.getElementsByTagName("li");
-
-  // list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-}
 
 module.exports = app;
