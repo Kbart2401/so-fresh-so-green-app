@@ -1,3 +1,10 @@
-window.addEventListener("load", (event)=>{
-    console.log("hello from javascript!")
+window.addEventListener('DOMContentLoaded', () => {
+
+    document.querySelector('.welcomeDiv')
+        .addEventListener('click', (e) => {
+            console.log('HELLO!')
+        })
+
+
+
 })
