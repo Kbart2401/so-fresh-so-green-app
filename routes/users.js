@@ -2,12 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { User, Tweet } = require("../db/models");
+const { User } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check, validationResult } = require('express-validator');
 const { logInUser, logoutUser } = require("../auth");
-const { route } = require(".");
 
 // const { db } = require("../config");
 /* GET users listing. */

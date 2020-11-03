@@ -16,9 +16,12 @@ html
       a(href="" class="category2") max
       a(href="" class="category3") kyle
       h1(class="title") 
-      a(href="/users/login" class="login-button") Login
-      a(href="/users/" class="signup-button") Sign Up
-      a(href="/users/logout" class="logout-button") Log Out
-    if user
-      div(class="welcomeDiv")= `Welcome ${user.name}`
+      if user
+        a(href="/users/logout" class="logout-button") Log Out
+        div(class="welcomeDiv")= `Welcome ${user.name}`
+      if !user
+          a(href="/users/login" class="login-button") Login
+          a(href="/users/" class="signup-button") Sign Up
     block content
+
+    

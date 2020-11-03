@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     bio: DataTypes.TEXT,
     imageUrl: DataTypes.STRING
   }, {});
-  User.associate = function(models) {
-    // associations can be defined here
+  User.associate = function (models) {
+    User.hasMany(models.Post, { foreignKey: 'userId' })
   };
   return User;
 };
