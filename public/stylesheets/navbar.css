@@ -5,58 +5,68 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.login-button {
-  background-color: #ffc200;
-  border: none;
-  border-radius: 5px;
-  color: #333;
-  padding: 8px 12px;
-  text-decoration: none;
-}
-
-.login-button:hover {
-  background-color: yellow;
-}
-
-.logout-button {
-  background-color: #ffc200;
-  border: none;
-  border-radius: 5px;
-  color: #333;
-  padding: 8px 12px;
-  text-decoration: none;
-}
-
-.logout-button:hover {
-  background-color: yellow;
-}
-
-.signup-button {
-  background-color: #ffc200;
-  border: none;
-  border-radius: 5px;
-  color: #333;
-  padding: 8px 12px;
-  text-decoration: none;
-}
-
-.signup-button:hover {
-  background-color: yellow;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  color: white;
+  min-width: 1000px;
 }
 
 .logo {
   background-image: url(./sfsg.png);
   background-size: 100% 100%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  margin-left: 30px;
 }
 
 .title {
   color: #ffc200;
 }
 
-.searchbar {
+.navbuttonfam {
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+  color: #333;
+  margin-right: 120px;
 }
 
+.loginbuttonfam {
+  display: flex;
+  justify-content: space-evenly;
+  width: 275px;
+  color: #333;
+}
+
+.loginbutton {
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.navbutton {
+  background-color: #ffc200;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.navbutton:hover {
+  background-color: yellow;
+}
+
+.categoryfam {
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.searchbar {
+  border-radius: 5px;
+}
+
+.formlogin {
+  margin-top: 5px;
+  margin-left: 10px;
+}

@@ -5,23 +5,34 @@ html
         title="SFSG"
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/navbar.css')
-        
+        link(href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap" rel="stylesheet")
   body
     div(class="navbar") 
+      div(class="")
       div(class="logo") 
       div(class="searchBar") 
         form(method="POST" action="/")
+
+        input(type="search" placeholder="search")
+      div(class="categoryfam")
+        a(href="/locals" class="category1") Local
+        a(href="/topics" class="category2") Topics
+        a(href="/markets" class="category3") Markets
+        a(href="/farmers" class="category2") Farmers
+        a(href="/etc" class="category3") ...
+      div(class="navbuttonfam")
+       if !user
+        a(href="/users/login" class="navbutton") Login
+        a(href="/users/" class="navbutton") Sign Up
+       if user
+        div(class="welcomeDiv")= `Welcome ${user.name}`
+        a(href="/users/logout" class="navbutton") Log Out
+   
+    block content
+
             input(type="search" placeholder="search")
       a(href="" class="category1") robin
       a(href="" class="category2") max
       a(href="" class="category3") kyle
       h1(class="title") 
-      if user
-        a(href="/users/logout" class="logout-button") Log Out
-        div(class="welcomeDiv")= `Welcome ${user.name}`
-      if !user
-          a(href="/users/login" class="login-button") Login
-          a(href="/users/" class="signup-button") Sign Up
-    block content
-
     
