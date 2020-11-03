@@ -1,11 +1,11 @@
-const logInUser = (req, res, user) => {
-    req.session.auth = {
+const logInUser = async (req, res, user) => {
+     req.session.auth = {
         userId: user.id
     }
 }
 
-const logoutUser = (req, res) => {
-  delete req.session.auth;
+const logoutUser = async (req, res) => {
+ await delete req.session.auth;
 };
 
 
