@@ -13,6 +13,7 @@ const { logInUser, logoutUser } = require("../auth");
 router.use(cookieParser());
 const csrfProtection = csrf({ cookie: true });
 
+/***********Validate User Registration*********/
 const validateForm = [
   check("name")
     .exists({ checkFalsy: true })
@@ -62,6 +63,7 @@ const validateForm = [
     }),
 ];
 
+/**********Validate User Login*********/
 const loginValidators = [
   check("email")
     .exists({ checkFalsy: true })
@@ -71,12 +73,11 @@ const loginValidators = [
     .withMessage("Please provide a value for password"),
 ];
 
+/***********Render Create User**********/
 router.get(
   "/",
   csrfProtection,
   asyncHandler(async function (req, res, next) {
-    // const user = User.build()
-    // console.log
     let user;
     if (!req.session.auth) {
       return res.render("create-user", {
@@ -89,6 +90,7 @@ router.get(
   })
 );
 
+/**********Create User Submission*********/
 router.post(
   "/",
   csrfProtection,
@@ -106,6 +108,7 @@ router.post(
   })
 );
 
+/***********Render User Login***********/
 router.get(
   "/login",
   csrfProtection,
@@ -121,6 +124,8 @@ router.get(
     res.redirect("/");
   })
 );
+
+/***********User Login Submission*********/
 router.post(
   "/login",
   csrfProtection,
@@ -159,6 +164,7 @@ router.post(
   })
 );
 
+/***********User Logout Submission********/
 router.get(
   "/logout",
   asyncHandler(async (req, res) => {

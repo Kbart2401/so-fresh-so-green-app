@@ -6,6 +6,7 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/navbar.css')
         link(href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap" rel="stylesheet")
+        link(rel='stylesheet' href='/stylesheets/user-logged-in.css')
   body
     div(class="navbar") 
       div(class="")
@@ -25,7 +26,11 @@ html
         a(href="/users/login" class="navbutton") Login
         a(href="/users/" class="navbutton") Sign Up
        if user
-        div(class="welcomeDiv")= `Welcome ${user.name}`
+        div.welcome-sign #{user.name}
+        div(class="welcomeDiv") 
         a(href="/users/logout" class="navbutton") Log Out
    
     block content
+
+        
+    
