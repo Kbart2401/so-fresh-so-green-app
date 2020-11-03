@@ -2,15 +2,17 @@ var express = require('express');
 var router = express.Router();
 const { User } = require('../db/models')
 const { asyncHandler } = require('../utils')
+const { restoreUser } = require("../auth")
 
 /* GET home page. */
-router.get('/', asyncHandler( async function(req, res, next) {
+router.get('/', restoreUser, asyncHandler( async function(req, res, next) {
   let user;
-  if (req.session.auth) {
+  // console.log(req.session.auth)
+  if (res.locals.authenticated) {
     user = await User.findByPk(req.session.auth.userId)
   }
-  console.log(req.session.auth);
-  res.render('index', { title: 'Farm Feed!!!', user });
+  // console.log(user)
+  res.render('index', { title: 'Farm Feed!!!', user});
 }));
 
 module.exports = router;
