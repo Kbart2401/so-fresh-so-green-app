@@ -3,21 +3,26 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="SFSG"
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/navbar.css')
+        
   body
-    div(class="navbar") Navbar
-      div(class="logo") Logo
-      div(class="searchBar") Search Bar
-      h1 So-Fresh-So-Green
-      if !user 
-        a(href="/users/login" class="button") Login
-        a(href="/users/" class="button") Sign Up
-      if user
+    div(class="navbar") 
+      div(class="logo") 
+      div(class="searchBar") 
+        form(method="POST" action="/")
+            input(type="search" placeholder="search")
+      a(href="" class="category1") robin
+      a(href="" class="category2") max
+      a(href="" class="category3") kyle
+      h1(class="title") 
+      a(href="/users/login" class="login-button") Login
+      a(href="/users/" class="signup-button") Sign Up
+      a(href="/users/logout" class="logout-button") Log Out
+    if user
         a(href="/users/logout" class="button") Log Out
         div(class="welcomeDiv")= `Welcome ${user.name}`
-
     block content
 
     

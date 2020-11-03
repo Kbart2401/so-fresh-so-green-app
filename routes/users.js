@@ -91,14 +91,15 @@ router.post(
 
     const user = await User.create({ email, city, name, hashedPassword, bio });
     await logInUser(req, res, user);
-    res.redirect('/');
+    req.session.save(() => res.redirect("/"))
+    // res.redirect('/');
   })
 );
 
 router.get("/login", csrfProtection, asyncHandler(async (req, res) => {
   let user;
   if (!req.session.auth) {
-    res.render("login-user", { title: "Login", csrfToken: req.csrfToken() })
+    return res.render("login-user", { title: "Login", csrfToken: req.csrfToken() })
   }
   user = await User.findByPk(req.session.auth.userId)
   res.redirect('/');
@@ -116,8 +117,8 @@ router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, 
     if (user) {
       const isPassword = await bcrypt.compare(password, user.hashedPassword.toString())
       if (isPassword) {
-        logInUser(req, res, user)
-        return res.redirect('/');
+        await logInUser(req, res, user)
+        return req.session.save(() => res.redirect("/"))
       }
     }
     errors.push("Login failed for the provided email and password")
@@ -139,7 +140,7 @@ router.get("/logout", asyncHandler(async (req, res) => {
     user = await User.findByPk(req.session.auth.userId)
     await logoutUser(req, res, user)
   }
-  res.redirect("/")
+  req.session.save(()=> res.redirect("/"))
 }))
 
 
