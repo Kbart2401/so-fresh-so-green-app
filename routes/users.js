@@ -63,23 +63,23 @@ const validateForm = [
 
 const loginValidators = [
   check("email")
-    .exists({ checkFalsy: true})
+    .exists({ checkFalsy: true })
     .withMessage("Please provide a value for email address"),
   check("password")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a value for password")
 ]
 
-router.get("/", csrfProtection, function (req, res, next) {
+router.get("/", csrfProtection, asyncHandler(async function (req, res, next) {
   // const user = User.build()
   // console.log
   let user;
-  if(!req.session.auth) {
-    res.render("create-user", { title: 'Create User', csrfToken: req.csrfToken() });
+  if (!req.session.auth) {
+    return res.render("create-user", { title: 'Create User', csrfToken: req.csrfToken() });
   }
-  user = User.findByPk(req.session.auth.userId)
-  res.render("index", {title: "Farm Feed!!!", user} )
-});
+  user = await User.findByPk(req.session.auth.userId)
+  res.redirect('/')
+}));
 
 router.post(
   "/", csrfProtection, validateForm, handleValidationErrors,
@@ -89,34 +89,34 @@ router.post(
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const user = await User.create({ email, city, name, hashedPassword, bio });
-    logInUser(req, res, user);
-    res.render('index', { title: 'Farm Feed!!!', user });
+    await logInUser(req, res, user);
+    res.redirect('/');
   })
 );
 
-router.get("/login", csrfProtection, (req, res) => {
+router.get("/login", csrfProtection, asyncHandler(async (req, res) => {
   let user;
-  if(!req.session.auth) {
-    res.render("login-user", {title: "Login", csrfToken: req.csrfToken()})
+  if (!req.session.auth) {
+    res.render("login-user", { title: "Login", csrfToken: req.csrfToken() })
   }
-  user = User.findByPk(req.session.auth.userId)
-  res.render("index", {title: "Farm Feed!!!", user} )
-})
-router.post("/login", csrfProtection, loginValidators,asyncHandler(async (req, res) => {
-  const { email, password} = req.body;
+  user = await User.findByPk(req.session.auth.userId)
+  res.redirect('/');
+}))
+router.post("/login", csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
 
   let errors = [];
 
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    const user = await User.findOne({where: {email}})
+    const user = await User.findOne({ where: { email } })
 
-    if(user) {
+    if (user) {
       const isPassword = await bcrypt.compare(password, user.hashedPassword.toString())
-      if(isPassword) {
+      if (isPassword) {
         logInUser(req, res, user)
-        res.render("index", {title: "Farm Feed!!!", user} )
+        return res.redirect('/');
       }
     }
     errors.push("Login failed for the provided email and password")
