@@ -1,7 +1,7 @@
 .navbar {
   height: 55px;
   width: 100%;
-  background-color: #00653a;
+  background-color: #368A42;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -55,6 +55,17 @@
   background-color: yellow;
 }
 
+.logo {
+  background-image: url(./logomockup.png);
+  background-size: 100% 100%;
+  width: 106px;
+  height: 50px;
+  padding: 10px;
+}
+
+.title {
+  color: #ffc200;
+}
 .categoryfam {
   display: flex;
   width: 350px;
