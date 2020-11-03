@@ -5,6 +5,7 @@ const logInUser = async (req, res, user) => {
     req.session.auth = {
         userId: user.id
     }
+    // await req.session.save()
 }
 
 const restoreUser = async (req, res, next) => {
@@ -19,6 +20,7 @@ const restoreUser = async (req, res, next) => {
             if (user) {
                 res.locals.authenticated = true;
                 res.locals.user = user;
+                
                 next();
             }
         } catch (err) {
@@ -33,6 +35,7 @@ const restoreUser = async (req, res, next) => {
 
 const logoutUser = async (req, res) => {
  await delete req.session.auth;
+ await req.session.save();
 };
 
 
