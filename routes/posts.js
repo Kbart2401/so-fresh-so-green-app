@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { asyncHandler, handleValidationErrors } = require("../utils");
+const { asyncHandler, handlePostValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
 const { User, Post } = require("../db/models");
 const csrf = require("csurf");
@@ -23,12 +23,12 @@ const validateForm = [
 
 router.get('/', csrfProtection, asyncHandler(async (req, res,) => {
   if(!req.session.auth) {
-    return res.redirect('/')
+    return res.redirect('/users/login')
   }
   res.render('create-post', { csrfToken: req.csrfToken(), title: "Create Post" })
 }))
 
-router.post('/', csrfProtection, validateForm, handleValidationErrors, restoreUser, asyncHandler(async (req, res) => {
+router.post('/', csrfProtection, validateForm, handlePostValidationErrors, restoreUser, asyncHandler(async (req, res) => {
   const { content, announcements, imageUrl } = req.body
   const user = res.locals.user;
   await Post.create({

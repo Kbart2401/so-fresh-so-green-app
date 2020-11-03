@@ -9,9 +9,7 @@ block content
         input(type="hidden" name="_csrf" value=csrfToken)
         +field("Email", "email", "email", email)
         +field("Password", "password", "password")
-        div(class="form-group")
-            button(type="submit" class="button") Submit
-        div(class="form-group")
-            a(href="/users" class="button") New User? Sign Up!
-        div(class="form-group")
-            a(href="/" class="button") Cancel
+        div(class="loginbuttonfam")
+            button(type="submit" class="loginbutton") Submit
+            a(href="/users" class="loginbutton") New User?
+            a(href="/" class="loginbutton") Cancel

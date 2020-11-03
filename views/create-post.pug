@@ -2,6 +2,11 @@ extends layout.pug
 include utils.pug
 
 block content
+  if errors 
+    ul
+      each error in errors
+        li= error
+        
   div Submit a post here!
   form(action="/posts" method="POST")
     input(type="hidden" name="_csrf" value=csrfToken)
