@@ -72,6 +72,11 @@ const loginValidators = [
     .withMessage("Please provide a value for password")
 ]
 
+const userAuth = ((req, res, next) => {
+  res.locals.user = req.session.auth
+  next();
+})
+
 /*************User Registration************/
 router.get("/", csrfProtection, asyncHandler(async function (req, res, next) {
   let user;
