@@ -26,7 +26,8 @@ html
         a(href="/users/login" class="navbutton") Login
         a(href="/users/" class="navbutton") Sign Up
        if user
-        div(class="welcomeDiv")
+        div.welcome-sign #{user.name}
+        div(class="welcomeDiv") 
         a(href="/users/logout" class="navbutton") Log Out
    
     block content
