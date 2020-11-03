@@ -6,9 +6,9 @@ block content
   form(action="/posts" method="POST")
     input(type="hidden" name="_csrf" value=csrfToken)
     label(for="content") Content
-    textarea(name="content")
+    textarea(name="content" value=content)
     label(for="announcements") Announcements
-    textarea(name="announcements")
+    textarea(name="announcements" value=announcements)
     label(for="imageUrl") Select an Image
     select(name="imageUrl")
       option(value='test')
