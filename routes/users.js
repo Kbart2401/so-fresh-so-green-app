@@ -185,11 +185,20 @@ router.get('/:id(\\d+)/settings',
     res.render('user-settings', {
       title: "Edit User",
       csrfToken: req.csrfToken(),
+      user,
       name: user.name,
       city: user.city,
       email: user.email,
       bio: user.bio
     })
   }))
+
+router.patch('/', csrfProtection, validateForm, 
+handleValidationErrors, asyncHandler(async (req, res) => {
+  console.log('THIS IS A TEST')
+  const {name, city, email, password, bio} = req.body;
+
+  res.redirect('/');
+}))
 
 module.exports = router;
