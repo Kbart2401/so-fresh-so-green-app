@@ -1,13 +1,13 @@
 .welcomeDiv {
   background-image: url('../images/farmer-avatar.jpg');
   background-size: 100% 100%;
-  height: 45px;
-  width: 45px;
+  height: 48px;
+  width: 48px;
   z-index: 1;
   align-self: flex-start;
   border-radius: 50%;
   position: relative;
-
+  border: 2px solid black;
 }
 
 .welcome-sign {
@@ -22,18 +22,19 @@
 }
 
 .nav-links ul {
-border-left: 2px solid #368A42;
-border-bottom: 2px solid #368A42;
-border-right: 2px solid #368A42;
+border-left: 1px solid #368A42;
+border-bottom: 1px solid #368A42;
+border-right: 1px solid #368A42;
+border-radius: 7%;
 }
 
 .nav-links li {
   list-style-type: none;
-  border: 10px, solid;
+  padding: 10px 0px;
 }
 
 .nav-links a {
-  padding: 5px 15px;
+  padding: 10px 15px;
   font-size: 12px;
   text-decoration: none;
 }
