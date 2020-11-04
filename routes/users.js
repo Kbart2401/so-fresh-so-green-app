@@ -177,7 +177,7 @@ router.get(
   })
 );
 
-//CHANGES HERE
+/**********Render User Settings Page********/
 router.get('/:id(\\d+)/settings',
   csrfProtection,
   asyncHandler(async (req, res) => {
