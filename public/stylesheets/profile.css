@@ -31,6 +31,12 @@
 
 .profile-header h2 {
   font-size: 30px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   margin-top: 30px;
+}
+
+.profile-header h3, p, .email {
+  padding-left: 20px;
+  padding-bottom: 5px;
+  margin: 0;
 }
