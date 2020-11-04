@@ -1,27 +1,31 @@
 extends layout.pug
+
+
 include utils.pug
 block content
     if errors 
-        ul
-            each error in errors
-                li= error
-        
-    form(action="/users" method="POST" class="sign-up")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        +field("Name", "name", "text", name)
-        +field("City", "city", "text", city)
-        +field("Email", "email", "email", email)
-        +field('Password', 'password', 'password')
-        +field('Confirm Password', 'confirm-password', 'password')
-        //- label(for="")
-        //- select(name="")
-        //-     option(value="")
-        div(class="form-group")
-            label(for="bio") Biography
-            textarea(type="text" name="bio" id="bio" value=bio)
-        div(class="form-group")
-            button(type="submit" class="button") Submit
-        div(class="form-group")
-            a(href="/users/login" class="button") Already have an account? Login!
-        div(class="form-group")
-            a(href="/" class="button") Cancel
+        div(class="error-container" id="error-container")
+            div(id="exit") x
+            ul(class="errorList")
+                each error in errors
+                    li= error
+    div(class="form-container")
+            
+        form(action="/users" method="POST" class="sign-up")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            +field("Name", "name", "text", name)
+            +field("City", "city", "text", city)
+            +field("Email", "email", "email", email)
+            +field('Password', 'password', 'password')
+            +field('Confirm Password', 'confirm-password', 'password')
+            //- label(for="")
+            //- select(name="")
+            //-     option(value="")
+            div(class="formlogin")
+                label(for="bio")
+                textarea(class="formField" class="bioField" type="text" name="bio" id="bio" value=bio placeholder="Biography")
+            div(class="submit")
+                button(type="submit" class="button" class="submitButton") Submit
+            div(class="formlogin" class="formButtons")
+                a(href="/users/login" class="button") Login
+                a(href="/" class="button") Cancel
