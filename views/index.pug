@@ -3,10 +3,12 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  
+
 
 block content
   h1= title
   if user
     div(class="create-post")
       a(href="/posts" class="formbutton") CREATE POST
+
+  include card.pug
