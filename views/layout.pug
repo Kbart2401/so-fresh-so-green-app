@@ -13,11 +13,12 @@ html
         link(rel="stylesheet" href="/stylesheets/dropdown.css")
         link(rel="stylesheet" href="/stylesheets/profile.css")
         link(rel="stylesheet" href="/stylesheets/form.css")
+        link(rel="stylesheet" href="/stylesheets/index.css")
         script(src="/javascripts/index.js" type="module" defer)
   body
-    div(href="/" class="navbar") 
+    div(href="/" class="navbar")
         a(href="/")
-          div(class="logo")  
+          div(class="logo")
         div(class="wrap")
           div(class="search")
             //- form(method="POST" action="/")
@@ -33,7 +34,7 @@ html
             button(class="dropbtn") ...
             div(class="dropdown-content")
                 a(href="#") whatever
-                a(href="#") we 
+                a(href="#") we
                 a(href="#") want :)
         div(class="navbuttonfam")
           if !user
@@ -50,4 +51,3 @@ html
                   li: a(href=settingsUrl) SETTINGS
                   li: a(href="/users/logout") LOG OUT
 block content
-
