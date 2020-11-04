@@ -31,6 +31,34 @@ posts = [
       comments: 3,
       description: 'Rivulet Apiaries & Hindu Hillbilly Farms is a small family owned and operated apiary nestled in the Rocky Mountains of western Ohio.',
       email: 'hinduHoney1987@hotmail.com'
+  },
+  {
+      name: 'Hindu Hillbilly Honey',
+      city: 'Leavanworth, Ohio',
+      image: 'http://www.honeybeehaven.org/wp-content/uploads/2013/10/resource-bees-101.jpg',
+      upvotes: 17,
+      announcements: [
+          'Akron Farmers Market: October 5th and 6th',
+          'Now selling honey crisp!',
+          'We ship anywhere in the US!'
+      ],
+      comments: 3,
+      description: 'Rivulet Apiaries & Hindu Hillbilly Farms is a small family owned and operated apiary nestled in the Rocky Mountains of western Ohio.',
+      email: 'hinduHoney1987@hotmail.com'
+  },
+  {
+      name: 'Hindu Hillbilly Honey',
+      city: 'Leavanworth, Ohio',
+      image: 'http://www.honeybeehaven.org/wp-content/uploads/2013/10/resource-bees-101.jpg',
+      upvotes: 17,
+      announcements: [
+          'Akron Farmers Market: October 5th and 6th',
+          'Now selling honey crisp!',
+          'We ship anywhere in the US!'
+      ],
+      comments: 3,
+      description: 'Rivulet Apiaries & Hindu Hillbilly Farms is a small family owned and operated apiary nestled in the Rocky Mountains of western Ohio.',
+      email: 'hinduHoney1987@hotmail.com'
   }
 ]
 

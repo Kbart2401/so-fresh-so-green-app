@@ -1,39 +1,28 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(charset="UTF-16")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title= title
-        link(href="/card.css")
-    body
-        .farm-feed
-            each post in posts
-                .fullCard
-                    .header
-                        .imageBox
-                            img(class="cardImage" src=post.image)
-                        .textBox
-                            .top
-                                .info
-                                    h5(class="name")= src=post.name
-                                    h6= post.city
-                                .upvote
-                                    span(class='voteSpan') ▴
-                                    p(class='upvotes')= post.upvotes
-                            .announcementDiv
-                                each announcement in post.announcements
-                                    .announcementDiv-announcements
-                                        .announcements
-                                            span ✵
-                                            p(class="announcement")=  announcement
-                    .descriptionDiv
-                        p(class='description')= post.description
-                        p(class="email")= post.email
-                    .footer
-                        .commentsDiv
-                            span 💬
-                            p(class="comments")=post.comments
-                        .replyDiv
-                            p ⇜
-                            p(class="reply") reply
+.fullCard
+    .header
+        .imageBox
+            img(class="cardImage" src=post.image)
+        .textBox
+            .top
+                .info
+                    h5(class="name")= src=post.name
+                    h6= post.city
+                .upvote
+                    span(class='voteSpan') ▴
+                    p(class='upvotes')= post.upvotes
+            .announcementDiv
+                each announcement in post.announcements
+                    .announcementDiv-announcements
+                        .announcements
+                            span ✵
+                            p(class="announcement")=  announcement
+    .descriptionDiv
+        p(class='description')= post.description
+        p(class="email")= post.email
+    .footer
+        .commentsDiv
+            span 💬
+            p(class="comments")=post.comments
+        .replyDiv
+            p ⇜
+            p(class="reply") reply

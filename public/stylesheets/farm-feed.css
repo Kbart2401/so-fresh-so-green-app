@@ -1,0 +1,28 @@
+.farm-feed__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  border: 5px solid black;
+  width: 1200px;
+}
+
+.farm-feed__container > div{
+  padding: 15px;
+  height: auto;
+}
+.farm-feed__fake-adds {
+  width: 300px;
+  background-color: black;
+}
+
+.farm-feed__main {
+  width: 600px;
+
+}
+
+.farm-feed__profiles {
+  width: 300px;
+  background-color: black;
+}
+
