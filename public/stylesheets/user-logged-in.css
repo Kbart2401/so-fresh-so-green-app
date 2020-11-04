@@ -6,6 +6,7 @@
   z-index: 1;
   align-self: flex-start;
   border-radius: 50%;
+  position: relative;
 
 }
 
@@ -13,10 +14,18 @@
   width: 100px;
 }
 
-.nav-links-container {
-  margin: 0 215px;
-  position: relative;
-  height: 100px;
-  display: flex;
-  justify-content: flex-end;
+
+.nav-links {
+  background-color: aqua;
+  position: absolute;
+  margin-top: 50px;
+  width: 100px;
+}
+
+.nav-links li {
+  list-style-type: none;
+}
+
+.hidden {
+  display: none;
 }
