@@ -8,3 +8,6 @@ append head
 
 block content
   h1= title
+  if user
+    div(class="create-post")
+      a(href="/posts" class="formbutton") CREATE POST
