@@ -177,4 +177,19 @@ router.get(
   })
 );
 
+//CHANGES HERE
+router.get('/:id(\\d+)/settings',
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const user = await User.findByPk(req.params.id);
+    res.render('user-settings', {
+      title: "Edit User",
+      csrfToken: req.csrfToken(),
+      name: user.name,
+      city: user.city,
+      email: user.email,
+      bio: user.bio
+    })
+  }))
+
 module.exports = router;

@@ -1,0 +1,24 @@
+extends layout.pug
+include utils.pug
+block content
+    if errors 
+        ul
+            each error in errors
+                li= error
+        
+    form(action="/users" method="PATCH" class="sign-up") Edit User
+        input(type="hidden" name="_csrf" value=csrfToken)
+        +field("Name", "name", "text", name)
+        +field("City", "city", "text", city)
+        +field("Email", "email", "email", email)
+        +field('Password', 'password', 'password')
+        +field('Confirm Password', 'confirm-password', 'password')
+        div(class="form-group")
+            label(for="bio") Biography
+            textarea(type="text" name="bio" id="bio" value=bio)
+        div(class="form-group")
+            button(type="submit" class="button") Submit
+        div(class="form-group")
+            a(href="/users/login" class="button") Already have an account? Login!
+        div(class="form-group")
+            a(href="/" class="button") Cancel
