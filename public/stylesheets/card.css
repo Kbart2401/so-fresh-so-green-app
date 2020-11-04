@@ -2,8 +2,8 @@
   display: flex;
   font-family: "Work Sans", Arial, Helvetica, sans-serif;
   flex-direction: column;
-  height: 200px;
-  width: 380px;
+  height: auto;
+  width: 400px;
   border: 2px solid #368A42;
   box-shadow: 5px 5px 4px 1px rgba(0,0,0,0.15);
   border-radius: 3%;
@@ -23,7 +23,7 @@
 }
 
 .header {
-  height: 95px;
+  height: 45%;
   display: flex;
   /* align-items: center; */
   /* justify-content: space-between; */
@@ -31,29 +31,35 @@
 
 .textBox {
   width: 285px;
-  height: 95px;
   display: flex;
   flex-direction: column;
 }
 
 .imageBox {
-  height: 95px;
+  height: 45%;
   width: 95px;
 }
 
 .descriptionDiv {
-  height: 75px;
+  height: 40%;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-right: 20px;
   padding-left: 20px;
+  padding-bottom: 10px;
   text-align: center;
 }
 
 .announcements {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  margin: 0;
+}
+
+.announcement {
+  padding-left: 3px;
+  padding-top: 3px;
 }
 
 .announcementDiv {
@@ -67,13 +73,13 @@
 .footer {
   display: flex;
   flex-direction: row;
-  height: 30px;
+  height: 15%;
   border-top: 1px solid rgba(54, 138, 66, 0.3);
   padding-top: 10px;
 }
 
 .commentsDiv {
-  height: 20px;
+  height: 30px;
   width: 40px;
   border: 1px solid gray;
   display: flex;
@@ -95,7 +101,7 @@
   flex-direction: row;
   align-items: center;
   padding-left: 8px;
-  padding-bottom: 10px;
+  padding-top: 9px;
   color: rgba(54, 138, 66, 0.7);
 }
 
@@ -121,8 +127,8 @@
   align-items: center;
   color: #ffc200;
   background-color: rgb(54, 138, 66);
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   border: 1px solid black;
   border-radius: 20%;
 }
@@ -146,12 +152,14 @@ p {
 }
 
 .description {
+  padding-top:15px;
   color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .email {
   padding-top: 10px;
+  padding-bottom: 10px;
   font-family: fantasy;
 }
 
@@ -165,11 +173,16 @@ p {
 
 .upvotes {
   font-size: 15px;
-  padding-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+span.voteSpan {
+  color: #ffc200;
+  font-size: 20px;
 }
 
 span {
-  color: rgba(54, 138, 66, 0.7)
+  color: rgba(54, 138, 66, 0.7);
 }
 
 .reply {
