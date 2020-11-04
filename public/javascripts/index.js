@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+    /**********Show/Hide Nav Links under Profile Icon*******/
     document.querySelector('.welcomeDiv')
         .addEventListener('click', (e) => {
             const navLinks = document.querySelector('.nav-links')
