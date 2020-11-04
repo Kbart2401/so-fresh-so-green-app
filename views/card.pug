@@ -5,7 +5,7 @@ html(lang="en")
         meta(charset="UTF-16")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title= title
-        link(href="/sandbox.css")
+        link(href="/card.css")
     body
         .farm-feed
             each post in posts
@@ -19,7 +19,7 @@ html(lang="en")
                                     h5(class="name")= src=post.name
                                     h6= post.city
                                 .upvote
-                                    span ↟
+                                    span(class='voteSpan') ▴
                                     p(class='upvotes')= post.upvotes
                             .announcementDiv
                                 each announcement in post.announcements
