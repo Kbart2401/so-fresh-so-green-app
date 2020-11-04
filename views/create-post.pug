@@ -1,23 +1,32 @@
 extends layout.pug
 include utils.pug
 
-  link(rel="stylesheet" href="/stylesheets/form.css")
 
 block content
   if errors 
-    ul
-      each error in errors
-        li= error
-        
+    div(class="error-container" id="error-container")
+      div(id="exit") x
+      div(class="errorlist")
+        ul(class="list")
+          each error in errors
+            li= error
   div Submit a post here!
-  form(action="/posts" method="POST")
-    input(type="hidden" name="_csrf" value=csrfToken)
-    label(for="content") Content
-    textarea(name="content" value=content)
-    label(for="announcements") Announcements
-    textarea(name="announcements" value=announcements)
-    label(for="imageUrl") Select an Image
-    select(name="imageUrl")
-      option(value='test')
-    button(type="submit") Submit 
-    a(href="/") Cancel
+  div(class="form-container-posts")
+    form(action="/posts" method="POST" class="login")
+      div(class="formlogin")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        label(for="content" )
+        textarea(class="formField" placeholder="Content" class="bioField" name="content" value=content)
+      div(class="formlogin")
+        label(for="announcements")
+        textarea(class="formField" placeholder="Announcements" class="bioField" name="announcements" value=announcements)
+      div(class="formlogin")
+        label(for="imageUrl")
+        select(name="imageUrl" class="theme-construction")
+          option(value='test') Test
+          option(value='test') Test
+          option(value='test') Test
+          option(value='test') Test
+      div(class="formButtonsPosts" class="formlogin")
+        button(type="submit" class="button") Submit 
+        a(href="/" class="button") Cancel
