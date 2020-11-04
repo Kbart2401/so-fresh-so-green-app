@@ -6,9 +6,10 @@ block content
     if errors 
         div(class="error-container" id="error-container")
             div(id="exit") x
-            ul(class="errorList")
-                each error in errors
-                    li= error
+            div(class="errorlist")
+                ul(class="list")
+                    each error in errors
+                        li= error
     div(class="form-container")
             
         form(action="/users" method="POST" class="sign-up")
