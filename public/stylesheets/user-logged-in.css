@@ -5,8 +5,18 @@
   width: 45px;
   z-index: 1;
   align-self: flex-start;
+  border-radius: 50%;
+
 }
 
 .welcome-sign {
   width: 100px;
+}
+
+.nav-links-container {
+  margin: 0 215px;
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
 }
