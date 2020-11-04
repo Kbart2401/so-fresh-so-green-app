@@ -1,0 +1,36 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.profile-header {
+  height: 250px;
+  width: 1000px;
+  border: 3px solid #ffc200;
+  background-image: url('../images/profile-background.jpg');
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon {
+  height: 180px;
+  width: 180px;
+  background-image: url('../images/farmer-avatar.jpg');
+  background-position: center;
+  background-size: 100%;
+  margin-left: 60px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.profile-info {
+  height: 100%;
+}
+
+.profile-header h2 {
+  font-size: 30px;
+  padding: 20px;
+  margin-top: 30px;
+}

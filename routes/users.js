@@ -63,6 +63,42 @@ const validateForm = [
     }),
 ];
 
+/**********Validate Update Settings*********/
+const validateUpdate = [
+  check("name")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for name")
+    .isLength({ max: 100 })
+    .withMessage("Name must not be over 100 characters"),
+  check("city")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for city")
+    .isLength({ max: 25 })
+    .withMessage("City must not be over 25 characters"),
+  check("email")
+    .isLength({ max: 50 })
+    .withMessage("Email must not be over 50 characters")
+    .isEmail()
+    .withMessage("Input is not a valid email"),
+  check("password")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for password")
+    .isLength({ max: 20, min: 8 })
+    .withMessage("Password has to be between 8 and 20 characters"),
+  check("confirm-password")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for confirm password")
+    .isLength({ max: 20, min: 8 })
+    .withMessage("Confirm Password has to be between 8 and 20 characters")
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Confirmed password does not match Password");
+      }
+      return true;
+    }),
+];
+
+
 /**********Validate User Login*********/
 const loginValidators = [
   check("email")
@@ -193,12 +229,27 @@ router.get('/:id(\\d+)/settings',
     })
   }))
 
-router.patch('/', csrfProtection, validateForm, 
-handleValidationErrors, asyncHandler(async (req, res) => {
-  console.log('THIS IS A TEST')
-  const {name, city, email, password, bio} = req.body;
+/*********Submit User Updates*********/
+router.post('/:id(\\d+)', csrfProtection, validateUpdate,
+  handleValidationErrors, asyncHandler(async (req, res) => {
+    const user = await User.findByPk(req.params.id);
+    const { name, city, email, password, bio } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 12)
+    await user.update({
+      name,
+      city,
+      email,
+      bio,
+      hashedPassword,
+    })
+    await user.save();
+    res.redirect('/');
+  }))
 
-  res.redirect('/');
+/*********Render Profile Page**********/
+router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
+  const user = await User.findByPk(req.params.id);
+  res.render('profile', { user });
 }))
 
 module.exports = router;
