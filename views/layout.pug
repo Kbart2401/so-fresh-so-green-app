@@ -10,10 +10,12 @@ html
         link(rel='stylesheet' href='/stylesheets/user-logged-in.css')
         link(rel="stylesheet" href="/stylesheets/searchbar.css")
         link(rel="stylesheet" href="/stylesheets/dropdown.css")
+        link(rel="stylesheet" href="/stylesheets/profile.css")
         script(src="/javascripts/index.js" type="module" defer)
   body
     div(href="/" class="navbar") 
-        div(class="logo")  
+        a(href="/")
+          div(class="logo")  
         div(class="wrap")
           div(class="search")
             //- form(method="POST" action="/")
@@ -40,9 +42,10 @@ html
             div.welcomeDiv
               .nav-links.hidden
                 ul
-                  - const url = `/users/${user.id}/settings`
-                  li: a(href="/") PROFILE
-                  li: a(href=url) SETTINGS
+                  - const settingsUrl = `/users/${user.id}/settings`
+                  - const profileUrl = `/users/${user.id}/profile`
+                  li: a(href=profileUrl) PROFILE
+                  li: a(href=settingsUrl) SETTINGS
                   li: a(href="/users/logout") LOG OUT
 block content
 

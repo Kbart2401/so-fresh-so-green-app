@@ -1,0 +1,11 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.profile-header {
+  height: 200px;
+  width: 1000px;
+  background-color: aqua;
+}
