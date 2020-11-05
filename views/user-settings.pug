@@ -9,7 +9,9 @@ block content
                     each error in errors
                         li= error
     div(class="form-container")
-        form(action=`/users/${id}` method="POST" class="sign-up") Edit User
+
+        div(class="form-title")= title
+        form(action=`/users/${user.id}` method="POST" class="sign-up")
             input(type="hidden" name="_csrf" value=csrfToken)
             +field("Name", "name", "text", name)
             +field("City", "city", "text", city)
@@ -17,7 +19,7 @@ block content
             +field('Password', 'password', 'password')
             +field('Confirm Password', 'confirm-password', 'password')
             div(class="formlogin")
-                label(for="bio")
+                label(for="bio" class="label") Biography
                 textarea(class="formField" class="bioField" type="text" name="bio" id="bio" placeholder="Biography")= bio
             div(class="formButtons" class="formlogin")
                 button(type="submit" class="button") Submit

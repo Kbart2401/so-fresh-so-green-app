@@ -8,13 +8,14 @@ block content
                 ul(class="list")
                     each error in errors
                         li= error
-    div(class="form-container-login")
+    div(class="form-container")
+        div(class="form-title")= title
         form(action="/users/login" method="POST" class="login")
             input(type="hidden" name="_csrf" value=csrfToken)
             +field("Email", "email", "email", email)
             +field("Password", "password", "password")
             div(class="submit")
                 button(type="submit" class="button" class="submitButton") Submit
-            div(class="formlogin" class="formButtons")
+            div( class="formButtons")
                 a(href="/users" class="button") Sign Up
                 a(href="/" class="button") Cancel

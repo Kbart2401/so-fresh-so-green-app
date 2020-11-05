@@ -10,24 +10,26 @@ block content
         ul(class="list")
           each error in errors
             li= error
-  div Submit a post here!
   div(class="form-container")
     div(class="form-title")= title
-    form(action="/posts" method="POST" class="login")
+    form(action=`/posts/${post.id}/edit` method="POST" class="login")
       div(class="formlogin")
         input(type="hidden" name="_csrf" value=csrfToken)
         label(for="content" class="label") Content
-        textarea(class="formField" placeholder="Content" class="bioField" name="content" value=content)
+        textarea(class="formField" placeholder="Content" class="bioField" name="content" ) #{post.content}
       div(class="formlogin")
         label(for="announcements" class="label") Announcements
-        textarea(class="formField" placeholder="Announcements" class="bioField" name="announcements" value=announcements)
+        textarea(class="formField" placeholder="Announcements" class="bioField" name="announcements") #{post.announcements}
       div(class="formlogin")
         label(for="imageUrl" class="label") Image
         select(name="imageUrl" class="theme-construction")
+          option(value= post.imageUrl) Select Your Image
           option(value='http://www.honeybeehaven.org/wp-content/uploads/2013/10/resource-bees-101.jpg') Honey Bee
           option(value="/images/farmer-avatar.jpg") Farmer
           option(value='test') Test
           option(value='test') Test
+      div(class="submit")
+        button(type="submit" class="button" class="submitButton") Submit 
       div(class="formButtons" class="formlogin")
-        button(type="submit" class="button") Submit 
+        a(href=`/posts/${post.id}/delete` method="DELETE" class="button") Delete
         a(href="/" class="button") Cancel
