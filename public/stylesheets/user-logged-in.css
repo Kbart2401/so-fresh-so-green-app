@@ -46,3 +46,7 @@ border-radius: 7%;
 .hidden {
   display: none;
 }
+
+#error-container.hidden {
+  display: none;
+}

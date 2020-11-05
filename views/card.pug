@@ -28,3 +28,7 @@
         .replyDiv
             p.replyFav ⇜
             p(class="reply") reply
+        if user    
+            if user.id === post.userId
+                .editDiv
+                    a(href=`/posts/${post.id}/edit` class='button') Edit

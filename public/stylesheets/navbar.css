@@ -24,6 +24,24 @@
   color: #ffc200;
 }
 
+.createButton {
+    background-color: #ffc200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    width: 75px;
+    margin: 5px;
+}
+
 .navbuttonfam {
   display: flex;
   justify-content: center;
@@ -49,6 +67,7 @@
   border: none;
   border-radius: 5px;
   padding: 8px 12px;
+  margin: 5px;
   text-decoration: none;
 }
 
@@ -77,7 +96,18 @@
 }
 
 .category {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 8px 12px;
   text-decoration: none;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  width: 145px;
+  text-align: center;
 }
 .category:hover {
   background-color: #ffc200;

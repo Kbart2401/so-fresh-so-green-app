@@ -11,7 +11,7 @@ block content
                     each error in errors
                         li= error
     div(class="form-container")
-            
+        div(class="form-title")= title
         form(action="/users" method="POST" class="sign-up")
             input(type="hidden" name="_csrf" value=csrfToken)
             input(type="hidden" name="imageUrl" value="/images/farmer-avatar.jpg")
@@ -25,9 +25,9 @@ block content
             //-     option(value="")
             div(class="formlogin")
                 label(for="bio")
-                textarea(class="formField" class="bioField" type="text" name="bio" id="bio" value=bio placeholder="Biography")
+                textarea(class="formField" class="bioField" type="text" name="bio" id="bio" value=bio placeholder="Biography") #{bio}
             div(class="submit")
                 button(type="submit" class="button" class="submitButton") Submit
-            div(class="formlogin" class="formButtons")
+            div(class="formButtons")
                 a(href="/users/login" class="button") Login
                 a(href="/" class="button") Cancel
