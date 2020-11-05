@@ -81,13 +81,11 @@ const validateUpdate = [
     .isEmail()
     .withMessage("Input is not a valid email"),
   check("password")
-    .exists({ checkFalsy: true })
-    .withMessage("Please provide a value for password")
+    .if(check('password').notEmpty())
     .isLength({ max: 20, min: 8 })
     .withMessage("Password has to be between 8 and 20 characters"),
   check("confirm-password")
-    .exists({ checkFalsy: true })
-    .withMessage("Please provide a value for confirm password")
+    .if(check('confirm-password').notEmpty())
     .isLength({ max: 20, min: 8 })
     .withMessage("Confirm Password has to be between 8 and 20 characters")
     .custom((value, { req }) => {
@@ -234,6 +232,9 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
   handleValidationErrors, asyncHandler(async (req, res) => {
     const user = await User.findByPk(req.params.id);
     const { name, city, email, password, bio } = req.body;
+    if (!password) {
+      await user.update({ name, city, email, bio })
+    } else {
     const hashedPassword = await bcrypt.hash(password, 12)
     await user.update({
       name,
@@ -242,6 +243,7 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
       bio,
       hashedPassword,
     })
+  }
     await user.save();
     res.redirect('/');
   }))
