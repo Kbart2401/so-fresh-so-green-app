@@ -1,12 +1,12 @@
 .fullCard
     .header
         .imageBox
-            img(class="cardImage" src=post.image)
+            img(class="cardImage" src=post.imageUrl)
         .textBox
             .top
                 .info
-                    h5(class="name")= src=post.name
-                    h6= post.city
+                    h5(class="name")= src=post.User.name
+                    h6= post.User.city
                 .upvote
                     span(class='voteSpan') ▴
                     p(class='upvotes')= post.upvotes
@@ -17,8 +17,8 @@
                             span ✵
                             p(class="announcement")=  announcement
     .descriptionDiv
-        p(class='description')= post.description
-        p(class="email")= post.email
+        p(class='description')= post.content
+        p(class="email")= post.User.email
     .footer
         .commentsDiv
             span 💬

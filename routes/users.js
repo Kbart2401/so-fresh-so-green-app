@@ -133,11 +133,11 @@ router.post(
   validateForm,
   handleValidationErrors,
   asyncHandler(async (req, res) => {
-    const { name, city, email, password, bio } = req.body;
+    const { name, city, email, password, bio, imageUrl } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const user = await User.create({ email, city, name, hashedPassword, bio });
+    const user = await User.create({ email, city, name, hashedPassword, bio, imageUrl });
     await logInUser(req, res, user);
     req.session.save(() => res.redirect("/"));
     // res.redirect('/');
