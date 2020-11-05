@@ -9,7 +9,7 @@ block content
                     each error in errors
                         li= error
     div(class="form-container")
-        form(action=`/users/${user.id}` method="POST" class="sign-up") Edit User
+        form(action=`/users/${id}` method="POST" class="sign-up") Edit User
             input(type="hidden" name="_csrf" value=csrfToken)
             +field("Name", "name", "text", name)
             +field("City", "city", "text", city)

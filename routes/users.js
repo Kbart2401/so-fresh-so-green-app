@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { asyncHandler, handleValidationErrors } = require("../utils");
+const { asyncHandler, handleValidationErrors, handleUserValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
 const { User } = require("../db/models");
 const csrf = require("csurf");
@@ -220,6 +220,7 @@ router.get('/:id(\\d+)/settings',
       title: "Edit User",
       csrfToken: req.csrfToken(),
       user,
+      id: user.id,
       name: user.name,
       city: user.city,
       email: user.email,
@@ -229,7 +230,7 @@ router.get('/:id(\\d+)/settings',
 
 /*********Submit User Updates*********/
 router.post('/:id(\\d+)', csrfProtection, validateUpdate,
-  handleValidationErrors, asyncHandler(async (req, res) => {
+  handleUserValidationErrors, asyncHandler(async (req, res) => {
     const user = await User.findByPk(req.params.id);
     const { name, city, email, password, bio } = req.body;
     if (!password) {
