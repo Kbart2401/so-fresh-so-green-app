@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { User, Post } = require("../db/models");
+const { Comment, User, Post } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check, validationResult } = require('express-validator');
@@ -80,6 +80,19 @@ router.get("/:id/delete", restoreUser, asyncHandler(async (req,res) => {
   res.redirect("/")
 
 }))
+
+router.post('/:id/comment', restoreUser, asyncHandler(async (req, res) => {
+  console.log('hit');
+  const { content } = req.body;
+  if (content === '') {
+      return
+  } else {
+      const user = res.locals.user;
+      const postId = parseInt(req.params.id, 10);
+      const comment = await Comment.create({content, userId: user.id, postId });
+  }
+}))
+
 
 
 module.exports = router;

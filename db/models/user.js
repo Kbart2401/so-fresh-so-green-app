@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: DataTypes.STRING
   }, {});
   User.associate = function (models) {
-    User.hasMany(models.Post, { foreignKey: 'userId' })
+    User.hasMany(models.Post, { foreignKey: 'userId' }),
+    User.hasMany(models.Comment, { foreignKey: 'userId'})
   };
   return User;
 };

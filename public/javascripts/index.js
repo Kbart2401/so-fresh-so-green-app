@@ -1,3 +1,5 @@
+// const comment = require("../../db/models/comment");
+
 window.addEventListener('DOMContentLoaded', () => {
 
     /**********Show/Hide Nav Links under Profile Icon*******/
@@ -17,8 +19,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('exit')
         .addEventListener('click', e => {
-            console.log('LETS SEE IF THIS WORKS');
             document.querySelector('.error-container').classList.add('hidden');
+        });
+
+        const commentSubmit = document.querySelectorAll('.commentSubmit');
+        commentSubmit.forEach((comment) => {
+            comment.addEventListener('click', e => {
+                e.preventDefault();
+                const formField = document.getElementById(`comment${e.target.value}`)
+                await fetch('/posts/:id/comment', {
+                    method: "POST",
+                    body: {
+                        content: formField.value
+                    }
+                })
+            })
         })
 
 
