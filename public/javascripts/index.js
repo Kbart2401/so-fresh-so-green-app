@@ -22,26 +22,40 @@ window.addEventListener('DOMContentLoaded', () => {
     //         document.querySelector('.error-container').classList.add('hidden');
     //     });
 
-        console.log("hey")
+    console.log("hey")
 
-        const commentSubmit = document.querySelectorAll('.commentSubmit');
+    const commentSubmit = document.querySelectorAll('.commentSubmit');
 
-        commentSubmit.forEach((comment) => {
-            comment.addEventListener('click',async e => {
-                e.preventDefault();
-                const formField = document.getElementById(`comment${e.target.value}`)
-                const res = await fetch(`/posts/${e.target.value}/comment`, {
-                    method: "POST",
+    commentSubmit.forEach((comment) => {
+        comment.addEventListener('click', async e => {
+            e.preventDefault();
+            const formField = document.getElementById(`comment${e.target.value}`)
+            const res = await fetch(`/posts/${e.target.value}/comment`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: formField.value })
+            })
+            const comments = await res.json()
+            console.log("comments", comments)
+        })
+    })
+
+    document.querySelectorAll('.upvoteDiv')
+        .forEach((upvoteDiv) => {
+            upvoteDiv.addEventListener('click', async (e) => {
+                const res = await fetch(`/posts/${e.target.value}/upvote`, {
+                    method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({content: formField.value})
+                    }
                 })
-                const comments = await res.json()
-                console.log("comments", comments)
+                const upvotes = await res.json();
+                upvoteDiv.innerHTML = upvotes.upvotes;
+                console.log(upvotes.upvotes)
+                
             })
         })
-
-
 
 })

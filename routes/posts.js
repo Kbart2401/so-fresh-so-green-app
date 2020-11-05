@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { Comment, User, Post } = require("../db/models");
+const { Comment, User, Post, Upvote } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require('cookie-parser');
 const { check, validationResult } = require('express-validator');
@@ -12,7 +12,7 @@ const csrfProtection = csrf({ cookie: true });
 
 /******Render Create Post********/
 router.get('/', csrfProtection, restoreUser, asyncHandler(async (req, res,) => {
-  if(!req.session.auth) {
+  if (!req.session.auth) {
     return res.redirect('/users/login')
   }
   res.render('create-post', { csrfToken: req.csrfToken(), title: "Create Post", user: res.locals.user })
@@ -29,8 +29,8 @@ router.post('/', csrfProtection, restoreUser, asyncHandler(async (req, res) => {
 
 }))
 
-router.get("/:id/edit", csrfProtection,restoreUser, asyncHandler(async (req,res) => {
-  if(!req.session.auth) {
+router.get("/:id/edit", csrfProtection, restoreUser, asyncHandler(async (req, res) => {
+  if (!req.session.auth) {
     return res.redirect('/users/login')
   }
 
@@ -44,11 +44,11 @@ router.get("/:id/edit", csrfProtection,restoreUser, asyncHandler(async (req,res)
   }
 
 
-  res.render('edit-post.pug', { csrfToken: req.csrfToken(), title: "Edit Post", user: res.locals.user, post})
+  res.render('edit-post.pug', { csrfToken: req.csrfToken(), title: "Edit Post", user: res.locals.user, post })
 }))
 
-router.post("/:id/edit", csrfProtection, restoreUser, asyncHandler( async (req, res) => {
-  const { content, announcements, imageUrl} = req.body
+router.post("/:id/edit", csrfProtection, restoreUser, asyncHandler(async (req, res) => {
+  const { content, announcements, imageUrl } = req.body
 
   const postId = parseInt(req.params.id, 10)
 
@@ -63,7 +63,7 @@ router.post("/:id/edit", csrfProtection, restoreUser, asyncHandler( async (req, 
   res.redirect("/")
 }))
 
-router.get("/:id/delete", restoreUser, asyncHandler(async (req,res) => {
+router.get("/:id/delete", restoreUser, asyncHandler(async (req, res) => {
   if (!req.session.auth) {
     return res.redirect("/users/login")
   }
@@ -86,13 +86,31 @@ router.post('/:id/comment', restoreUser, asyncHandler(async (req, res) => {
   const postId = parseInt(req.params.id, 10);
   if (content !== '') {
     const user = res.locals.user;
-    const comment = await Comment.create({content, userId: user.id, postId });
+    const comment = await Comment.create({ content, userId: user.id, postId });
   }
-  const comments = await Comment.findAll({where: { postId }})
+  const comments = await Comment.findAll({ where: { postId } })
   console.log(comments)
   return res.json({ comments });
 }))
 
+router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
+  const user = res.locals.user;
+  const postId = parseInt(req.params.id, 10);
+  console.log('POST ID', postId)
+  await Upvote.create({
+    userId: user.id,
+    postId
+  })
+  
+  const upvotes = await Upvote.count({
+    where: {
+      postId
+    }
+  })
+
+  return res.json({ upvotes })
+}))
 
 
 module.exports = router;
+
