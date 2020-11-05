@@ -9,16 +9,16 @@ routes.get("/locals", restoreUser, (req, res) => {
 
 routes.get("/topics", restoreUser, (req, res) => {
   const user = res.locals.user;
-  res.render("topics");
+  res.render("topics", { user });
 });
 
 routes.get("/markets", restoreUser, (req, res) => {
   const user = res.locals.user;
-  res.render("markets");
+  res.render("markets", { user });
 });
 
 routes.get("/farmers", restoreUser, (req, res) => {
   const user = res.locals.user;
-  res.render("farmers");
+  res.render("farmers", { user });
 });
 module.exports = routes;
