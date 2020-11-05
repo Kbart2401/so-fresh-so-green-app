@@ -17,22 +17,28 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
 
-    document.getElementById('exit')
-        .addEventListener('click', e => {
-            document.querySelector('.error-container').classList.add('hidden');
-        });
+    // document.getElementById('exit')
+    //     .addEventListener('click', e => {
+    //         document.querySelector('.error-container').classList.add('hidden');
+    //     });
+
+        console.log("hey")
 
         const commentSubmit = document.querySelectorAll('.commentSubmit');
+
         commentSubmit.forEach((comment) => {
-            comment.addEventListener('click', e => {
+            comment.addEventListener('click',async e => {
                 e.preventDefault();
                 const formField = document.getElementById(`comment${e.target.value}`)
-                await fetch('/posts/:id/comment', {
+                const res = await fetch(`/posts/${e.target.value}/comment`, {
                     method: "POST",
-                    body: {
-                        content: formField.value
-                    }
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({content: formField.value})
                 })
+                const comments = await res.json()
+                console.log("comments", comments)
             })
         })
 

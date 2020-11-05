@@ -82,15 +82,15 @@ router.get("/:id/delete", restoreUser, asyncHandler(async (req,res) => {
 }))
 
 router.post('/:id/comment', restoreUser, asyncHandler(async (req, res) => {
-  console.log('hit');
   const { content } = req.body;
-  if (content === '') {
-      return
-  } else {
-      const user = res.locals.user;
-      const postId = parseInt(req.params.id, 10);
-      const comment = await Comment.create({content, userId: user.id, postId });
+  const postId = parseInt(req.params.id, 10);
+  if (content !== '') {
+    const user = res.locals.user;
+    const comment = await Comment.create({content, userId: user.id, postId });
   }
+  const comments = await Comment.findAll({where: { postId }})
+  console.log(comments)
+  return res.json({ comments });
 }))
 
 
