@@ -1,19 +1,24 @@
 const express = require("express");
 const routes = express.Router();
+const { restoreUser } = require("../auth");
 
-routes.get("/locals", (req, res) => {
-  res.render("locals");
+routes.get("/locals", restoreUser, (req, res) => {
+  const user = res.locals.user;
+  res.render("locals", { user });
 });
 
-routes.get("/topics", (req, res) => {
-  res.render("topics");
+routes.get("/topics", restoreUser, (req, res) => {
+  const user = res.locals.user;
+  res.render("topics", { user });
 });
 
-routes.get("/markets", (req, res) => {
-  res.render("markets");
+routes.get("/markets", restoreUser, (req, res) => {
+  const user = res.locals.user;
+  res.render("markets", { user });
 });
 
-routes.get("/farmers", (req, res) => {
-  res.render("farmers");
+routes.get("/farmers", restoreUser, (req, res) => {
+  const user = res.locals.user;
+  res.render("farmers", { user });
 });
 module.exports = routes;
