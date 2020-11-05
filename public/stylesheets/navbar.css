@@ -24,6 +24,24 @@
   color: #ffc200;
 }
 
+.createButton {
+    background-color: #ffc200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    width: 75px;
+    margin: 5px;
+}
+
 .navbuttonfam {
   display: flex;
   justify-content: center;
