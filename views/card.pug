@@ -1,35 +1,38 @@
-.fullCard
-    .header
-        .imageBox
-            img(class="cardImage" src=post.imageUrl)
-        .textBox
-            .top
-                .info
-                    h5(class="name")= src=post.User.name
-                    h6.city= post.User.city
-                button.upvoteDiv(value=post.id)
-                    //- span(class='voteSpan') ▴
-                    //- p.upvote 1234
-                    //- p(class='upvotes')= post.upvotes
-            .announcementDiv
-                each announcement in post.announcements
-                    .announcementDiv-announcements
-                        .announcements
-                            span ✵
-                            p(class="announcement")=  announcement
-    .descriptionDiv
-        p(class='description')= post.content
-        p(class="email")= post.User.email
-    .footer
-        .commentsDiv
-            include comments.pug
-            span.comments 💬
-            p.comments 123
-            //- p(class="comments")=post.comments
-        .replyDiv
-            p.replyFav ⇜
-            p(class="reply") reply
-        if user
-            if user.id === post.userId
-                .editDiv
-                    a(href=`/posts/${post.id}/edit` class='button') Edit
+.cardWithComments
+    .fullCard
+        .header
+            .imageBox
+                img(class="cardImage" src=post.imageUrl)
+            .textBox
+                .top
+                    .info
+                        h5(class="name")= src=post.User.name
+                        h6.city= post.User.city
+                    button.upvoteDiv(value=post.id)
+                        //- span(class='voteSpan') ▴
+                        //- p.upvote 1234
+                        //- p(class='upvotes')= post.upvotes
+                .announcementDiv
+                    each announcement in post.announcements
+                        .announcementDiv-announcements
+                            .announcements
+                                span ✵
+                                p(class="announcement")=  announcement
+        .descriptionDiv
+            p(class='description')= post.content
+            p(class="email")= post.User.email
+        .footer
+            button.bubbleDiv(class='viewCommentsButton') 💬 123
+                //- button(class='viewCommentsButton') View Comments
+                //- p(class="comments")=post.comments
+            .replyDiv
+                p.replyFav ⇜
+                p(class="reply") reply
+            if user
+                if user.id === post.userId
+                    .editDiv
+                        a(href=`/posts/${post.id}/edit` class='button') Edit
+    .commentsDiv
+        ul(class='commentList')
+
+        include comments.pug
