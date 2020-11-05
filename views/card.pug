@@ -22,13 +22,14 @@
         p(class="email")= post.User.email
     .footer
         .commentsDiv
+            include comments.pug
             span.comments 💬
             p.comments 123
             //- p(class="comments")=post.comments
         .replyDiv
             p.replyFav ⇜
             p(class="reply") reply
-        if user    
+        if user
             if user.id === post.userId
                 .editDiv
                     a(href=`/posts/${post.id}/edit` class='button') Edit

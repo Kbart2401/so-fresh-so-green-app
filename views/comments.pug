@@ -1,0 +1,3 @@
+form(action=`/posts/${post.id}/comment` method="post")
+    textarea(id=`comment${post.id}` name="content", cols="30", rows="10" placeholder='Comment')
+    button.button(type="submit" value=post.id) Send

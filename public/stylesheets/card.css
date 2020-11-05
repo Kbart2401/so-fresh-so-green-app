@@ -23,11 +23,8 @@
 }
 
 .header {
-  overflow: scroll;
   height: 45%;
   display: flex;
-  /* align-items: center; */
-  /* justify-content: space-between; */
 }
 
 .textBox {
@@ -61,10 +58,11 @@
 
 .announcement {
   padding-left: 3px;
-  padding-top: 3px;
+  /* padding-top: 3px; */
 }
 
 .announcementDiv {
+  overflow: scroll;
   height: 50px;
   display: flex;
   flex-direction: column;
@@ -231,4 +229,14 @@ span {
 
 .reply {
   padding-left: 3px;
+}
+
+.editDiv {
+  padding-left: 265px;
+  padding-top: 7px;
+}
+
+a.button {
+  height: 45px;
+  width: 45px;
 }
