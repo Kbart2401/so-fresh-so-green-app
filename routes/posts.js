@@ -29,5 +29,57 @@ router.post('/', csrfProtection, restoreUser, asyncHandler(async (req, res) => {
 
 }))
 
+router.get("/:id/edit", csrfProtection,restoreUser, asyncHandler(async (req,res) => {
+  if(!req.session.auth) {
+    return res.redirect('/users/login')
+  }
+
+  const user = res.locals.user;
+  const postId = parseInt(req.params.id, 10)
+
+  const post = await Post.findByPk(postId)
+
+  if (user.id !== post.userId) {
+    return res.redirect("/")
+  }
+
+
+  res.render('edit-post.pug', { csrfToken: req.csrfToken(), title: "Edit Post", user: res.locals.user, post})
+}))
+
+router.post("/:id/edit", csrfProtection, restoreUser, asyncHandler( async (req, res) => {
+  const { content, announcements, imageUrl} = req.body
+
+  const postId = parseInt(req.params.id, 10)
+
+  const post = await Post.findByPk(postId)
+
+  post.content = content;
+  post.announcements = announcements;
+  post.imageUrl = imageUrl;
+
+  await post.save();
+
+  res.redirect("/")
+}))
+
+router.get("/:id/delete", restoreUser, asyncHandler(async (req,res) => {
+  if (!req.session.auth) {
+    return res.redirect("/users/login")
+  }
+
+  const user = res.locals.user;
+  const postId = parseInt(req.params.id, 10)
+  const post = await Post.findByPk(postId)
+
+  if (user.id !== post.userId) {
+    return res.redirect("/")
+  }
+
+  await post.destroy();
+  res.redirect("/")
+
+}))
+
 
 module.exports = router;
