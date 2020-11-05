@@ -7,9 +7,9 @@
                 .info
                     h5(class="name")= src=post.User.name
                     h6.city= post.User.city
-                .upvoteDiv
-                    span(class='voteSpan') ▴
-                    p.upvote 1234
+                button.upvoteDiv(value=post.id)
+                    //- span(class='voteSpan') ▴
+                    //- p.upvote 1234
                     //- p(class='upvotes')= post.upvotes
             .announcementDiv
                 each announcement in post.announcements
