@@ -6,10 +6,11 @@
             .top
                 .info
                     h5(class="name")= src=post.User.name
-                    h6= post.User.city
-                .upvote
+                    h6.city= post.User.city
+                .upvoteDiv
                     span(class='voteSpan') ▴
-                    p(class='upvotes')= post.upvotes
+                    p.upvote 1234
+                    //- p(class='upvotes')= post.upvotes
             .announcementDiv
                 each announcement in post.announcements
                     .announcementDiv-announcements
@@ -21,10 +22,11 @@
         p(class="email")= post.User.email
     .footer
         .commentsDiv
-            span 💬
-            p(class="comments")=post.comments
+            span.comments 💬
+            p.comments 123
+            //- p(class="comments")=post.comments
         .replyDiv
-            p ⇜
+            p.replyFav ⇜
             p(class="reply") reply
         if user    
             if user.id === post.userId
