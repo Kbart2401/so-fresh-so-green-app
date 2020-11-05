@@ -22,8 +22,14 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: DataTypes.STRING
   }, {});
   User.associate = function (models) {
+    const columnMapping = {
+      through: 'Upvote',
+      otherKey: 'postId',
+      foreignKey: 'userId'
+    }
     User.hasMany(models.Post, { foreignKey: 'userId' }),
-    User.hasMany(models.Comment, { foreignKey: 'userId'})
+    User.hasMany(models.Comment, { foreignKey: 'userId' })
+    User.belongsToMany(models.Post, columnMapping)
   };
   return User;
 };
