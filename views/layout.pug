@@ -39,8 +39,9 @@ html
                 a(href="#") want :)
         div(class="navbuttonfam")
           if !user
-            a(href="/users/login" class="navbutton") Login
-            a(href="/users/" class="navbutton") Sign Up
+            div(class="loginButtons")
+                a(href="/users/login" class="navbutton") Login
+                a(href="/users/" class="navbutton") Sign Up
           if user
             div.welcome-sign #{user.name}
             a(href="/posts" class="formbutton" class="createButton") POST
