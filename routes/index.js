@@ -72,7 +72,6 @@ router.get('/', restoreUser, asyncHandler( async function(req, res, next) {
   posts.map( post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
-    console.log("post",post)
     return post
   });
   // console.log("posts", posts)
