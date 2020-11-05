@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   margin: auto;
-  border: 5px solid black;
+  border: 5px solid white;
   width: 1200px;
 }
 
@@ -12,17 +12,17 @@
   height: auto;
 }
 .farm-feed__fake-adds {
-  width: 300px;
-  background-color: black;
+  width: 325px;
+  background-color: white;
 }
 
 .farm-feed__main {
-  width: 600px;
+  width: 550px;
 
 }
 
 .farm-feed__profiles {
-  width: 300px;
-  background-color: black;
+  width: 325px;
+  background-color: white;
 }
 
