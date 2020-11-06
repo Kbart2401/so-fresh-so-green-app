@@ -252,15 +252,17 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
 /*********Render Profile Page**********/
 router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  const upvotes = await Upvote.count({
+  // const upvotes = await Upvote.count({
+  //   where: {
+  //     postId
+  //   }
+  // })
+  const posts = await Post.findAll({
     where: {
-      postId
-    }
+      userId: user.id
+    },
+    include: [User, "Users"], limit: 10, order: [["createdAt", 'DESC']]
   })
-  const posts = await Post.findAll({ where: {
-    userId: user.id
-  },
-  include: User, limit: 10, order: [["createdAt", 'DESC']] })
   posts.map(post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
