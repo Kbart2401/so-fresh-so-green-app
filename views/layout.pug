@@ -15,6 +15,8 @@ html
         link(rel="stylesheet" href="/stylesheets/form.css")
         link(rel="stylesheet" href="/stylesheets/card.css")
         link(rel="stylesheet" href="/stylesheets/farm-feed.css")
+        link(rel="stylesheet" href="/stylesheets/contact.css")
+        link(rel="stylesheet" href="/stylesheets/faq.css")
         script(src="/javascripts/index.js" type="module" defer)
   body
     div(href="/" class="navbar")
@@ -29,13 +31,9 @@ html
         div(class="dropdown")
             button(class="dropbtn")
             div(class="dropdown-content")
-                a(href="/locals" class="category") Local
-                a(href="/topics" class="category") Topics
-                a(href="/markets" class="category") Markets
-                a(href="/farmers" class="category") Farmers
+                a(href="/events" class="category") Events
                 a(href="/faq" class="category") FAQ
-                a(href="/about" class="category") About Us
-                a(href="/contact" class="category") Contact
+                a(href="/contact" class="category") The Team
         div(class="navbuttonfam")
           if !user
             div(class="loginButtons")

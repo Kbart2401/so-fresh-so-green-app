@@ -1,12 +1,13 @@
 .dropbtn {
   background-image: url("burger.png");
   background-color: #368a42;
+  background-size: 100% 100%;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
-  height: 45px;
-  width: 45px;
+  height: 35px;
+  width: 35px;
 }
 
 .dropdown {
