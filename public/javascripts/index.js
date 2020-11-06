@@ -30,8 +30,9 @@ window.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const postId = e.target.value.split('t')[1];
             const commentList = document.querySelector(`.commentList${postId}`);
-            if(commentList.classList.contains("commentListHidden")) {
-                commentList.classList.remove("commentListHidden")
+            console.log('send it!')
+            // if(commentList.classList.contains("commentListHidden")) {
+            //     commentList.classList.remove("commentListHidden")
                 const formField = document.getElementById(`comment${postId}`)
                 const res = await fetch(`/posts/${postId}/comments`, {
                     method: "POST",
@@ -51,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         commentListItem.setAttribute('class', 'commentBox');
                         deleteCommentButton.setAttribute('class', 'deleteCommentButton');
                         deleteCommentButton.setAttribute('value', comment.id);
-                        console.log(userId, comment.userId)
+
                         commentList.appendChild(commentListItem);
                         commentListItem.innerHTML = comment.content;
                         if (userId === comment.userId) {
@@ -60,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         }
                     })
 
-            }
+            // }
 
         })
     })
@@ -97,7 +98,13 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.commentsDiv')
         .forEach((button => {
             button.addEventListener("click", async (e) => {
+                console.log(e.target.value)
+                if(e.target.classList.contains("newComment")) {
+                    console.log("comment")
+                    return
+                }
                 if (!e.target.value || e.target.value.startsWith('post')) {
+                    console.log("hey there")
                     return
                 }
                 const res = await fetch(`/comments/${e.target.value}`, {
@@ -105,12 +112,12 @@ window.addEventListener('DOMContentLoaded', () => {
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({id: e.target.value})
                 })
-                await res.json();
-                const res = await fetch(`/posts/${e.target.value}/comments`)
-                    const comments = await res.json();
+                const postId = await res.json();
+                const commentFetch = await fetch(`/posts/${postId.postId}/comments`)
+                    const comments = await commentFetch.json();
 
                     const userId = comments.userId;
-
+                    const commentList = document.querySelector(`.commentList${postId.postId}`);
                     commentList.innerHTML = ""
                     comments.comments.forEach((comment) => {
                         let commentListItem = document.createElement('div');
@@ -119,7 +126,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         commentListItem.setAttribute('class', 'commentBox');
                         deleteCommentButton.setAttribute('class', 'deleteCommentButton');
                         deleteCommentButton.setAttribute('value', comment.id);
-                        console.log(userId, comment.userId)
                         commentList.appendChild(commentListItem);
                         commentListItem.innerHTML = comment.content;
                         if (userId === comment.userId) {
@@ -151,7 +157,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         commentListItem.setAttribute('class', 'commentBox');
                         deleteCommentButton.setAttribute('class', 'deleteCommentButton');
                         deleteCommentButton.setAttribute('value', comment.id);
-                        console.log(userId, comment.userId)
                         commentList.appendChild(commentListItem);
                         commentListItem.innerHTML = comment.content;
                         if (userId === comment.userId) {
