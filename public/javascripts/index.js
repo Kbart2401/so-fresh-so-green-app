@@ -37,8 +37,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ content: formField.value })
             })
             const comments = await res.json()
-            console.log("comments", comments)
-            //do something with the comments
+            console.log("comments", comments);
+            const commentList = document.querySelector('.commentList');
+            comments.comments.forEach((comment) => {
+                let commentListItem = document.createElement('li');
+                commentListItem.innerHTML = comment.content;
+                commentList.appendChild(commentListItem);
+            })
         })
     })
     
@@ -55,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 const upvotes = await res.json();
                 upvoteDiv.innerHTML = upvotes.upvotes;
                 console.log(upvotes.upvotes)
-                
+
             })
         })
         //delete a comment
