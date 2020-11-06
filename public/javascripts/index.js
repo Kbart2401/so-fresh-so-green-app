@@ -41,7 +41,8 @@ window.addEventListener('DOMContentLoaded', () => {
             commentLists.forEach(commentList => {
                 commentList.innerHTML = ""
                 comments.comments.forEach((comment) => {
-                    let commentListItem = document.createElement('li');
+                    let commentListItem = document.createElement('div');
+                    commentListItem.setAttribute('class', 'commentBox')
                     commentListItem.innerHTML = comment.content;
                     commentList.appendChild(commentListItem);
 
