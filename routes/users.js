@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors, handleUserValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { User, Post, Upvote } = require("../db/models");
+const { User, Post, Upvote, Sequelize } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const { check, validationResult } = require("express-validator");
 const { logInUser, logoutUser } = require("../auth");
+const Op = Sequelize.Op;
 
 // const { db } = require("../config");
 /* GET users listing. */
@@ -252,23 +253,36 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
 /*********Render Profile Page**********/
 router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  // const upvotes = await Upvote.count({
-  //   where: {
-  //     postId
-  //   }
-  // })
   const posts = await Post.findAll({
     where: {
       userId: user.id
     },
-    include: [User, "Users"], limit: 10, order: [["createdAt", 'DESC']]
+    include: [User, "Users"], limit: 10, order: [["userId", 'ASC']]
   })
   posts.map(post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
+    post.upVoteCount = post.Users.length;
     return post
+  })
+  posts.sort((a, b) => b.upVoteCount - a.upVoteCount);
+  
+  const othersPosts = await Post.findAll({
+    where: {
+      userId: {
+        [Op.ne]: user.id}
+    },
+    include: [User, "Users"], limit: 10, order: [["userId", 'ASC']]
+  })
+  othersPosts.map(othersPost => {
+    let announcements = othersPost.announcements.split("\n")
+    othersPost.announcements = announcements
+    othersPosts.upVoteCount = othersPost.Users.length
+    return othersPost
   });
-  res.render('profile', { user, posts });
+  othersPosts.sort((a,b) => b.upVoteCount - a.upVoteCount);
+  
+  res.render('profile', { user, posts, othersPosts });
 }))
 
 module.exports = router;
