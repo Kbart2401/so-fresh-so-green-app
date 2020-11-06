@@ -104,21 +104,21 @@ router.get('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
 
 
 
-router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
-  const user = res.locals.user;
-  const postId = parseInt(req.params.id, 10);
-  await Upvote.create({
-    userId: user.id,
-    postId
-  })
-  const upvotes = await Upvote.count({
-  where: {
-    postId
-  }
-})
+// router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
+//   const user = res.locals.user;
+//   const postId = parseInt(req.params.id, 10);
+//   await Upvote.create({
+//     userId: user.id,
+//     postId
+//   })
+//   const upvotes = await Upvote.count({
+//   where: {
+//     postId
+//   }
+// })
   
-  return res.json({ upvotes })
-}))
+//   return res.json({ upvotes })
+// }))
 
 
 router.delete('/:id/downvote', restoreUser, asyncHandler(async (req, res) => {
@@ -137,7 +137,6 @@ router.delete('/:id/downvote', restoreUser, asyncHandler(async (req, res) => {
       postId,
     }
   })
-
   return res.json({ upvotes })
 }))
 

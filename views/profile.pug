@@ -9,5 +9,14 @@ block content
         .email= user.email
         h3: strong Bio
         p #{user.bio}
+    .profile-options-container
+      .profile-options-links
+        span#your-activity YOUR ACTIVITY
+        span#others-activity &nbsp; OTHERS ACTIVITY
+
+    .your-activity-container
+      each post in posts
+        include card.pug
+
 
   
