@@ -76,6 +76,9 @@ router.get("/:id/delete", restoreUser, asyncHandler(async (req, res) => {
     return res.redirect("/")
   }
 
+  await Comment.destroy({where: {postId}})
+  await Upvote.destroy({where: {postId}})
+
   await post.destroy();
   res.redirect("/")
 
@@ -104,21 +107,28 @@ router.get('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
 
 
 
-// router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
-//   const user = res.locals.user;
-//   const postId = parseInt(req.params.id, 10);
-//   await Upvote.create({
-//     userId: user.id,
-//     postId
-//   })
-//   const upvotes = await Upvote.count({
-//   where: {
-//     postId
-//   }
-// })
+router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
+  const userId = res.locals.user.id
+  const postId = parseInt(req.params.id, 10);
+
+  const post = await Upvote.findOne({where: {userId, postId}})
+
+  if(!post) {
+    await Upvote.create({
+      userId,
+      postId
+    })
+  }
   
-//   return res.json({ upvotes })
-// }))
+  
+  const upvotes = await Upvote.count({
+  where: {
+    postId
+  }
+})
+  
+  return res.json({ upvotes })
+}))
 
 
 router.delete('/:id/downvote', restoreUser, asyncHandler(async (req, res) => {
@@ -134,7 +144,7 @@ router.delete('/:id/downvote', restoreUser, asyncHandler(async (req, res) => {
   })
   const upvotes = await Upvote.count({
     where: {
-      postId,
+      postId
     }
   })
   return res.json({ upvotes })

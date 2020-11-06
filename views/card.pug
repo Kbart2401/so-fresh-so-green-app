@@ -22,7 +22,7 @@
             p(class='description')= post.content
             p(class="email")= post.User.email
         .footer
-            button.bubbleDiv(class='viewCommentsButton' value=post.id) 💬 123
+            button.bubbleDiv(class=`viewCommentsButton` value=post.id) 💬 123
                 //- button(class='viewCommentsButton') View Comments
                 //- p(class="comments")=post.comments
             .replyDiv
@@ -33,6 +33,6 @@
                     .editDiv
                         a(href=`/posts/${post.id}/edit` class='button') Edit
     .commentsDiv
-        div(class='commentList')
+        div(class=`commentList${post.id}` class="commentListHidden")
 
         include comments.pug
