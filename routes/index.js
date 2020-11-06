@@ -19,14 +19,15 @@ router.get('/', restoreUser, asyncHandler( async function(req, res, next) {
       //posts.Users.length shows how many upvotes
     return post
   });
+
   res.render('index', { title: 'Farm Feed!!!', user, posts});
 }));
 
 /**********Search Bar*********/
-router.get('/:search(\\w+)', restoreUser, asyncHandler(async (req, res) => {
-  const user = res.locals.user;
-  const searchRes = req.params.searchRes
-  res.redirect('/');
-}))
+// router.get('/:search(\\w+)', restoreUser, asyncHandler(async (req, res) => {
+//   const user = res.locals.user;
+//   const searchRes = req.params.searchRes
+//   res.redirect('/');
+// }))
 
 module.exports = router;
