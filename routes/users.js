@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors, handleUserValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { User } = require("../db/models");
+const { User, Post, Upvote } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const { check, validationResult } = require("express-validator");
@@ -236,15 +236,15 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
     if (!password) {
       await user.update({ name, city, email, bio })
     } else {
-    const hashedPassword = await bcrypt.hash(password, 12)
-    await user.update({
-      name,
-      city,
-      email,
-      bio,
-      hashedPassword,
-    })
-  }
+      const hashedPassword = await bcrypt.hash(password, 12)
+      await user.update({
+        name,
+        city,
+        email,
+        bio,
+        hashedPassword,
+      })
+    }
     await user.save();
     res.redirect('/');
   }))
@@ -252,7 +252,21 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
 /*********Render Profile Page**********/
 router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  res.render('profile', { user });
+  const upvotes = await Upvote.count({
+    where: {
+      postId
+    }
+  })
+  const posts = await Post.findAll({ where: {
+    userId: user.id
+  },
+  include: User, limit: 10, order: [["createdAt", 'DESC']] })
+  posts.map(post => {
+    let announcements = post.announcements.split("\n")
+    post.announcements = announcements
+    return post
+  });
+  res.render('profile', { user, posts });
 }))
 
 module.exports = router;

@@ -22,10 +22,8 @@ window.addEventListener('DOMContentLoaded', () => {
     //         document.querySelector('.error-container').classList.add('hidden');
     //     });
 
-    console.log("hey")
 
     const commentSubmit = document.querySelectorAll('.commentSubmit');
-
     commentSubmit.forEach((comment) => {
         comment.addEventListener('click', async e => {
             e.preventDefault();
@@ -53,9 +51,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
                 const upvotes = await res.json();
                 upvoteDiv.innerHTML = upvotes.upvotes;
-                console.log(upvotes.upvotes)
-                
             })
+        })
+
+        document.getElementById('your-activity')
+        .addEventListener('click', async e => {
+            const yourActivity = document.querySelector('.your-activity-container');
+            if(!yourActivity.style.display) {
+                yourActivity.style.display = 'none';
+            } else {
+                yourActivity.style.display = ''
+            }
         })
 
 })

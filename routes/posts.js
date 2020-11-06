@@ -101,13 +101,11 @@ router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
     userId: user.id,
     postId
   })
-  
   const upvotes = await Upvote.count({
     where: {
       postId
     }
   })
-
   return res.json({ upvotes })
 }))
 
