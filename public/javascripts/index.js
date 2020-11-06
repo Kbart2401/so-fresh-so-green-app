@@ -28,6 +28,8 @@ window.addEventListener('DOMContentLoaded', () => {
     commentSubmit.forEach((comment) => {
         comment.addEventListener('click', async e => {
             e.preventDefault();
+            const commentList = document.querySelector('.commentList');
+            commentList.innerHTML=""
             const formField = document.getElementById(`comment${e.target.value}`)
             const res = await fetch(`/posts/${e.target.value}/comments`, {
                 method: "POST",
@@ -38,7 +40,6 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             const comments = await res.json()
             console.log("comments", comments);
-            const commentList = document.querySelector('.commentList');
             comments.comments.forEach((comment) => {
                 let commentListItem = document.createElement('li');
                 commentListItem.innerHTML = comment.content;
@@ -78,10 +79,18 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.viewCommentsButton')
     .forEach((button => {
         button.addEventListener("click", async (e) => {
-            const res = await fetch(`/posts/${postId}/comments`)
+            const commentList = document.querySelector('.commentList');
+            commentList.innerHTML=""
+            const res = await fetch(`/posts/${e.target.value}/comments`)
             const comments = await res.json();
+
+            console.log("comments", comments);
+            comments.comments.forEach((comment) => {
+                let commentListItem = document.createElement('li');
+                commentListItem.innerHTML = comment.content;
+                commentList.appendChild(commentListItem);
+            })
             
-            //do something with the comments
         })
     }))
     
