@@ -1,7 +1,6 @@
 .cardWithComments {
   display: flex;
   flex-direction: column;
-  background-color: pink;
   align-items: center;
 }
 
@@ -25,19 +24,19 @@
 
 .commentsDiv {
   width: 400px;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* border: 3px solid  #368A42; */
 }
 
-.oldComments {
+/* .oldComments {
   background-color: blue;
   display: flex;
   flex-direction: column;
   justify-content:  center;
-}
+} */
 
 .farmFeed {
   display: flex;
@@ -259,17 +258,41 @@ span {
   padding-top: 7px;
 }
 
-.comment {
+.commentForm {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  border: 1px solid black
+  justify-content: space-between;
+}
+
+.commentSubmit {
+  width: 40px;
+  background-color: #368A42;
 }
 
 .deleteButton {
   display: flex;
   background-color: blue;
   margin-left: 40px;
+}
+
+.newComment {
+  height: 30px;
+  width: 360px;
+  border-left: 3px solid  #368A42;
+  border-right: 3px solid  #368A42;
+  border-bottom: 3px solid  #368A42;
+  border-top: 1.5px solid #ffc200;
+  /* border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%; */
+}
+
+.commentBox {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  border-left: 3px solid  #368A42;
+  border-right: 3px solid  #368A42;
+  border-bottom: 3px solid  #368A42;
+  border-top: 1.5px solid #ffc200;
 }
 
 /* a.button {
