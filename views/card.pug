@@ -8,7 +8,7 @@
                     .info
                         h5(class="name")= src=post.User.name
                         h6.city= post.User.city
-                    button.upvoteDiv(value=post.id)
+                    button.upvoteDiv(value=post.id)= post.Users.length
                         //- span(class='voteSpan') ▴
                         //- p.upvote 1234
                         //- p(class='upvotes')= post.upvotes
@@ -22,7 +22,7 @@
             p(class='description')= post.content
             p(class="email")= post.User.email
         .footer
-            button.bubbleDiv(class='viewCommentsButton') 💬 123
+            button.bubbleDiv(class='viewCommentsButton' value=post.id) 💬 123
                 //- button(class='viewCommentsButton') View Comments
                 //- p(class="comments")=post.comments
             .replyDiv

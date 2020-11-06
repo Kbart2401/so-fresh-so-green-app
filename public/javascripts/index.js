@@ -22,15 +22,16 @@ window.addEventListener('DOMContentLoaded', () => {
     //         document.querySelector('.error-container').classList.add('hidden');
     //     });
 
-    console.log("hey")
 
     const commentSubmit = document.querySelectorAll('.commentSubmit');
-
+        //create comment and fetch comments
     commentSubmit.forEach((comment) => {
         comment.addEventListener('click', async e => {
             e.preventDefault();
+            const commentList = document.querySelector('.commentList');
+            commentList.innerHTML=""
             const formField = document.getElementById(`comment${e.target.value}`)
-            const res = await fetch(`/posts/${e.target.value}/comment`, {
+            const res = await fetch(`/posts/${e.target.value}/comments`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -39,7 +40,6 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             const comments = await res.json()
             console.log("comments", comments);
-            const commentList = document.querySelector('.commentList');
             comments.comments.forEach((comment) => {
                 let commentListItem = document.createElement('li');
                 commentListItem.innerHTML = comment.content;
@@ -47,6 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         })
     })
+    
 
     document.querySelectorAll('.upvoteDiv')
         .forEach((upvoteDiv) => {
@@ -63,5 +64,54 @@ window.addEventListener('DOMContentLoaded', () => {
 
             })
         })
+        //delete a comment
+    document.querySelectorAll('.deleteCommentButton')
+    .forEach((button => {
+        button.addEventListener("click", async (e) => {
+            const res = await fetch(`/comments/${commentId}`, {
+                method: "DELETE"
+            })
+            await res.json();
+        })
+    }))
 
+    //fetch comments
+    document.querySelectorAll('.viewCommentsButton')
+    .forEach((button => {
+        button.addEventListener("click", async (e) => {
+            const commentList = document.querySelector('.commentList');
+            commentList.innerHTML=""
+            const res = await fetch(`/posts/${e.target.value}/comments`)
+            const comments = await res.json();
+
+            console.log("comments", comments);
+            comments.comments.forEach((comment) => {
+                let commentListItem = document.createElement('li');
+                commentListItem.innerHTML = comment.content;
+                commentList.appendChild(commentListItem);
+            })
+            
+        })
+    }))
+    
+    //delete an upvote and fetch upvote total
+    document.querySelectorAll('.downvoteDiv')
+        .forEach((downvoteDiv) => {
+            downvoteDiv.addEventListener('click', async (e) => {
+                const res = await fetch(`/posts/${e.target.value}/downvote`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: {
+                        //need to send upvote id along somehow
+                    }
+                })
+                const upvotes = await res.json();
+                downvoteDiv.innerHTML = upvotes.upvotes;
+                console.log(upvotes.upvotes)
+                
+            })
+        })
 })
+        
