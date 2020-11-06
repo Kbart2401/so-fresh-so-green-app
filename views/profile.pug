@@ -1,4 +1,6 @@
 extends layout.pug
+append head
+  script(src="/javascripts/profile-page.js" type="module" defer)
 
 block content
   .page-container
@@ -11,12 +13,13 @@ block content
         p #{user.bio}
     .profile-options-container
       .profile-options-links
-        span#your-activity YOUR ACTIVITY
-        span#others-activity &nbsp; OTHERS ACTIVITY
+        span#your-activity ACTIVITY
+        span#your-posts &nbsp; YOUR POSTS
 
     .your-activity-container
+      
+    .your-posts-container
       each post in posts
         include card.pug
-
 
   

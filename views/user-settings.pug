@@ -1,4 +1,7 @@
 extends layout.pug
+
+append head 
+    script(src="/javascripts/errors.js" type="module" defer)
 include utils.pug
 block content
     if errors 

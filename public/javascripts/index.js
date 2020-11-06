@@ -17,12 +17,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
 
-    // document.getElementById('exit')
-    //     .addEventListener('click', e => {
-    //         document.querySelector('.error-container').classList.add('hidden');
-    //     });
-
-
     const commentSubmit = document.querySelectorAll('.commentSubmit');
     //create comment and fetch comments
     commentSubmit.forEach((comment) => {
@@ -50,17 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    // document.getElementById('your-activity')
-    //     .addEventListener('click', async e => {
-    //         const yourActivity = document.querySelector('.your-activity-container');
-    //         if (!yourActivity.style.display) {
-    //             yourActivity.style.display = 'none';
-    //         } else {
-    //             yourActivity.style.display = ''
-    //         }
-    //     })
-
-
+  
     document.querySelectorAll('.upvoteDiv')
         .forEach((upvoteDiv) => {
             upvoteDiv.addEventListener('click', async (e) => {

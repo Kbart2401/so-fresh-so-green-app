@@ -252,11 +252,6 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
 /*********Render Profile Page**********/
 router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  // const upvotes = await Upvote.count({
-  //   where: {
-  //     postId
-  //   }
-  // })
   const posts = await Post.findAll({
     where: {
       userId: user.id
@@ -268,6 +263,11 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     post.announcements = announcements
     return post
   });
+  // const upvotes = await Upvote.count({
+  //   where: {
+  //     postId
+  //   }
+  // })
   res.render('profile', { user, posts });
 }))
 

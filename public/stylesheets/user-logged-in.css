@@ -10,6 +10,10 @@
   border: 2px solid white;
 }
 
+.welcomeDiv:hover {
+  cursor: pointer;
+}
+
 .welcome-sign {
   width: 100px;
 }
@@ -50,3 +54,4 @@ border-radius: 7%;
 #error-container.hidden {
   display: none;
 }
+
