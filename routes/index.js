@@ -79,4 +79,11 @@ router.get('/', restoreUser, asyncHandler( async function(req, res, next) {
   res.render('index', { title: 'Farm Feed!!!', user, posts});
 }));
 
+/**********Search Bar*********/
+router.get('/:search(\\w+)', restoreUser, asyncHandler(async (req, res) => {
+  const user = res.locals.user;
+  const searchRes = req.params.searchRes
+  res.redirect('/');
+}))
+
 module.exports = router;

@@ -22,9 +22,9 @@ html
           div(class="logo")
         div(class="wrap")
           div(class="search")
-            //- form(method="POST" action="/")
-            input(type="text" class="searchTerm" placeholder="Looking for Something?")
-            button(type="submit" class="searchButton")
+            form(method="POST" action="/search/something")
+              input(name="searchRes" type="text" class="searchTerm" placeholder="Looking for Something?")
+              button(type="submit" class="searchButton")
               i(class="fa fa-search")
         div(class="categoryfam")
             a(href="/locals" class="category") Local
