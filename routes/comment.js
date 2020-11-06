@@ -9,14 +9,13 @@ const { restoreUser } = require("../auth");
 //   res.send('jojoj');
 // })
 router.delete('/:id', restoreUser, asyncHandler(async (req, res) => {
-  const postId = parseInt(req.params.id, 10);
-  // console.log('....................delete route hit')
-  console.log(postId)
-  const comment = await Comment.findByPk(postId)
+  const commentId = parseInt(req.params.id, 10);
+  const comment = await Comment.findByPk(commentId)
 
+  const postId = comment.postId
   await comment.destroy();
 
-  return res.json({})
+  return res.json({ postId })
 
 }))
 
