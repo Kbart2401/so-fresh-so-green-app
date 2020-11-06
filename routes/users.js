@@ -262,8 +262,13 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
   posts.map(post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
+    post.upVoteCount = post.Users.length;
     return post
+  }).sort((a, b) => {
+    return b.upVoteCount - a.upVoteCount;
   });
+  
+
   // let upvotes;
   // posts.forEach(async post => {
   //   upvotes = await Upvote.count({
