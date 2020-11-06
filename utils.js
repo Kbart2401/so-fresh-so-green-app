@@ -10,7 +10,7 @@ const handleValidationErrors = (req, res, next) => {
     err.errors = errors;
     err.status = 400;
     err.title = 'Bad request';
-    res.render('create-user', {
+    return res.render('create-user', {
       title: 'Create User',
       errors,
       name: req.body.name,

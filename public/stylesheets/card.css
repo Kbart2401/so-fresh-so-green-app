@@ -274,6 +274,9 @@ span {
   margin-left: 40px;
 }
 
+.commentListHidden {
+  display: none;
+}
 .newComment {
   height: 30px;
   width: 360px;
