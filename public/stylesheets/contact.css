@@ -7,6 +7,9 @@ html {
   box-sizing: border-box;
 }
 
+.linkz {
+  padding: 8px;
+}
 *,
 *:before,
 *:after {
@@ -15,20 +18,21 @@ html {
 
 .column {
   float: left;
-  width: 33.3%;
+  width: 25%;
   margin-bottom: 16px;
   padding: 0 8px;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
+  margin: 10px;
   background-color: #368a42;
+  width: 90%;
 }
 
 .container {
   padding: 0 16px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .container::after,
@@ -40,18 +44,32 @@ html {
 
 .title {
   color: #ffc200;
+  padding: 10px;
 }
 
 .button {
-  border: none;
-  outline: 0;
+  background-image: url("github.png");
+  background-size: 100% 100%;
   display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #ffc200;
-  text-align: center;
+  height: 120px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 50%;
+
   cursor: pointer;
-  width: 100%;
+  width: 50%;
+}
+
+.buttonb {
+  background-image: url("inkedin.png");
+  background-size: 110% 100%;
+  background-position: -7px;
+  display: inline-block;
+  height: 120px;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50%;
 }
 
 .button:hover {

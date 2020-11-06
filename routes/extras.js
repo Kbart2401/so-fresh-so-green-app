@@ -16,4 +16,5 @@ routes.get("/contact", restoreUser, (req, res) => {
   const user = res.locals.user;
   res.render("contact", { user });
 });
+
 module.exports = routes;
