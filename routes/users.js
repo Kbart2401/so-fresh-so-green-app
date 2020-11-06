@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors, handleUserValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { User, Post, Upvote } = require("../db/models");
+const { User, Post, Upvote, Sequelize } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const { check, validationResult } = require("express-validator");
 const { logInUser, logoutUser } = require("../auth");
+const Op = Sequelize.Op;
 
 // const { db } = require("../config");
 /* GET users listing. */
@@ -256,19 +257,35 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     where: {
       userId: user.id
     },
-    include: [User, "Users"], limit: 10, order: [["createdAt", 'DESC']]
+    include: [User, "Users"], limit: 10, order: [["userId", 'DESC']]
   })
   posts.map(post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
     return post
   });
-  // const upvotes = await Upvote.count({
-  //   where: {
-  //     postId
-  //   }
+  // let upvotes;
+  // posts.forEach(async post => {
+  //   upvotes = await Upvote.count({
+  //     where: {
+  //       postId:post.id
+  //     }
+  //   })
   // })
-  res.render('profile', { user, posts });
+  const othersPosts = await Post.findAll({
+    where: {
+      userId: {
+        [Op.ne]: user.id}
+    },
+    include: [User, "Users"], limit: 10, order: [["userId", 'DESC']]
+  })
+  othersPosts.map(othersPost => {
+    let announcements = othersPost.announcements.split("\n")
+    othersPosts.announcements = announcements
+    return othersPost
+  });
+  
+  res.render('profile', { user, posts, othersPosts });
 }))
 
 module.exports = router;

@@ -16,10 +16,12 @@ block content
         span#your-activity ACTIVITY
         span#your-posts &nbsp; YOUR POSTS
 
-    .your-activity-container
-      
-    .your-posts-container
+    .your-activity-container(style="display:none;")
+      //- -const posts = otherPosts
       each post in posts
+        include card.pug
+    .your-posts-container(style="display:none;")
+      each post in otherPosts
         include card.pug
 
   
