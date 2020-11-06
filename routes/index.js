@@ -68,10 +68,11 @@ router.get('/', restoreUser, asyncHandler( async function(req, res, next) {
   if (res.locals.authenticated) {
     user = await User.findByPk(req.session.auth.userId)
   }
-  const posts = await Post.findAll({include: User, limit: 10, order: [["createdAt", 'DESC']] })
+  const posts = await Post.findAll({include: [User, "Users"], limit: 10, order: [["createdAt", 'DESC']] })
   posts.map( post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
+      //posts.Users.length shows how many upvotes
     return post
   });
   // console.log("posts", posts)

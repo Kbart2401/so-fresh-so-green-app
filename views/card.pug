@@ -7,7 +7,7 @@
                 .info
                     h5(class="name")= src=post.User.name
                     h6.city= post.User.city
-                button.upvoteDiv(value=post.id)
+                button.upvoteDiv(value=post.id)= post.Users.length
                     //- span(class='voteSpan') ▴
                     //- p.upvote 1234
                     //- p(class='upvotes')= post.upvotes

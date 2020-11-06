@@ -81,7 +81,7 @@ router.get("/:id/delete", restoreUser, asyncHandler(async (req, res) => {
 
 }))
 
-router.post('/:id/comment', restoreUser, asyncHandler(async (req, res) => {
+router.post('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
   const { content } = req.body;
   const postId = parseInt(req.params.id, 10);
   if (content !== '') {
@@ -93,23 +93,55 @@ router.post('/:id/comment', restoreUser, asyncHandler(async (req, res) => {
   return res.json({ comments });
 }))
 
+
+//fetch comments
+router.get('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
+  const postId = parseInt(req.params.id, 10);
+  const comments = await Comment.findAll({ where: { postId } })
+  console.log(comments)
+  return res.json({ comments });
+}))
+
+
+
 router.patch('/:id/upvote', restoreUser, asyncHandler(async (req, res) => {
   const user = res.locals.user;
   const postId = parseInt(req.params.id, 10);
-  console.log('POST ID', postId)
   await Upvote.create({
     userId: user.id,
     postId
   })
+  const upvotes = await Upvote.count({
+  where: {
+    postId
+  }
+})
   
+  return res.json({ upvotes })
+}))
+
+
+router.delete('/:id/downvote', restoreUser, asyncHandler(async (req, res) => {
+  const user = res.locals.user;
+  const postId = parseInt(req.params.id, 10);
+  
+  //need to get Upvote Id!
+  await Upvote.destroy({
+    where: {
+      postId,
+      userId: user.id
+    }
+  })
   const upvotes = await Upvote.count({
     where: {
-      postId
+      postId,
     }
   })
 
   return res.json({ upvotes })
 }))
+
+
 
 
 module.exports = router;
