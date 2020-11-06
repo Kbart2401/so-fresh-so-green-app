@@ -47,7 +47,7 @@ html {
   padding: 10px;
 }
 
-.button {
+.gitbutton {
   background-image: url("github.png");
   background-size: 100% 100%;
   display: inline-block;
@@ -55,7 +55,6 @@ html {
   padding: 10px;
   align-items: center;
   border-radius: 50%;
-
   cursor: pointer;
   width: 50%;
 }
