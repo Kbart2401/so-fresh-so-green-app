@@ -11,7 +11,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const extrasRouter = require("./routes/extras");
 const postsRouter = require("./routes/posts");
-const commentsRouter = require("./routes/posts");
+const commentsRouter = require("./routes/comment");
 
 const app = express();
 
