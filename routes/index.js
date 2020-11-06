@@ -32,15 +32,5 @@ router.get(
   })
 );
 
-/**********Search Bar*********/
-// router.get(
-//   "/:search(\\w+)",
-//   restoreUser,
-//   asyncHandler(async (req, res) => {
-//     const user = res.locals.user;
-//     const searchRes = req.params.searchRes;
-//     res.redirect("/");
-//   })
-// );
 
 module.exports = router;

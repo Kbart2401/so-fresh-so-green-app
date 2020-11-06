@@ -37,6 +37,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
                 const comments = await res.json();
                 const userId = comments.userId;
+                const number = document.getElementById(`viewComments${postId}`)
+                formField.value = ""
+                number.innerHTML = comments.comments.length
+
 
                     commentList.innerHTML = ""
                     comments.comments.forEach((comment) => {
@@ -98,7 +102,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
                 const postId = await res.json();
                 const commentFetch = await fetch(`/posts/${postId.postId}/comments`)
-                    const comments = await commentFetch.json();
+                const comments = await commentFetch.json();
+
+                const number = document.getElementById(`viewComments${postId.postId}`)
+                number.innerHTML = comments.comments.length
+                
 
                     const userId = comments.userId;
                     const commentList = document.querySelector(`.commentList${postId.postId}`);
