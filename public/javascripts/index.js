@@ -30,8 +30,9 @@ window.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const postId = e.target.value.split('t')[1];
             const commentList = document.querySelector(`.commentList${postId}`);
-            if(commentList.classList.contains("commentListHidden")) {
-                commentList.classList.remove("commentListHidden")
+            console.log('send it!')
+            // if(commentList.classList.contains("commentListHidden")) {
+            //     commentList.classList.remove("commentListHidden")
                 const formField = document.getElementById(`comment${postId}`)
                 const res = await fetch(`/posts/${postId}/comments`, {
                     method: "POST",
@@ -60,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         }
                     })
 
-            }
+            // }
 
         })
     })
@@ -97,7 +98,13 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.commentsDiv')
         .forEach((button => {
             button.addEventListener("click", async (e) => {
+                console.log(e.target.value)
+                if(e.target.classList.contains("newComment")) {
+                    console.log("comment")
+                    return
+                }
                 if (!e.target.value || e.target.value.startsWith('post')) {
+                    console.log("hey there")
                     return
                 }
                 const res = await fetch(`/comments/${e.target.value}`, {
