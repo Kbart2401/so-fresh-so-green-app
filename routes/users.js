@@ -257,26 +257,15 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     where: {
       userId: user.id
     },
-    include: [User, "Users"], limit: 10, order: [["userId", 'DESC']]
+    include: [User, "Users"], limit: 10, order: [["userId", 'ASC']]
   })
   posts.map(post => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
     post.upVoteCount = post.Users.length;
     return post
-  }).sort((a, b) => {
-    return b.upVoteCount - a.upVoteCount;
-  });
+  }).sort((a, b) => b.upVoteCount - a.upVoteCount);
   
-
-  // let upvotes;
-  // posts.forEach(async post => {
-  //   upvotes = await Upvote.count({
-  //     where: {
-  //       postId:post.id
-  //     }
-  //   })
-  // })
   const othersPosts = await Post.findAll({
     where: {
       userId: {
