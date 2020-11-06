@@ -272,6 +272,10 @@ span {
   margin-left: 40px;
 }
 
+.commentListHidden {
+  display: none;
+}
+
 /* a.button {
   height: 45px;
   width: 45px;

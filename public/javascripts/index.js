@@ -28,25 +28,29 @@ window.addEventListener('DOMContentLoaded', () => {
     commentSubmit.forEach((comment) => {
         comment.addEventListener('click', async e => {
             e.preventDefault();
-            const commentLists = document.querySelectorAll('.commentList');
-            const formField = document.getElementById(`comment${e.target.value}`)
-            const res = await fetch(`/posts/${e.target.value}/comments`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ content: formField.value })
-            })
-            const comments = await res.json()
-            commentLists.forEach(commentList => {
-                commentList.innerHTML = ""
-                comments.comments.forEach((comment) => {
-                    let commentListItem = document.createElement('li');
-                    commentListItem.innerHTML = comment.content;
-                    commentList.appendChild(commentListItem);
-
+            const commentList = document.querySelector(`.commentList${e.target.value}`);
+            if(commentList.classList.contains("commentListHidden")) {
+                commentList.classList.remove("commentListHidden")
+                const formField = document.getElementById(`comment${e.target.value}`)
+                const res = await fetch(`/posts/${e.target.value}/comments`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ content: formField.value })
                 })
-            })
+                const comments = await res.json()
+    
+                    commentList.innerHTML = ""
+                    comments.comments.forEach((comment) => {
+                        let commentListItem = document.createElement('li');
+                        commentListItem.innerHTML = comment.content;
+                        commentList.appendChild(commentListItem);
+    
+                    })
+
+            }
+            
         })
     })
 
@@ -63,16 +67,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.upvoteDiv')
         .forEach((upvoteDiv) => {
-            upvoteDiv.addEventListener('click', async (e) => {
-                const res = await fetch(`/posts/${e.target.value}/upvote`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+            if(!upvoteDiv.classList.contains("downvoteDiv")){
+                upvoteDiv.addEventListener('click', async (e) => {
+                    const res = await fetch(`/posts/${e.target.value}/upvote`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    const upvotes = await res.json();
+                    upvoteDiv.innerHTML = upvotes.upvotes;
+                    // upvoteDiv.classList.remove("upvoteDiv")
+                    upvoteDiv.classList.add("downvoteDiv")
+                    console.log("hits upvote div")
                 })
-                const upvotes = await res.json();
-                upvoteDiv.innerHTML = upvotes.upvotes;
-            })
+
+            }
         })
     //delete a comment
     document.querySelectorAll('.deleteCommentButton')
@@ -89,40 +99,49 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.viewCommentsButton')
         .forEach((button => {
             button.addEventListener("click", async (e) => {
-                const commentLists = document.querySelectorAll('.commentList');
-                const res = await fetch(`/posts/${e.target.value}/comments`)
-                const comments = await res.json();
+                const commentList = document.querySelector(`.commentList${e.target.value}`);
+                if(commentList.classList.contains("commentListHidden")) {
+                    commentList.classList.remove("commentListHidden")
+                    const res = await fetch(`/posts/${e.target.value}/comments`)
+                    const comments = await res.json();
+    
+                        commentList.innerHTML = ""
+                        comments.comments.forEach((comment) => {
+                            let commentListItem = document.createElement('li');
+                            commentListItem.innerHTML = comment.content;
+                            commentList.appendChild(commentListItem);
+    
+                        })
 
-                commentLists.forEach(commentList => {
-                    commentList.innerHTML = ""
-                    comments.comments.forEach((comment) => {
-                        let commentListItem = document.createElement('li');
-                        commentListItem.innerHTML = comment.content;
-                        commentList.appendChild(commentListItem);
-
-                    })
-                })
+                } else {
+                    commentList.classList.add("commentListHidden")
+                }
+                
 
             })
         }))
 
     //delete an upvote and fetch upvote total
-    document.querySelectorAll('.downvoteDiv')
-        .forEach((downvoteDiv) => {
-            downvoteDiv.addEventListener('click', async (e) => {
-                const res = await fetch(`/posts/${e.target.value}/downvote`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: {
-                        //need to send upvote id along somehow
-                    }
+    document.querySelectorAll('.upvoteDiv')
+        .forEach((upvoteDiv) => {
+            console.log("hits downvote div")
+            if(upvoteDiv.classList.contains("downvoteDiv")) {
+                upvoteDiv.addEventListener('click', async (e) => {
+                    const res = await fetch(`/posts/${e.target.value}/downvote`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: {
+                            //need to send upvote id along somehow
+                        }
+                    })
+                    const upvotes = await res.json();
+                    upvoteDiv.innerHTML = upvotes.upvotes;
+                    console.log(upvotes.upvotes)
+                    upvoteDiv.classList.remove("downvoteDiv")
+    
                 })
-                const upvotes = await res.json();
-                downvoteDiv.innerHTML = upvotes.upvotes;
-                console.log(upvotes.upvotes)
-
-            })
+            }
         })
 })
