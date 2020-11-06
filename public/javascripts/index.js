@@ -43,7 +43,8 @@ window.addEventListener('DOMContentLoaded', () => {
     
                     commentList.innerHTML = ""
                     comments.comments.forEach((comment) => {
-                        let commentListItem = document.createElement('li');
+                        let commentListItem = document.createElement('div');
+                        commentListItem.setAttribute('class', 'commentBox')
                         commentListItem.innerHTML = comment.content;
                         commentList.appendChild(commentListItem);
     
@@ -77,9 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     })
                     const upvotes = await res.json();
                     upvoteDiv.innerHTML = upvotes.upvotes;
-                    // upvoteDiv.classList.remove("upvoteDiv")
                     upvoteDiv.classList.add("downvoteDiv")
-                    console.log("hits upvote div")
                 })
 
             }
@@ -107,7 +106,8 @@ window.addEventListener('DOMContentLoaded', () => {
     
                         commentList.innerHTML = ""
                         comments.comments.forEach((comment) => {
-                            let commentListItem = document.createElement('li');
+                            let commentListItem = document.createElement('div');
+                            commentListItem.setAttribute('class', 'commentBox')
                             commentListItem.innerHTML = comment.content;
                             commentList.appendChild(commentListItem);
     
@@ -124,24 +124,23 @@ window.addEventListener('DOMContentLoaded', () => {
     //delete an upvote and fetch upvote total
     document.querySelectorAll('.upvoteDiv')
         .forEach((upvoteDiv) => {
-            console.log("hits downvote div")
-            if(upvoteDiv.classList.contains("downvoteDiv")) {
-                upvoteDiv.addEventListener('click', async (e) => {
+            // console.log(upvoteDiv.classList.contains("downvoteDiv"))
+            upvoteDiv.addEventListener('click', async (e) => {
+                if(upvoteDiv.classList.contains("downvoteDiv")) {
                     const res = await fetch(`/posts/${e.target.value}/downvote`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: {
-                            //need to send upvote id along somehow
-                        }
+                        // body: {
+                        //     //need to send upvote id along somehow
+                        // }
                     })
                     const upvotes = await res.json();
                     upvoteDiv.innerHTML = upvotes.upvotes;
-                    console.log(upvotes.upvotes)
                     upvoteDiv.classList.remove("downvoteDiv")
+                }
     
                 })
-            }
         })
 })

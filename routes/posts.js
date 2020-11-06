@@ -76,6 +76,9 @@ router.get("/:id/delete", restoreUser, asyncHandler(async (req, res) => {
     return res.redirect("/")
   }
 
+  await Comment.destroy({where: {postId}})
+  await Upvote.destroy({where: {postId}})
+
   await post.destroy();
   res.redirect("/")
 
@@ -144,7 +147,6 @@ router.delete('/:id/downvote', restoreUser, asyncHandler(async (req, res) => {
       postId
     }
   })
-  console.log("upvote deleted")
   return res.json({ upvotes })
 }))
 

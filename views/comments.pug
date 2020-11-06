@@ -1,5 +1,4 @@
-form(action=`/posts/${post.id}/comment` method="post")
-    h1 comments
-    textarea(id=`comment${post.id}` name="content", cols="30", rows="10" placeholder='Comment')
-    button.button(class="commentSubmit" type="submit" value=post.id) Send
+form(class= "commentForm" action=`/posts/${post.id}/comment` method="post")
+    textarea(class="newComment" id=`comment${post.id}` name="content", cols="30", rows="10" placeholder='Comment')
+    button(class="commentSubmit" type="submit" value=post.id) Send
     

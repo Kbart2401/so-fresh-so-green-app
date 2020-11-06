@@ -33,6 +33,6 @@
                     .editDiv
                         a(href=`/posts/${post.id}/edit` class='button') Edit
     .commentsDiv
-        ul(class=`commentList${post.id}` class="commentListHidden")
+        div(class=`commentList${post.id}` class="commentListHidden")
 
         include comments.pug
