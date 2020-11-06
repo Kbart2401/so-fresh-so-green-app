@@ -26,17 +26,16 @@ html
             input(type="text" class="searchTerm" placeholder="Looking for Something?")
             button(type="submit" class="searchButton")
               i(class="fa fa-search")
-        div(class="categoryfam")
-            a(href="/locals" class="category") Local
-            a(href="/topics" class="category") Topics
-            a(href="/markets" class="category") Markets
-            a(href="/farmers" class="category") Farmers
         div(class="dropdown")
-            button(class="dropbtn") ...
+            button(class="dropbtn")
             div(class="dropdown-content")
-                a(href="#") whatever
-                a(href="#") we
-                a(href="#") want :)
+                a(href="/locals" class="category") Local
+                a(href="/topics" class="category") Topics
+                a(href="/markets" class="category") Markets
+                a(href="/farmers" class="category") Farmers
+                a(href="/faq" class="category") FAQ
+                a(href="/about" class="category") About Us
+                a(href="/contact" class="category") Contact
         div(class="navbuttonfam")
           if !user
             div(class="loginButtons")

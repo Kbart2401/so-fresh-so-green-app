@@ -1,9 +1,12 @@
 .dropbtn {
+  background-image: url("burger.png");
   background-color: #368a42;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+  height: 45px;
+  width: 45px;
 }
 
 .dropdown {
@@ -30,8 +33,7 @@
 
 .dropdown-content a:hover {
   background-color: #ffc200;
-    border-radius: 10px;
-
+  border-radius: 10px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -39,6 +41,5 @@
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #ffc200;
   border-radius: 5px;
 }
