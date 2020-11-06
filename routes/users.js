@@ -264,20 +264,23 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     post.announcements = announcements
     post.upVoteCount = post.Users.length;
     return post
-  }).sort((a, b) => b.upVoteCount - a.upVoteCount);
+  })
+  posts.sort((a, b) => b.upVoteCount - a.upVoteCount);
   
   const othersPosts = await Post.findAll({
     where: {
       userId: {
         [Op.ne]: user.id}
     },
-    include: [User, "Users"], limit: 10, order: [["userId", 'DESC']]
+    include: [User, "Users"], limit: 10, order: [["userId", 'ASC']]
   })
   othersPosts.map(othersPost => {
     let announcements = othersPost.announcements.split("\n")
-    othersPosts.announcements = announcements
+    othersPost.announcements = announcements
+    othersPosts.upVoteCount = othersPost.Users.length
     return othersPost
   });
+  othersPosts.sort((a,b) => b.upVoteCount - a.upVoteCount);
   
   res.render('profile', { user, posts, othersPosts });
 }))
