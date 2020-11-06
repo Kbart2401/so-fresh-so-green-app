@@ -11,35 +11,23 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* .logo {
-  background-image: url(./sfsg.png);
-  background-size: 100% 100%;
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
-  margin-left: 30px;
-} */
-
 .title {
   color: #ffc200;
 }
 
 .createButton {
-    background-color: #ffc200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    font-size: 15px;
-    text-decoration: none;
-    font-family: "Work Sans",
-    Arial,
-    Helvetica,
-    sans-serif;
-    width: 75px;
-    margin: 5px;
+  background-color: #ffc200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  width: 75px;
+  margin: 5px;
 }
 
 .navbuttonfam {
@@ -102,10 +90,7 @@
   font-size: 15px;
   padding: 8px 12px;
   text-decoration: none;
-  font-family: "Work Sans",
-  Arial,
-  Helvetica,
-  sans-serif;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
   width: 145px;
   text-align: center;
 }
@@ -118,25 +103,6 @@
   background-color: #ffc200;
   border-radius: 5px;
 }
-/* .searchbar {
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  appearance: text-field;
-} */
-
-/* .searchinput {
-  cursor: text; */
-
-/* appearance: textfield; */
-/* } */
-
-/* .searchbutton {
-  height: 25px;
-  width: 25px;
-  background-image: url(./searchfavicon.png);
-  background-size: 100% 100%;
-} */
 
 .formlogin {
   margin-top: 5px;
