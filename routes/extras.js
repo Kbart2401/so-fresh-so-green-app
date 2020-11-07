@@ -2,9 +2,9 @@ const express = require("express");
 const routes = express.Router();
 const { restoreUser } = require("../auth");
 
-routes.get("/events", restoreUser, (req, res) => {
+routes.get("/localfarms", restoreUser, (req, res) => {
   const user = res.locals.user;
-  res.render("events", { user });
+  res.render("localfarms", { user });
 });
 
 routes.get("/faq", restoreUser, (req, res) => {
