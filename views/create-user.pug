@@ -12,7 +12,7 @@ block content
                         li= error
     div(class="form-container")
         div(class="form-title")= title
-        form(action="/users" method="POST" class="sign-up")
+        form(class="login" action="/users" method="POST" class="sign-up")
             input(type="hidden" name="_csrf" value=csrfToken)
             input(type="hidden" name="imageUrl" value="/images/farmer-avatar.jpg")
             +field("Name", "name", "text", name)

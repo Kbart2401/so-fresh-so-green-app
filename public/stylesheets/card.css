@@ -28,6 +28,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  color: #368A42;
   /* border: 3px solid  #368A42; */
 }
 
