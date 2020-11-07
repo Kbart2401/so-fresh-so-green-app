@@ -16,6 +16,8 @@
 
 .welcome-sign {
   width: 100px;
+  align-self: center;
+  color: white;
 }
 
 .nav-links {
