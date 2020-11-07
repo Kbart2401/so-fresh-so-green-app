@@ -225,7 +225,8 @@ router.get('/:id(\\d+)/settings',
       name: user.name,
       city: user.city,
       email: user.email,
-      bio: user.bio
+      bio: user.bio,
+      imageUrl: user.imageUrl
     })
   }))
 
@@ -233,7 +234,7 @@ router.get('/:id(\\d+)/settings',
 router.post('/:id(\\d+)', csrfProtection, validateUpdate,
   handleUserValidationErrors, asyncHandler(async (req, res) => {
     const user = await User.findByPk(req.params.id);
-    const { name, city, email, password, bio } = req.body;
+    const { name, city, email, password, bio, imageUrl} = req.body;
     if (!password) {
       await user.update({ name, city, email, bio })
     } else {
@@ -244,6 +245,7 @@ router.post('/:id(\\d+)', csrfProtection, validateUpdate,
         email,
         bio,
         hashedPassword,
+        imageUrl
       })
     }
     await user.save();

@@ -24,6 +24,9 @@ block content
             div(class="formlogin")
                 label(for="bio" class="label") Biography
                 textarea(class="formField" class="bioField" type="text" name="bio" id="bio" placeholder="Biography")= bio
+            select(name="imageUrl" class="theme-construction")
+                option(value="/images/farmer-avatar.jpg") Male Farmer
+                option(value="/images/farmer-avatar-female.jpg") Female Farmer
             div(class="formButtons" class="formlogin")
                 button(type="submit" class="button") Submit
                 a(href="/" class="button") Cancel
