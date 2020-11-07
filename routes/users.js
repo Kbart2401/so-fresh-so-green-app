@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler, handleValidationErrors, handleUserValidationErrors } = require("../utils");
 const bcrypt = require("bcryptjs");
-const { User, Post, Upvote, Sequelize } = require("../db/models");
+const { User, Post, Upvote, Comment, Sequelize } = require("../db/models");
 const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const { check, validationResult } = require("express-validator");
@@ -257,7 +257,7 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     where: {
       userId: user.id
     },
-    include: [User, "Users"], limit: 10, order: [["userId", 'ASC']]
+    include: [User, "Users", Comment], limit: 10, order: [["userId", 'ASC']]
   })
   posts.map(post => {
     let announcements = post.announcements.split("\n")
@@ -272,7 +272,7 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
       userId: {
         [Op.ne]: user.id}
     },
-    include: [User, "Users"], limit: 10, order: [["userId", 'ASC']]
+    include: [User, "Users", Comment], limit: 10, order: [["userId", 'ASC']]
   })
   othersPosts.map(othersPost => {
     let announcements = othersPost.announcements.split("\n")
