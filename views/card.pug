@@ -22,7 +22,7 @@
             p(class='description')= post.content
             p(class="email")= post.User.email
         .footer
-            button.bubbleDiv(class=`viewCommentsButton` value=post.id) 💬 12
+            button.bubbleDiv(class=`viewCommentsButton` id=`viewComments${post.id}` value=post.id) #{post.Comments.length}
                 //- button(class='viewCommentsButton') View Comments
                 //- p(class="comments")=post.comments
             .replyDiv
