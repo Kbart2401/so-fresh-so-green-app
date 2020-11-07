@@ -317,10 +317,11 @@ span {
   Helvetica,
   sans-serif;
 }
-
 .newComment:focus {
   outline: none;
 }
+
+
 .commentSubmit {
   background-color: #ffc200;
   color: #368A42;
@@ -333,9 +334,7 @@ span {
   width: 60px;
   border:unset;
 }
-.commentSubmit {
-  outline: none;
-}
+
 
 .deleteCommentButton {
     background-color: #ffc200;
@@ -359,4 +358,12 @@ span {
   sans-serif;
   font-weight: bold;
   font-size: 20px;
+}
+
+button:focus {
+  outline:none
+}
+
+input:focus {
+  outline: none;
 }
