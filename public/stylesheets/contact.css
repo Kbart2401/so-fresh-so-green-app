@@ -11,6 +11,7 @@ html {
 
 .linkz {
   padding: 8px;
+  font-size: 24px;
 }
 
 .yerr {
@@ -158,33 +159,34 @@ html {
   display: table;
 }
 
-.title {
+.homie {
   color: #ffc200;
   padding: 10px;
+  font-size: 30px;
 }
 
 .gitbutton {
   background-image: url("github.png");
   background-size: 100% 100%;
-  display: inline-block;
-  height: 120px;
+  display: flex;
+  height: 200px;
   padding: 10px;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
 }
 
 .buttonb {
   background-image: url("inkedin.png");
-  background-size: 110% 100%;
-  background-position: -7px;
-  display: inline-block;
-  height: 120px;
+  background-size: 110% 105%;
+  background-position: -16px;
+  display: flex;
+  height: 200px;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
 }
 
 .button:hover {
