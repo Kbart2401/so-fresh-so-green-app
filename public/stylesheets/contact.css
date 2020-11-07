@@ -190,7 +190,7 @@ html {
 }
 
 .button:hover {
-  background-color: rgb(247, 225, 29);
+  background-color: #ffc200;
 }
 
 @media screen and (max-width: 650px) {

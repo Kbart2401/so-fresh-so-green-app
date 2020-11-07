@@ -12,7 +12,7 @@
   width: 450px;
   border: 3px solid #368A42;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 3%;
+  border-radius: 10px;
   margin: 0 auto;
   padding-left: 10px;
   padding-right: 10px;
@@ -298,7 +298,65 @@ span {
   border-top: 1.5px solid #ffc200;
 }
 
-/* a.button {
-  height: 45px;
-  width: 45px;
-} */
+.newComment {
+  background-color: #368A42;
+  color: white;
+  resize: none;
+  width: 340px;
+  border-radius: 0px 0px 0px 10px;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  border-top: unset;
+}
+.newComment::placeholder {
+  color: #ffc200;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+}
+
+.newComment:focus {
+  outline: none;
+}
+.commentSubmit {
+  background-color: #ffc200;
+  color: #368A42;
+  border-radius: 0px 0px 10px 0px;
+  text-align: center;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  width: 60px;
+  border:unset;
+}
+.commentSubmit {
+  outline: none;
+}
+
+.deleteCommentButton {
+    background-color: #ffc200;
+    color: #368A42;
+    text-align: center;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    width: 57px;
+    height: 25px;
+    border:unset;
+}
+
+.viewCommentsButton {
+  background-color: #368A42;
+  color: white;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
