@@ -159,6 +159,11 @@ html {
   display: table;
 }
 
+.credits {
+  padding-left: 360px;
+  font-size: 32px;
+}
+
 .homie {
   color: #ffc200;
   padding: 10px;
