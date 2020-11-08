@@ -1,37 +1,38 @@
 .cardWithComments
     .fullCard
-        .header
+        .banner
+            h2(class="name")= src=post.User.name
+            h3.city= post.User.city
+        .upper
             .imageBox
                 img(class="cardImage" src=post.imageUrl)
-            .textBox
-                .top
-                    .info
-                        h5(class="name")= src=post.User.name
-                        h6.city= post.User.city
-                    button.upvoteDiv(value=post.id)= post.Users.length
-                        //- span(class='voteSpan') ▴
-                        //- p.upvote 1234
-                        //- p(class='upvotes')= post.upvotes
-                .announcementDiv
-                    each announcement in post.announcements
-                        .announcementDiv-announcements
-                            .announcements
-                                span ✵
-                                p(class="announcement")=  announcement
+            .announcementDiv
+                each announcement in post.announcements
+                    .announcementDiv-announcements
+                        .announcements
+                            span ✵
+                            p(class="announcement")=  announcement
+            button.upvoteDiv(value=post.id)= post.Users.length
+                //- span(class='voteSpan') ▴
+
+                //- p.upvote 1234
+                //- p(class='upvotes')= post.upvotes
         .descriptionDiv
             p(class='description')= post.content
+        .emailDiv
             p(class="email")= post.User.email
+            if user
+                if user.id === post.userId
+                    .editDiv
+                        a(href=`/posts/${post.id}/edit` class='editButton') edit
         .footer
             button.bubbleDiv(class=`viewCommentsButton` id=`viewComments${post.id}` value=post.id) #{post.Comments.length}
                 //- button(class='viewCommentsButton') View Comments
                 //- p(class="comments")=post.comments
-            .replyDiv
+            .fancyCommentDiv
                 p.replyFav ⇜
-                p(class="reply") reply
-            if user
-                if user.id === post.userId
-                    .editDiv
-                        a(href=`/posts/${post.id}/edit` class='button') Edit
+                p(class="reply") comments
+            .postedDate posted: 11/23/20
     .commentsDiv
         div(class=`commentList${post.id}` class="commentListHidden")
         include comments.pug
