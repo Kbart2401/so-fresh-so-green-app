@@ -15,8 +15,11 @@ block content
   .farm-feed__container
     .farm-feed__fake-adds
     .farm-feed__main
-      p.title-sub RECENT POSTS
+      p.title-sub #{searchResults}
+      if (posts.length === 0) 
+        p Your search did not match any results
       each post in posts
         include card.pug 
+      
     .farm-feed__profiles
 

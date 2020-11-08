@@ -26,6 +26,7 @@ router.get(
     });
     res.render("index", {
       title: "Farm Feed",
+      searchResults: 'RECENT POSTS',
       user,
       posts,
     });

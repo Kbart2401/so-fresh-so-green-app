@@ -49,7 +49,7 @@ router.get('/', restoreUser, asyncHandler(async (req, res) => {
 
 
   if (!posts) res.render('index', { title: 'Your search did not match any posts', user, posts });
-  res.render('index', { title: 'Searching...', user, posts });
+  res.render('index', { title: 'Farm Field', searchResults: 'SEARCH RESULTS', user, posts });
 }))
 
 module.exports = router;
