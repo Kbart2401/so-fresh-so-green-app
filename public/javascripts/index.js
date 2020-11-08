@@ -114,13 +114,13 @@ window.addEventListener('DOMContentLoaded', () => {
                     comments.comments.forEach((comment) => {
                         let commentListItem = document.createElement('div');
                         let deleteCommentButton = document.createElement('button')
-                        deleteCommentButton.innerHTML = 'Delete';
                         commentListItem.setAttribute('class', 'commentBox');
                         commentList.appendChild(commentListItem);
                         commentListItem.innerHTML = `<div class="commentUser">${comment.User.name}:</div><div class="comment">${comment.content}</div>`;
                         commentListItem.appendChild(deleteCommentButton);
+                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
                         if (userId === comment.userId) {
-                            deleteCommentButton.setAttribute('class', 'deleteCommentButton');
+                            deleteCommentButton.innerHTML = 'Delete';
                             deleteCommentButton.setAttribute('value', comment.id);
 
                         }
