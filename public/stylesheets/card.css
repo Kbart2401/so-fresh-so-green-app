@@ -113,6 +113,9 @@
   /* padding-bottom: 2px; */
 }
 
+.bubbleDiv:hover {
+  cursor: pointer;
+}
 .comments {
   color: gray;
   padding-bottom: 4px;
