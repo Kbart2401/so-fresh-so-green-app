@@ -242,6 +242,7 @@ span {
 }
 
 .commentsDiv {
+  /* transition: <property><duration><timing-function><delay>; */
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -320,7 +321,7 @@ span {
 
 
 .deleteCommentButton {
-    background-color: whitesmoke
+    background-color: whitesmoke;
     color: #ffc200;
     text-align: center;
     font-family: "Work Sans",
