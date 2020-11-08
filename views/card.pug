@@ -35,4 +35,5 @@
             .postedDate posted: 11/23/20
     .commentsDiv
         div(class=`commentList${post.id}` class="commentListHidden")
-        include comments.pug
+        if user
+            include comments.pug

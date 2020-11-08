@@ -50,7 +50,7 @@
 }
 
 .city {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding-left: 15px;
   padding-top: 8px;
@@ -128,7 +128,10 @@
 }
 .email {
   padding-bottom: 0px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
+  font-weight: bold;
 }
 
 .editDiv {
@@ -257,18 +260,30 @@ span {
 }
 
 .commentBox {
+  text-align: start;
   display: flex;
   justify-content: space-between;
   width: 400px;
   border-left: 3px solid  #368A42;
   border-right: 3px solid  #368A42;
-  border-bottom: 3px solid  #368A42;
-  border-top: 1.5px solid #ffc200;
+  /* border-bottom: 3px solid  #368A42;
+  border-top: 1.5px solid #ffc200; */
+}
+
+.comment{
+  width:100%;
+  text-align: start;
+  background-color: whitesmoke;
+  padding-left: 5px;
+      font-family: "Work Sans",
+      Arial,
+      Helvetica,
+      sans-serif;
 }
 
 .newComment {
   background-color: #368A42;
-  color: white;
+  color: whitesmoke;
   resize: none;
   width: 340px;
   border-radius: 0px 0px 0px 10px;
@@ -305,15 +320,15 @@ span {
 
 
 .deleteCommentButton {
-    background-color: #368A42;
-    color: #368A42;
+    background-color: whitesmoke
+    color: #ffc200;
     text-align: center;
     font-family: "Work Sans",
     Arial,
     Helvetica,
     sans-serif;
     width: 57px;
-    height: 25px;
+    height: auto;
     border:unset;
 }
 
@@ -333,4 +348,22 @@ button:focus {
 
 input:focus {
   outline: none;
+}
+
+
+.commentUser {
+  background-color: #ffc200;
+  color: #368A42;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    font-weight: bold;
+  width: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.descriptionDiv > p {
+  font-size: 20px;
 }
