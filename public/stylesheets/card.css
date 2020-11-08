@@ -10,33 +10,35 @@
 }
 
 .fullCard {
+  position: relative;
   display: flex;
   font-family: "Work Sans", Arial, Helvetica, sans-serif;
   flex-direction: column;
   height: auto;
   width: 500px;
   border: 3px solid #368A42;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   margin: 0 auto;
   padding-bottom: 10px;
   background-color: whitesmoke;
   margin-top: 13px;
+  overflow: hidden;
+  border: 0px;
 }
 
 .banner {
+  position: relative;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  font-family: "Work Sans",
-  Arial,
-  Helvetica,
-  sans-serif;
-  color: #368A42;
-  /* border: 3px solid  #368A42; */
-=======
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
   height: 50px;
+  width: 500px;
   display: flex;
   color: #ffc200;
   background-color: #368A42;
@@ -52,7 +54,6 @@
   font-size: 16px;
   padding-left: 15px;
   padding-top: 8px;
->>>>>>> master
 }
 
 .upper {
@@ -179,6 +180,7 @@
   border-radius: 10%;
   /* margin-bottom: 5px; */
   /* padding-bottom: 2px; */
+  color: #ffc200;
 }
 
 .bubbleDiv:hover {
@@ -303,7 +305,7 @@ span {
 
 
 .deleteCommentButton {
-    background-color: #ffc200;
+    background-color: #368A42;
     color: #368A42;
     text-align: center;
     font-family: "Work Sans",
@@ -317,7 +319,6 @@ span {
 
 .viewCommentsButton {
   background-color: #368A42;
-  color: white;
   font-family: "Work Sans",
   Arial,
   Helvetica,
