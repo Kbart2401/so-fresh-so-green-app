@@ -22,30 +22,21 @@
 
 
 
-.form-container-login {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 50px;
-    /* align-content: center; */
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    width: 400px;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    margin-bottom: 50px;
-    padding: 25px
+
+.login{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 
 .formlogin {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 10px;
     flex-direction: column;
+    box-sizing: border-box;
+    width:300px;
 }
 
 
@@ -70,6 +61,7 @@
     Helvetica,
     sans-serif;
     margin-bottom: 5px;
+    width: 300px;
 }
 
 

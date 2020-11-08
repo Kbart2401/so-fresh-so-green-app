@@ -42,7 +42,8 @@ html
           if user
             div.welcome-sign #{user.name}
             a(href="/posts" class="formbutton" class="createButton") POST
-            div.welcomeDiv
+            .welcomeDiv
+              img(src= user.imageUrl class="welcomeImg" alt="profile picture")
               .nav-links.hidden
                 ul
                   - const settingsUrl = `/users/${user.id}/settings`

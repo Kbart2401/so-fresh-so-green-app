@@ -25,8 +25,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const postId = e.target.value.split('t')[1];
             const commentList = document.querySelector(`.commentList${postId}`);
             console.log('send it!')
-            // if(commentList.classList.contains("commentListHidden")) {
-            //     commentList.classList.remove("commentListHidden")
+            if(commentList.classList.contains("commentListHidden")) {
+                commentList.classList.remove("commentListHidden")
+            }
                 const formField = document.getElementById(`comment${postId}`)
                 const res = await fetch(`/posts/${postId}/comments`, {
                     method: "POST",
@@ -59,7 +60,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         }
                     })
 
-            // }
 
         })
     })
