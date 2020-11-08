@@ -25,7 +25,7 @@ router.get(
       return post;
     });
     res.render("index", {
-      title: "Farm Feed!!!",
+      title: "Farm Feed",
       user,
       posts,
     });

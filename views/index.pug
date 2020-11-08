@@ -10,11 +10,12 @@ append head
 
 
 block content
-  h1= title
-
+  h1.page-title= title
+  
   .farm-feed__container
     .farm-feed__fake-adds
     .farm-feed__main
+      p.title-sub RECENT POSTS
       each post in posts
         include card.pug 
     .farm-feed__profiles
