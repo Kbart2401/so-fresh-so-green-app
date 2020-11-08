@@ -91,7 +91,7 @@ router.post('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
   if (content !== '') {
     const comment = await Comment.create({ content, userId, postId });
   }
-  const comments = await Comment.findAll({ where: { postId } })
+  const comments = await Comment.findAll({ where: { postId }, include: [User] })
   // console.log(comments)
   return res.json({ comments, userId });
 }))
@@ -101,7 +101,7 @@ router.post('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
 router.get('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
   const postId = parseInt(req.params.id, 10);
   const userId = res.locals.user.id;
-  const comments = await Comment.findAll({ where: { postId } })
+  const comments = await Comment.findAll({ where: { postId }, include: [User] })
   // console.log(comments)
   return res.json({ comments, userId });
 }))
