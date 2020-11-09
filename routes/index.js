@@ -21,7 +21,10 @@ router.get(
     posts.map((post) => {
       let announcements = post.announcements.split("\n");
       post.announcements = announcements;
-      //posts.Users.length shows how many upvotes
+      //prep date for display
+      let newDate = JSON.stringify(post.createdAt).slice(1, 11);
+      newDate = newDate.slice(5, 7) + '/' + newDate.slice(8) + '/' + newDate.slice(0, 4);
+      post.newDate = newDate;
       return post;
     });
     res.render("index", {

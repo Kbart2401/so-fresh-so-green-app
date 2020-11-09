@@ -32,7 +32,14 @@
             .fancyCommentDiv
                 p.replyFav ⇜
                 p(class="reply") comments
-            .postedDate posted: 11/23/20
+            .postedDateDiv
+                .fancyPostedDiv
+                    p posted
+                    p.postedFav ⇝
+                .postedDate
+                    //- - function slimDate(date) { return date.slice(4, 12)}
+                    p.postedBox #{post.newDate}
+
     .commentsDiv
         div(class=`commentList${post.id}` class="commentListHidden")
         if user

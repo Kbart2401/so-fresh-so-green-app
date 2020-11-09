@@ -58,6 +58,7 @@
 
 .upper {
   display: flex;
+  margin-top: 10px;
   height: 88px;
 }
 
@@ -194,14 +195,29 @@
 .fancyCommentDiv {
   display: flex;
   position: relative;
-  right: 124px;
+  right: 100px;
   padding-top: 8px;
   color: rgba(54, 138, 66, 0.7);
 }
 
-.postedDate {
-  padding-top: 6px;
+.postedDateDiv {
+  display: flex;
+  flex-direction: row;
+  padding-top: 7px;
   font-size: 14px;
+}
+
+.fancyPostedDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.postedFav {
+  padding-left: 2px;
+}
+
+.postedBox {
+  padding-left: 12px;
 }
 
 h5 {
@@ -229,20 +245,21 @@ span {
 
 .commentForm {
   display: flex;
+  width: 450px;
   justify-content: space-between;
 }
 
-.commentSubmit {
+/* .commentSubmit {
   width: 40px;
   background-color: #368A42;
-}
+} */
 
 .commentListHidden {
   display: none;
 }
 
 .commentsDiv {
-  width: 400px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -252,7 +269,7 @@ span {
 
 .newComment {
   height: 30px;
-  width: 360px;
+  width: 450px;
   border-left: 3px solid  #368A42;
   border-right: 3px solid  #368A42;
   border-bottom: 3px solid  #368A42;
@@ -260,20 +277,28 @@ span {
 }
 
 .commentBox {
+  position: relative;
+  border-bottom: 2px solid #368A42;
   text-align: start;
+  overflow: hidden;
+  /* background-color: whitesmoke; */
   display: flex;
-  justify-content: space-between;
-  width: 400px;
-  border-left: 3px solid  #368A42;
-  border-right: 3px solid  #368A42;
-  /* border-bottom: 3px solid  #368A42;
-  border-top: 1.5px solid #ffc200; */
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 450px;
+  border-left: 2px solid  #368A42;
+  border-right: 2px solid  #368A42;
 }
 
 .comment{
-  width:100%;
+  position: relative;
+  height: auto;
+  display: flex;
+  flex: none;
+  overflow: hidden;
+  /* width:100%; */
   text-align: start;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   padding-left: 5px;
       font-family: "Work Sans",
       Arial,
@@ -283,9 +308,9 @@ span {
 
 .newComment {
   background-color: #368A42;
-  color: whitesmoke;
+  /* color: whitesmoke; */
   resize: none;
-  width: 340px;
+  width: 450px;
   border-radius: 0px 0px 0px 10px;
   font-family: "Work Sans",
   Arial,
@@ -294,6 +319,8 @@ span {
   border-top: unset;
 }
 .newComment::placeholder {
+  padding-top: 5px;
+  padding-left: 3px;
   color: #ffc200;
   font-family: "Work Sans",
   Arial,
@@ -308,6 +335,7 @@ span {
 .commentSubmit {
   background-color: #ffc200;
   color: #368A42;
+  border: 2px solid #368A42;
   border-radius: 0px 0px 10px 0px;
   text-align: center;
   font-family: "Work Sans",
@@ -315,21 +343,27 @@ span {
   Helvetica,
   sans-serif;
   width: 60px;
-  border:unset;
+  /* border:unset; */
 }
 
 
 .deleteCommentButton {
-    background-color: whitesmoke
-    color: #ffc200;
-    text-align: center;
-    font-family: "Work Sans",
-    Arial,
-    Helvetica,
-    sans-serif;
-    width: 57px;
-    height: auto;
-    border:unset;
+  position: relative;
+  color: rgba(54, 138, 66, 0.7);
+  text-align: center;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  width: 57px;
+  height: auto;
+  border:unset;
+  background-color: white;
+}
+
+.deleteCommentButton:hover {
+  bottom: 2px;
+  color: rgb(54, 138, 66);
 }
 
 .viewCommentsButton {
@@ -352,18 +386,40 @@ input:focus {
 
 
 .commentUser {
-  background-color: #ffc200;
-  color: #368A42;
-    font-family: "Work Sans",
-    Arial,
-    Helvetica,
-    sans-serif;
-    font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  flex: none;
   width: auto;
-  padding-left: 5px;
+  /* background-color: whitesmoke; */
+  color: #368A42;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+  font-weight: bold;
+  padding-left: 17px;
   padding-right: 5px;
 }
 
 .descriptionDiv > p {
+  font-size: 16px;
+}
+
+.fancyCommentFav {
+  position: relative;
+  top: 2px;
+  color: #368A42;
+  padding-left: 2px;
   font-size: 20px;
+}
+
+.circleDiv {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #ffc200;
+  box-shadow: 0px 0px 10px#ffc200;
+  margin: 4px;
+  margin-bottom: 6px;
 }
