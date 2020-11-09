@@ -7,6 +7,8 @@
   justify-content: center;
   border-radius: 50%;
   position: relative;
+  right: 50px;
+  /* margin-right: 60px; */
 }
 
 .welcomeImg {
@@ -19,10 +21,16 @@
 
 .welcomeDiv:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 10px#ffc200
 }
 
 .welcome-sign {
-  width: 100px;
+  width: auto;
+  position: relative;
+  top: 12px;
+  right: 60px;
+  color: white;
+  font-size: 20px;
 }
 
 .nav-links {
@@ -62,4 +70,3 @@ border-radius: 7%;
 #error-container.hidden {
   display: none;
 }
-
