@@ -265,6 +265,9 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     let announcements = post.announcements.split("\n")
     post.announcements = announcements
     post.upVoteCount = post.Users.length;
+    let newDate = JSON.stringify(post.createdAt).slice(1, 11);
+    newDate = newDate.slice(5, 7) + '/' + newDate.slice(8) + '/' + newDate.slice(0, 4);
+    post.newDate = newDate;
     return post
   })
   posts.sort((a, b) => b.upVoteCount - a.upVoteCount);
@@ -280,6 +283,9 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
     let announcements = othersPost.announcements.split("\n")
     othersPost.announcements = announcements
     othersPost.upVoteCount = othersPost.Users.length
+    let newDate = JSON.stringify(othersPost.createdAt).slice(1, 11);
+    newDate = newDate.slice(5, 7) + '/' + newDate.slice(8) + '/' + newDate.slice(0, 4);
+    othersPost.newDate = newDate;
     return othersPost
   });
   othersPosts.sort((a,b) => b.upVoteCount - a.upVoteCount);
