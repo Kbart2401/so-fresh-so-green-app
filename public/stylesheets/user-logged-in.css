@@ -7,6 +7,8 @@
   justify-content: center;
   border-radius: 50%;
   position: relative;
+  right: 50px;
+  /* margin-right: 60px; */
 }
 
 .welcomeImg {
@@ -26,12 +28,18 @@
 }
 
 .welcome-sign {
-  width: 100%;
+  /* width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     font-size: 20px;
-    color: whitesmoke;
+    color: whitesmoke; */
+  width: auto;
+  position: relative;
+  top: 12px;
+  right: 60px;
+  color: white;
+  font-size: 20px;
 }
 
 .nav-links {
@@ -71,4 +79,3 @@ border-radius: 7%;
 #error-container.hidden {
   display: none;
 }
-
