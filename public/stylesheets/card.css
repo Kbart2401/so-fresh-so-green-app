@@ -31,7 +31,7 @@
   position: relative;
   top: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
     font-family: "Work Sans",
     Arial,
@@ -45,15 +45,18 @@
 }
 
 .name {
-  padding-left: 70px;
+  justify-self: center;
   font-size: 30px;
+  margin-left: 20px;
 }
 
 .city {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  padding-left: 15px;
+  font-weight: bold;
+  padding-right: 20px;
   padding-top: 8px;
+  justify-self: end;
 }
 
 .upper {
@@ -270,6 +273,9 @@ span {
 .newComment {
   height: 30px;
   width: 450px;
+  padding-top: 5px;
+  padding-left: 5px;
+  color:whitesmoke;
   border-left: 3px solid  #368A42;
   border-right: 3px solid  #368A42;
   border-bottom: 3px solid  #368A42;
@@ -278,16 +284,17 @@ span {
 
 .commentBox {
   position: relative;
-  border-bottom: 2px solid #368A42;
+  /* border-bottom: 2px solid #368A42; */
   text-align: start;
   overflow: hidden;
   /* background-color: whitesmoke; */
   display: flex;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 450px;
   border-left: 2px solid  #368A42;
   border-right: 2px solid  #368A42;
+  padding-bottom: 5px;
 }
 
 .comment{
@@ -296,7 +303,8 @@ span {
   display: flex;
   flex: none;
   overflow: hidden;
-  /* width:100%; */
+  width:100%;
+  max-width: 320px;
   text-align: start;
   /* background-color: whitesmoke; */
   padding-left: 5px;
@@ -319,7 +327,7 @@ span {
   border-top: unset;
 }
 .newComment::placeholder {
-  padding-top: 5px;
+  padding-top: 0px;
   padding-left: 3px;
   color: #ffc200;
   font-family: "Work Sans",
@@ -335,7 +343,7 @@ span {
 .commentSubmit {
   background-color: #ffc200;
   color: #368A42;
-  border: 2px solid #368A42;
+  border: unset;
   border-radius: 0px 0px 10px 0px;
   text-align: center;
   font-family: "Work Sans",
@@ -348,7 +356,6 @@ span {
 
 
 .deleteCommentButton {
-  position: relative;
   color: rgba(54, 138, 66, 0.7);
   text-align: center;
   font-family: "Work Sans",
@@ -364,6 +371,7 @@ span {
 .deleteCommentButton:hover {
   bottom: 2px;
   color: rgb(54, 138, 66);
+
 }
 
 .viewCommentsButton {
@@ -402,7 +410,7 @@ input:focus {
 }
 
 .descriptionDiv > p {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .fancyCommentFav {
@@ -422,4 +430,15 @@ input:focus {
   box-shadow: 0px 0px 10px#ffc200;
   margin: 4px;
   margin-bottom: 6px;
+}
+
+.circleUserDiv {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #368A42;
+    box-shadow: 0px 0px 10px#ffc200;
+    margin: 4px;
+    margin-bottom: 6px;
 }
