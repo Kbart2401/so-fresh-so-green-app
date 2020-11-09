@@ -28,18 +28,18 @@
 }
 
 .welcome-sign {
-  /* width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    font-size: 20px;
-    color: whitesmoke; */
   width: auto;
   position: relative;
-  top: 12px;
+  /* top: 100%; */
   right: 60px;
   color: white;
   font-size: 20px;
+  height: 25px;
+  /* margin-top: 50%; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* bring your own prefixes */
+  /* transform: translate(-50%, -50%); */
 }
 
 .nav-links {

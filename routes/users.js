@@ -279,7 +279,7 @@ router.get('/:id(\\d+)/profile', asyncHandler(async (req, res) => {
   othersPosts.map(othersPost => {
     let announcements = othersPost.announcements.split("\n")
     othersPost.announcements = announcements
-    othersPosts.upVoteCount = othersPost.Users.length
+    othersPost.upVoteCount = othersPost.Users.length
     return othersPost
   });
   othersPosts.sort((a,b) => b.upVoteCount - a.upVoteCount);

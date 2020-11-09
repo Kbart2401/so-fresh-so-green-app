@@ -18,12 +18,26 @@
 
 .farm-feed__main {
   width: 550px;
-
 }
 
 .farm-feed__profiles {
   width: 325px;
   /* background-color: white; */
+}
+
+.title-sub {
+  width: 180px;
+  height: 25px;
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  z-index: 9;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  padding: 5px 0 0 0px;
+}
+
+.search-text {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .mainTitle {
@@ -36,4 +50,8 @@
     Helvetica,
     sans-serif;
     font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
 }

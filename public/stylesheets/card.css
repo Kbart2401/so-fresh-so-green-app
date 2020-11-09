@@ -191,6 +191,12 @@
 }
 
 .bubbleDiv:hover {
+  cursor: pointer;
+}
+.comments {
+  color: gray;
+  padding-bottom: 4px;
+  padding-left: 10px;
   bottom: 2px;
   box-shadow: 0px 0px 10px#ffc200;
 }

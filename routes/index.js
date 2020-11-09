@@ -28,7 +28,8 @@ router.get(
       return post;
     });
     res.render("index", {
-      title: "FARM FEED",
+      title: "Farm Feed",
+      searchResults: 'RECENT POSTS',
       user,
       posts,
     });
