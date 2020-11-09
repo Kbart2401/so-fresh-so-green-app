@@ -18,13 +18,22 @@
   border-radius: 50%;
   padding: 1px;
 }
+.welcomeDiv {
+  width: auto;
+  height: 100%;
+}
 
 .welcomeDiv:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 10px#ffc200
 }
 
 .welcome-sign {
+  /* width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    font-size: 20px;
+    color: whitesmoke; */
   width: auto;
   position: relative;
   top: 12px;

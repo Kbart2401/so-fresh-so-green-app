@@ -20,7 +20,7 @@
 .profile-icon {
   height: 180px;
   width: 180px;
-  background-image: url('../images/farmer-avatar.jpg');
+  /* background-image: url('../images/farmer-avatar.jpg'); */
   background-position: center;
   background-size: 100%;
   margin-left: 60px;
