@@ -5,7 +5,7 @@ append head
 block content
   .page-container
     .profile-header
-      .profile-icon
+      img(class="profile-icon" src= user.imageUrl)
       .profile-info
         h2 #{user.name} 🌽
         .email= user.email

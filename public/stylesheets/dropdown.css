@@ -6,8 +6,12 @@
   padding: 16px;
   font-size: 16px;
   border: none;
-  height: 35px;
+  height: 30px;
   width: 35px;
+  /* border-radius: 1px; */
+  position: relative;
+  right: 35px;
+  border-radius: 50%;
 }
 
 .dropdown {
@@ -15,7 +19,18 @@
   display: inline-block;
 }
 
-.dropdown-content {
+.navDrop {
+  display: none;
+  position: absolute;
+  background-color: #368a42;
+  top: 33px;
+  left: -3px;
+  min-width: 145px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+.profDrop {
   display: none;
   position: absolute;
   background-color: #368a42;
@@ -42,5 +57,6 @@
 }
 
 .dropdown:hover .dropbtn {
-  border-radius: 5px;
+  border-radius: 50px;
+
 }

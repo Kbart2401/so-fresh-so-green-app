@@ -25,8 +25,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const postId = e.target.value.split('t')[1];
             const commentList = document.querySelector(`.commentList${postId}`);
             console.log('send it!')
-            // if(commentList.classList.contains("commentListHidden")) {
-            //     commentList.classList.remove("commentListHidden")
+            if(commentList.classList.contains("commentListHidden")) {
+                commentList.classList.remove("commentListHidden")
+            }
                 const formField = document.getElementById(`comment${postId}`)
                 const res = await fetch(`/posts/${postId}/comments`, {
                     method: "POST",
@@ -42,29 +43,29 @@ window.addEventListener('DOMContentLoaded', () => {
                 number.innerHTML = comments.comments.length
 
 
-                    commentList.innerHTML = ""
-                    comments.comments.forEach((comment) => {
+                commentList.innerHTML = ""
+                comments.comments.forEach((comment) => {
                         let commentListItem = document.createElement('div');
                         let deleteCommentButton = document.createElement('button')
-                        deleteCommentButton.innerHTML = 'Delete';
                         commentListItem.setAttribute('class', 'commentBox');
-                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
-                        deleteCommentButton.setAttribute('value', comment.id);
 
                         commentList.appendChild(commentListItem);
-                        commentListItem.innerHTML = comment.content;
+                        commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
                         if (userId === comment.userId) {
-                            commentListItem.appendChild(deleteCommentButton);
-
+                            commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                            deleteCommentButton.innerHTML = 'delete';
+                            deleteCommentButton.setAttribute('value', comment.id);
+                            
                         }
+                        commentListItem.appendChild(deleteCommentButton);
                     })
 
-            // }
 
         })
     })
 
-  
+
     document.querySelectorAll('.upvoteDiv')
         .forEach((upvoteDiv) => {
             if(!upvoteDiv.classList.contains("downvoteDiv")){
@@ -106,7 +107,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 const number = document.getElementById(`viewComments${postId.postId}`)
                 number.innerHTML = comments.comments.length
-                
+
 
                     const userId = comments.userId;
                     const commentList = document.querySelector(`.commentList${postId.postId}`);
@@ -114,16 +115,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     comments.comments.forEach((comment) => {
                         let commentListItem = document.createElement('div');
                         let deleteCommentButton = document.createElement('button')
-                        deleteCommentButton.innerHTML = 'Delete';
                         commentListItem.setAttribute('class', 'commentBox');
-                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
-                        deleteCommentButton.setAttribute('value', comment.id);
                         commentList.appendChild(commentListItem);
-                        commentListItem.innerHTML = comment.content;
+                        commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
                         if (userId === comment.userId) {
-                            commentListItem.appendChild(deleteCommentButton);
-
+                            commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                            deleteCommentButton.innerHTML = 'delete';
+                            deleteCommentButton.setAttribute('value', comment.id);
+                            
                         }
+                        commentListItem.appendChild(deleteCommentButton);
                     })
 
             })
@@ -145,16 +147,18 @@ window.addEventListener('DOMContentLoaded', () => {
                     comments.comments.forEach((comment) => {
                         let commentListItem = document.createElement('div');
                         let deleteCommentButton = document.createElement('button')
-                        deleteCommentButton.innerHTML = 'Delete';
                         commentListItem.setAttribute('class', 'commentBox');
-                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
-                        deleteCommentButton.setAttribute('value', comment.id);
-                        commentList.appendChild(commentListItem);
-                        commentListItem.innerHTML = comment.content;
-                        if (userId === comment.userId) {
-                            commentListItem.appendChild(deleteCommentButton);
 
+                        commentList.appendChild(commentListItem);
+                        commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
+                        if (userId === comment.userId) {
+                            commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                            deleteCommentButton.innerHTML = 'delete';
+                            deleteCommentButton.setAttribute('value', comment.id);
+                            
                         }
+                        commentListItem.appendChild(deleteCommentButton);
                     })
 
                 } else {

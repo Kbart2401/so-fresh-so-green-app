@@ -30,10 +30,10 @@ html
               i(class="fa fa-search")
         div(class="dropdown")
             button(class="dropbtn")
-            div(class="dropdown-content")
-                a(href="/localfarms" class="category") Farms
-                a(href="/faq" class="category") FAQ
-                a(href="/contact" class="category") The Team
+              div(class="dropdown-content" class="navDrop")
+                  a(href="/localfarms" class="category") Farms
+                  a(href="/faq" class="category") FAQ
+                  a(href="/contact" class="category") The Team
         div(class="navbuttonfam")
           if !user
             div(class="loginButtons")
@@ -42,12 +42,12 @@ html
           if user
             div.welcome-sign #{user.name}
             a(href="/posts" class="formbutton" class="createButton") POST
-            div.welcomeDiv
-              .nav-links.hidden
-                ul
-                  - const settingsUrl = `/users/${user.id}/settings`
-                  - const profileUrl = `/users/${user.id}/profile`
-                  li: a(href=profileUrl) PROFILE
-                  li: a(href=settingsUrl) SETTINGS
-                  li: a(href="/users/logout") LOG OUT
+            .welcomeDiv.dropdown
+              img(src= user.imageUrl class="welcomeImg" alt="profile picture")
+              div.dropdown-content.profDrop
+                - const settingsUrl = `/users/${user.id}/settings`
+                - const profileUrl = `/users/${user.id}/profile`
+                a(href=profileUrl class="category") PROFILE
+                a(href=settingsUrl class="category")  SETTINGS
+                a(href="/users/logout" class="category") LOG OUT
 block content

@@ -159,6 +159,11 @@ html {
   display: table;
 }
 
+.credits {
+  padding-left: 360px;
+  font-size: 32px;
+}
+
 .homie {
   color: #ffc200;
   padding: 10px;
@@ -190,7 +195,7 @@ html {
 }
 
 .button:hover {
-  background-color: rgb(247, 225, 29);
+  background-color: #ffc200;
 }
 
 @media screen and (max-width: 650px) {
