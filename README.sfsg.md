@@ -18,7 +18,7 @@ Signing-in:
 ## Developing
 
 ### What Technologies Did You Use?
-
+Javascript, Express, Jade templates, Vanilla CSS
 
 ### Prerequisites
 npm install, local database creation
