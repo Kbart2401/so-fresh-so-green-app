@@ -1,8 +1,7 @@
 <img src="./stylesheets/logo.mockup.png" alt="Logo of the project" align="right">
 
-# Name of the project: So Fresh So Green
- Online forum for farmers and gardeners. Users can post announcements, descriptions of farms etc and other users can then upvote and comment on existing posts. Site features a search bar
- and a user's profile page.
+# What's So Fresh, So Green?
+So Fresh, So Green is a platform for farmers, growers and vendors alike to easily network with each other! Once you're all registered, as a user you have the ability to make posts relevant to your business including making announcements. You are also able to like and reply to a post thanks to our upvote & comment implementation, which will help fellow users engage with more people than they ever could locally! Some more notable features are the search bar and profile page, which tracks the user's activity as well as liked posts. So Fresh, So Green was inspired by Product Hunt. 
 
 
 
@@ -18,9 +17,8 @@ Signing-in:
 
 ## Developing
 
-### Built With
+### What Technologies Did You Use?
 
-Javascript, Express, Jade templates, Vanilla CSS
 
 ### Prerequisites
 npm install, local database creation
