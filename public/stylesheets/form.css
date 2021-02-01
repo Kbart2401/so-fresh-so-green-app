@@ -129,6 +129,14 @@
     width: 300px;
 }
 
+.submitButton.demo {
+    background-color: #ffc200;
+}
+
+.submitButton.demo:hover {
+    background-color: #48b658;
+}
+
 .error-container {
     position: relative;
     display: flex;

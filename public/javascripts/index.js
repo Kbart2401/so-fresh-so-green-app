@@ -2,20 +2,6 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    /**********Show/Hide Nav Links under Profile Icon*******/
-    document.querySelector('.welcomeDiv')
-        .addEventListener('click', (e) => {
-            const navLinks = document.querySelector('.nav-links')
-            const classes = navLinks.getAttribute('class');
-            if (classes.includes('hidden')) {
-                navLinks.classList.remove('hidden')
-                return;
-            }
-            if (!classes.includes('hidden')) {
-                navLinks.classList.add('hidden')
-                return;
-            }
-        })
 
     const commentSubmit = document.querySelectorAll('.commentSubmit');
     //create comment and fetch comments
@@ -25,41 +11,41 @@ window.addEventListener('DOMContentLoaded', () => {
             const postId = e.target.value.split('t')[1];
             const commentList = document.querySelector(`.commentList${postId}`);
             console.log('send it!')
-            if(commentList.classList.contains("commentListHidden")) {
+            if (commentList.classList.contains("commentListHidden")) {
                 commentList.classList.remove("commentListHidden")
             }
-                const formField = document.getElementById(`comment${postId}`)
-                const res = await fetch(`/posts/${postId}/comments`, {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ content: formField.value })
-                })
-                const comments = await res.json();
-                const userId = comments.userId;
-                const number = document.getElementById(`viewComments${postId}`)
-                formField.value = ""
-                number.innerHTML = comments.comments.length
+            const formField = document.getElementById(`comment${postId}`)
+            const res = await fetch(`/posts/${postId}/comments`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: formField.value })
+            })
+            const comments = await res.json();
+            const userId = comments.userId;
+            const number = document.getElementById(`viewComments${postId}`)
+            formField.value = ""
+            number.innerHTML = comments.comments.length
 
 
-                commentList.innerHTML = ""
-                comments.comments.forEach((comment) => {
-                        let commentListItem = document.createElement('div');
-                        let deleteCommentButton = document.createElement('button')
-                        commentListItem.setAttribute('class', 'commentBox');
+            commentList.innerHTML = ""
+            comments.comments.forEach((comment) => {
+                let commentListItem = document.createElement('div');
+                let deleteCommentButton = document.createElement('button')
+                commentListItem.setAttribute('class', 'commentBox');
 
-                        commentList.appendChild(commentListItem);
-                        commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
-                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
-                        if (userId === comment.userId) {
-                            commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
-                            deleteCommentButton.innerHTML = 'delete';
-                            deleteCommentButton.setAttribute('value', comment.id);
-                            
-                        }
-                        commentListItem.appendChild(deleteCommentButton);
-                    })
+                commentList.appendChild(commentListItem);
+                commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                deleteCommentButton.setAttribute('class', 'deleteCommentButton');
+                if (userId === comment.userId) {
+                    commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                    deleteCommentButton.innerHTML = 'delete';
+                    deleteCommentButton.setAttribute('value', comment.id);
+
+                }
+                commentListItem.appendChild(deleteCommentButton);
+            })
 
 
         })
@@ -68,7 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.upvoteDiv')
         .forEach((upvoteDiv) => {
-            if(!upvoteDiv.classList.contains("downvoteDiv")){
+            if (!upvoteDiv.classList.contains("downvoteDiv")) {
                 upvoteDiv.addEventListener('click', async (e) => {
                     const res = await fetch(`/posts/${e.target.value}/upvote`, {
                         method: 'PATCH',
@@ -83,12 +69,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
             }
         })
+
     //delete a comment
     document.querySelectorAll('.commentsDiv')
         .forEach((button => {
             button.addEventListener("click", async (e) => {
                 console.log(e.target.value)
-                if(e.target.classList.contains("newComment")) {
+                if (e.target.classList.contains("newComment")) {
                     console.log("comment")
                     return
                 }
@@ -98,8 +85,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 const res = await fetch(`/comments/${e.target.value}`, {
                     method: "DELETE",
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({id: e.target.value})
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: e.target.value })
                 })
                 const postId = await res.json();
                 const commentFetch = await fetch(`/posts/${postId.postId}/comments`)
@@ -109,24 +96,24 @@ window.addEventListener('DOMContentLoaded', () => {
                 number.innerHTML = comments.comments.length
 
 
-                    const userId = comments.userId;
-                    const commentList = document.querySelector(`.commentList${postId.postId}`);
-                    commentList.innerHTML = ""
-                    comments.comments.forEach((comment) => {
-                        let commentListItem = document.createElement('div');
-                        let deleteCommentButton = document.createElement('button')
-                        commentListItem.setAttribute('class', 'commentBox');
-                        commentList.appendChild(commentListItem);
-                        commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
-                        deleteCommentButton.setAttribute('class', 'deleteCommentButton');
-                        if (userId === comment.userId) {
-                            commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
-                            deleteCommentButton.innerHTML = 'delete';
-                            deleteCommentButton.setAttribute('value', comment.id);
-                            
-                        }
-                        commentListItem.appendChild(deleteCommentButton);
-                    })
+                const userId = comments.userId;
+                const commentList = document.querySelector(`.commentList${postId.postId}`);
+                commentList.innerHTML = ""
+                comments.comments.forEach((comment) => {
+                    let commentListItem = document.createElement('div');
+                    let deleteCommentButton = document.createElement('button')
+                    commentListItem.setAttribute('class', 'commentBox');
+                    commentList.appendChild(commentListItem);
+                    commentListItem.innerHTML = `<div class="circleDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                    deleteCommentButton.setAttribute('class', 'deleteCommentButton');
+                    if (userId === comment.userId) {
+                        commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
+                        deleteCommentButton.innerHTML = 'delete';
+                        deleteCommentButton.setAttribute('value', comment.id);
+
+                    }
+                    commentListItem.appendChild(deleteCommentButton);
+                })
 
             })
         }))
@@ -136,7 +123,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .forEach((button => {
             button.addEventListener("click", async (e) => {
                 const commentList = document.querySelector(`.commentList${e.target.value}`);
-                if(commentList.classList.contains("commentListHidden")) {
+                if (commentList.classList.contains("commentListHidden")) {
                     commentList.classList.remove("commentListHidden")
                     const res = await fetch(`/posts/${e.target.value}/comments`)
                     const comments = await res.json();
@@ -156,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             commentListItem.innerHTML = `<div class="circleUserDiv"></div><div class="commentUser">${comment.User.name}<div class=fancyCommentFav>⇝</div></div><div class="comment">${comment.content}</div>`;
                             deleteCommentButton.innerHTML = 'delete';
                             deleteCommentButton.setAttribute('value', comment.id);
-                            
+
                         }
                         commentListItem.appendChild(deleteCommentButton);
                     })
@@ -174,7 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .forEach((upvoteDiv) => {
             // console.log(upvoteDiv.classList.contains("downvoteDiv"))
             upvoteDiv.addEventListener('click', async (e) => {
-                if(upvoteDiv.classList.contains("downvoteDiv")) {
+                if (upvoteDiv.classList.contains("downvoteDiv")) {
                     const res = await fetch(`/posts/${e.target.value}/downvote`, {
                         method: 'DELETE',
                         headers: {
@@ -189,6 +176,10 @@ window.addEventListener('DOMContentLoaded', () => {
                     upvoteDiv.classList.remove("downvoteDiv")
                 }
 
-                })
+            })
         })
+
+    function demoLogin() {
+        console.log('HELLO WORLD!!!')
+    }
 })
