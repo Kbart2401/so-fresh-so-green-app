@@ -7,21 +7,18 @@ append head
   meta(name="viewport", content="width=device-width, initial-scale=1.0")
   title= title
   link(href="/card.css")
+  link(href="/mainFooter.css")
 
 
 block content
-  h1(class="mainTitle")= title
 
   .farm-feed__container
-    .farm-feed__fake-adds
+    //- .farm-feed__fake-adds
     .farm-feed__main
-      p.title-sub #{searchResults}
-      if (posts.length === 0) 
-        p.search-text Your search did not match any results 😥 
+      //- p.title-sub #{searchResults}
+      if (posts.length === 0)
+        p.search-text Your search did not match any results 😥
         p.search-text Please try again!
       each post in posts
-        include card.pug 
-      
-    .farm-feed__profiles
-
-
+        include card.pug
+  include footer.pug

@@ -1,16 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  background: #f2f2f2;
+  background: whitesmoke;
   font-family: "Open Sans", sans-serif;
 }
 
 .search {
-  width: 85%;
+  width: 285px;
   position: relative;
   display: flex;
-  left: 30px;
+  margin-bottom: 2px;
 }
+
+@media only screen and (max-width: 800px) {
+  .search {
+    visibility: hidden;
+  }
+}
+
 
 .searchTerm {
   width: 85%;
@@ -36,7 +43,7 @@ body {
   border: 3px solid #ffc200;
   background-color: #ffc200;
   text-align: center;
-  color: #fff;
+  color: whitesmoke;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;

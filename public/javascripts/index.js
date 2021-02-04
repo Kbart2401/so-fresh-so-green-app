@@ -179,7 +179,23 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         })
 
-    function demoLogin() {
-        console.log('HELLO WORLD!!!')
-    }
+    /******Demo User Login********/
+    document.querySelector('.submitButton.demo')
+        .addEventListener('click', async (e) => {
+            e.preventDefault()
+            debugger
+            const res = await fetch('/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    csrfToken: e.target.value,
+                    email: 'demo@aa.io',
+                    password: 'password'
+                })
+            })
+            console.log(res)
+            console.log('HELLO WORLD')
+        })
 })

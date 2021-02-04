@@ -17,6 +17,7 @@ html
         link(rel="stylesheet" href="/stylesheets/farm-feed.css")
         link(rel="stylesheet" href="/stylesheets/contact.css")
         link(rel="stylesheet" href="/stylesheets/faq.css")
+        link(rel="stylesheet" href="/stylesheets/mainFooter.css")
         script(src="/javascripts/index.js" type="module" defer)
   body
     div(href="/" class="navbar")
@@ -41,7 +42,7 @@ html
                 a(href="/users/" class="navbutton") Sign Up
           if user
             div.welcome-sign #{user.name}
-            a(href="/posts" class="formbutton" class="createButton") POST
+            //- a(href="/posts" class="formbutton" class="createButton") POST
             .welcomeDiv.dropdown
               img(src= user.imageUrl class="welcomeImg" alt="profile picture")
               div.dropdown-content.profDrop
