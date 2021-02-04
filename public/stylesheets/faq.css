@@ -5,8 +5,9 @@ body {
   background: whitesmoke;
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
-  height: 100%;
+  height: auto;
   width: 100%;
+  padding: 10px 0px 50px 0px;
 }
 
 body::before {
