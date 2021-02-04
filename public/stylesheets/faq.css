@@ -2,14 +2,27 @@
 
 body {
   color: #333;
-  background: #fcfcfc;
+  background: whitesmoke;
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+body::before {
+  content: '';
+  background-image: url('./textured.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  position: fixed;
+  width: 160%;
+  height: 160%;
 }
 
 .faq-header {
   font-size: 42px;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted whitesmoke;
   padding: 24px;
 }
 
@@ -19,7 +32,7 @@ body {
 
 .faq-question {
   padding: 20px 0;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted whitesmoke;
 }
 
 .panel-title {

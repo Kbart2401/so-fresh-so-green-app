@@ -1,12 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body {
-  font-family: "Open Sans", Helvetica, sans-serif;
-  margin: 0;
+.contactContainer {
+  position: fixed;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 html {
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 .linkz {
@@ -15,117 +19,177 @@ html {
 }
 
 .yerr {
+  display: flex;
+  flex-wrap: wrap;
   column-count: 3;
-  padding-left: 175px;
+  padding-left: 30px;
   padding-top: 25px;
+}
+
+.imageOne {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/robin.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+.imageTwo {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/max.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+.imageThree {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/kyle.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+.imageFour {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/danny.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
 }
 
 .img1 {
   background-image: url("https://cdn.pixabay.com/photo/2014/08/26/15/17/vineyard-428041_1280.jpg");
-  background-size: 100% 100%;
-  height: 150px;
+  background-size: cover;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img2 {
   background-image: url("https://cdn.pixabay.com/photo/2013/08/28/00/54/field-176602_1280.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img3 {
   background-image: url("https://cdn.pixabay.com/photo/2017/05/19/15/16/countryside-2326787_1280.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img4 {
   background-image: url("https://cdn.pixabay.com/photo/2016/11/30/15/23/apple-1873078_1280.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img5 {
   background-image: url("https://cdn.pixabay.com/photo/2017/07/20/15/21/cock-2522623_1280.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img6 {
   background-image: url("https://cdn.pixabay.com/photo/2016/01/19/17/23/countryside-1149680_1280.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img7 {
   background-image: url("https://cdn.pixabay.com/photo/2014/12/02/03/11/grapes-553464__480.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img8 {
   background-image: url("https://cdn.pixabay.com/photo/2013/11/19/17/20/field-213364__480.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img9 {
   background-image: url("https://cdn.pixabay.com/photo/2014/07/06/17/20/tractor-385681__480.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img10 {
-  background-image: url("https://cdn.pixabay.com/photo/2017/08/10/17/31/sheep-2625347__480.jpg");
-  background-size: 100% 100%;
-  height: 150px;
+  background-image: url("https://ded8b07dd9e637888fc2-e87978aaae5cf97349d88697fd53e4c9.ssl.cf1.rackcdn.com/12457.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img11 {
   background-image: url("https://cdn.pixabay.com/photo/2019/08/06/13/07/sunflowers-4388346_1280.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 
 .img12 {
   background-image: url("https://cdn.pixabay.com/photo/2020/08/18/21/49/horses-5499465__480.jpg");
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
+  width: 100%;
   display: flex;
   cursor: pointer;
-  width: 60%;
 }
 *,
 *:before,
@@ -133,23 +197,38 @@ html {
   box-sizing: inherit;
 }
 
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
 .column {
-  float: left;
-  width: 25%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+  width: 210px;
+  margin-left: 30px;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 10px;
+  margin-left: 20px;
   background-color: #368a42;
-  width: 90%;
+  width: 100%;
+  height: 700px;
+  text-align: center;
+  padding-bottom: 5px;
 }
 
 .container {
-  padding: 0 16px;
-  padding-bottom: 30px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .container::after,
@@ -159,43 +238,86 @@ html {
   display: table;
 }
 
-.credits {
-  padding-left: 360px;
-  font-size: 32px;
-}
-
 .homie {
   color: #ffc200;
-  padding: 10px;
   font-size: 30px;
+  margin: none;
+  margin-bottom: -50px;
+  padding-left: none;
 }
 
 .gitbutton {
   background-image: url("github.png");
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
-  height: 200px;
-  padding: 10px;
+  height: 120px;
+  width: 120px;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
 }
 
 .buttonb {
   background-image: url("inkedin.png");
-  background-size: 110% 105%;
-  background-position: -16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
-  height: 200px;
+  height: 120px;
+  width: 120px;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
 }
 
-.button:hover {
-  background-color: #ffc200;
+.linkText {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.linkHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  width: 140px;
+  background-color: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 6px solid white;
+  margin-bottom: 10px;
+}
+
+.linkHolder:hover {
+  border: 6px solid #ffc200;
+}
+
+.soloFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #368a42;
+  font-size: 15px;
+}
+
+.credits {
+  color: #ffc200;
+  font-size: 20px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 2px;
+}
+
+.soloText {
+  color: whitesmoke;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 650px) {

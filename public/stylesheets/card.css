@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px;
+  position: relative;
 }
 
 .fullCard {
@@ -16,15 +18,11 @@
   flex-direction: column;
   height: auto;
   width: 500px;
-  border: 3px solid #368A42;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  margin: 0 auto;
   padding-bottom: 10px;
   background-color: whitesmoke;
-  margin-top: 13px;
   overflow: hidden;
-  border: 0px;
 }
 
 .banner {
@@ -80,6 +78,15 @@
   flex-direction: column;
   padding-left: 10px;
   padding-top: 10px;
+}
+
+.announcementDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.announcementDiv {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .announcements {
@@ -141,9 +148,6 @@
 .editDiv {
   position: relative;
   left: 125px;
-  /* bottom: 5px; */
-  /* background-color: whitesmoke; */
-  /* padding-bottom: 10px; */
 }
 
 .editButton {
@@ -168,7 +172,6 @@
   margin-left: 10px;
   padding-top: 5px;
   color: rgba(54, 138, 66, 0.7);
-  /* padding-bottom: 22px; */
 }
 
 
@@ -185,8 +188,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 10%;
-  /* margin-bottom: 5px; */
-  /* padding-bottom: 2px; */
   color: #ffc200;
 }
 
@@ -258,11 +259,6 @@ span {
   justify-content: space-between;
 }
 
-/* .commentSubmit {
-  width: 40px;
-  background-color: #368A42;
-} */
-
 .commentListHidden {
   display: none;
 }
@@ -273,7 +269,8 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 3px solid  #368A42; */
+  background-color: whitesmoke;
+  border-top: 2px solid  #368A42;
 }
 
 .newComment {
@@ -290,21 +287,22 @@ span {
 
 .commentBox {
   position: relative;
-  /* border-bottom: 2px solid #368A42; */
   text-align: start;
   overflow: hidden;
-  /* background-color: whitesmoke; */
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   width: 450px;
   border-left: 2px solid  #368A42;
   border-right: 2px solid  #368A42;
   padding-bottom: 5px;
+  background: linear-gradient( rgb(250, 247, 247) 0.5%,  rgb(241, 234, 236) 99.5%);
 }
 
 .comment{
+  height: 100%;
   position: relative;
+  margin-top: 5px;
   height: auto;
   display: flex;
   flex: none;
@@ -312,7 +310,6 @@ span {
   width:100%;
   max-width: 265px;
   text-align: start;
-  /* background-color: whitesmoke; */
       font-family: "Work Sans",
       Arial,
       Helvetica,
@@ -321,7 +318,6 @@ span {
 
 .newComment {
   background-color: #368A42;
-  /* color: whitesmoke; */
   resize: none;
   width: 450px;
   border-radius: 0px 0px 0px 10px;
@@ -356,7 +352,6 @@ span {
   Helvetica,
   sans-serif;
   width: 60px;
-  /* border:unset; */
 }
 
 
@@ -370,7 +365,8 @@ span {
   width: 57px;
   height: auto;
   border:unset;
-  background-color: white;
+  background-color: transparent;
+  margin-top: 5px;
 }
 
 .deleteCommentButton:hover {
@@ -397,13 +393,11 @@ input:focus {
   outline: none;
 }
 
-
 .commentUser {
   display: flex;
   align-items: flex-end;
   flex: none;
   width: auto;
-  /* background-color: whitesmoke; */
   color: #368A42;
   font-family: "Work Sans",
   Arial,
@@ -434,7 +428,6 @@ input:focus {
   background-color: #ffc200;
   box-shadow: 0px 0px 10px#ffc200;
   margin: 4px;
-  margin-bottom: 6px;
 }
 
 .circleUserDiv {
@@ -445,5 +438,5 @@ input:focus {
     background-color: #368A42;
     box-shadow: 0px 0px 10px#ffc200;
     margin: 4px;
-    margin-bottom: 6px;
+    margin-top: 9px;
 }

@@ -1,0 +1,115 @@
+.mainFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background-color: #368a42;
+    position: fixed;
+    bottom: 0px;
+    color: whitesmoke;
+    box-shadow: 2px 0px 10px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mainFooter:hover .devImageOne,.mainFooter:hover .devImageTwo,.mainFooter:hover .devImageThree,.mainFooter:hover .devImageFour {
+    animation-name: tweakOut;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes tweakOut {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(25deg)}
+    50% {transform: rotate(-25deg)}
+    75% {transform: rotate(55deg);}
+    10% {transform: rotate(-550deg);}
+}
+
+.devText {
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.devText:hover {
+    color: #ffc200;
+    cursor: pointer;
+}
+
+.devImageOne {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url('../images/max.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+    margin: 10px;
+    border: 2px solid whitesmoke;
+    box-sizing: border-box;
+}
+.devImageTwo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url('../images/kyle.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+    margin: 10px;
+    border: 2px solid whitesmoke;
+    box-sizing: border-box;
+}
+.devImageThree {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url('../images/danny.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+    margin: 10px;
+    border: 2px solid whitesmoke;
+    box-sizing: border-box;
+}
+.devImageFour {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url('../images/robin.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+    margin: 10px;
+    border: 2px solid whitesmoke;
+    box-sizing: border-box;
+}
+
+.createButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ffc200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: "Work Sans", Arial, Helvetica, sans-serif;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    color: #368a42;
+  }
+
+  .createButton:hover {
+    bottom: 12px;
+    right: 12px;
+  }
