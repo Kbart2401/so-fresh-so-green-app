@@ -9,6 +9,17 @@ body {
   width: 100%;
 }
 
+body::before {
+  content: '';
+  background-image: url('./textured.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  position: fixed;
+  width: 160%;
+  height: 160%;
+}
+
 .faq-header {
   font-size: 42px;
   border-bottom: 1px dotted whitesmoke;

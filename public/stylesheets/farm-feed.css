@@ -18,20 +18,24 @@
   height: 100%;
 }
 
-.farm-feed__main::before {
-  content: '';
-  background-image: url('./textured.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.4;
-  position: fixed;
-  width: 160%;
-  height: 160%;
-  /* position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px; */
+.farmText {
+  text-align: center;
+  font-size: 16px;
+  color: #368A42;
+}
+
+.farmDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 230px;
+  width: 215px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  box-sizing: border-box;
+  border: 4px solid #368A42;
+  border-radius: 5px;
 }
 
 .title-sub {

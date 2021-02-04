@@ -8,9 +8,6 @@
   border: none;
   height: 30px;
   width: 35px;
-  /* border-radius: 1px; */
-  position: relative;
-  right: 35px;
   border-radius: 50%;
 }
 
@@ -29,6 +26,8 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 10px;
+  border: 4px solid #ffc200;
+  z-index: 3;
 }
 .profDrop {
   display: none;
@@ -38,6 +37,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 10px;
+  border: 4px solid #ffc200;
 }
 
 .dropdown-content a {
@@ -49,7 +49,7 @@
 
 .dropdown-content a:hover {
   background-color: #ffc200;
-  border-radius: 10px;
+  color: #368a42;
 }
 
 .dropdown:hover .dropdown-content {

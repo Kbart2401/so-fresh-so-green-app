@@ -7,7 +7,6 @@
     position: relative;
     flex-direction: column;
     top: 50px;
-    /* align-content: center; */
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -20,15 +19,11 @@
     padding: 25px
 }
 
-
-
-
 .login{
     display:flex;
     align-items: center;
     flex-direction: column;
 }
-
 
 .formlogin {
     display: flex;

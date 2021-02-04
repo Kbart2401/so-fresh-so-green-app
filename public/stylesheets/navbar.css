@@ -5,14 +5,14 @@
   width: 100%;
   background-color: #368a42;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-family: "Work Sans", Arial, Helvetica, sans-serif;
   color: whitesmoke;
-  min-width: 1000px;
   z-index: 2;
   background-image: none;
   box-shadow: 0px 2px 10px 4px rgba(0, 0, 0, 0.25);
+  z-index: 5;
 }
 
 .navbar :nth-child(2) {order: 3}
@@ -22,34 +22,11 @@
   color: #ffc200;
 }
 
-/* .createButton {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: #ffc200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  color: whitesmoke;
-  border-radius: 5px;
-  font-size: 15px;
-  text-decoration: none;
-  font-family: "Work Sans", Arial, Helvetica, sans-serif;
-  width: 100px;
-  margin: 5px;
-}
-
-.createButton:hover {
-  bottom: 2px;
-} */
-
 .navbuttonfam {
   display: flex;
   justify-content: center;
   width: 250px;
   color: #333;
-  margin-right: 50px;
 }
 
 .loginbuttonfam {
@@ -85,7 +62,6 @@
   padding: 10px;
   margin-left: 45px;
   cursor: pointer;
-  margin-right: 20px;
 }
 
 .title {

@@ -6,11 +6,18 @@ body {
 }
 
 .search {
-  width: 85%;
+  width: 285px;
   position: relative;
   display: flex;
-  left: 30px;
+  margin-bottom: 2px;
 }
+
+@media only screen and (max-width: 800px) {
+  .search {
+    visibility: hidden;
+  }
+}
+
 
 .searchTerm {
   width: 85%;
