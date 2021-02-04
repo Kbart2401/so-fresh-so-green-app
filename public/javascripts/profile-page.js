@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-
   const yourActivity = document.querySelector('.your-activity-container');
   const yourPosts = document.querySelector('.your-posts-container');
 
