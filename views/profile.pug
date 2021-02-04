@@ -1,0 +1,25 @@
+extends layout.pug
+append head
+  script(src="/javascripts/profile-page.js" type="module" defer)
+
+block content
+  .page-container
+    .profile-header
+      img(class="profile-icon" src= user.imageUrl)
+      .profile-info
+        h2 #{user.name} 🌽
+        .email= user.email
+        h3: strong Bio
+        p #{user.bio}
+    .profile-options-container
+      .profile-options-links
+        span#your-activity ACTIVITY
+        span#your-posts &nbsp; YOUR POSTS
+
+    .your-activity-container
+      each post in othersPosts
+        include card.pug
+    .your-posts-container(style="display:none;")
+      each post in posts
+        include card.pug
+  include footer.pug

@@ -1,0 +1,79 @@
+.farm-feed__container {
+  width: 100%;
+  height: 100%;
+  padding-top: 55px;
+}
+
+.farm-feed__container > div{
+  padding: 15px;
+  height: auto;
+}
+
+.farm-feed__main {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.farmText {
+  text-align: center;
+  font-size: 16px;
+  color: #368A42;
+}
+
+.farmDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 230px;
+  width: 215px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  box-sizing: border-box;
+  border: 4px solid #368A42;
+  border-radius: 5px;
+}
+
+.title-sub {
+  width: 180px;
+  height: 25px;
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  z-index: 9;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  padding: 5px 0 0 0px;
+}
+
+.search-text {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainTitle {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 50px;
+  color: #368A42;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

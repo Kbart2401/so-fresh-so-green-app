@@ -1,0 +1,33 @@
+extends layout.pug
+include utils.pug
+
+
+block content
+  if errors 
+    div(class="error-container" id="error-container")
+      div(id="exit") x
+      div(class="errorlist")
+        ul(class="list")
+          each error in errors
+            li= error
+  div Submit a post here!
+  div(class="form-container")
+    div(class="form-title")= title
+    form(action="/posts" method="POST" class="login")
+      div(class="formlogin")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        label(for="content" class="label") Content
+        textarea(class="formField" placeholder="Content" class="bioField" name="content" value=content)
+      div(class="formlogin")
+        label(for="announcements" class="label") Announcements
+        textarea(class="formField" placeholder="Announcements" class="bioField" name="announcements" value=announcements)
+      div(class="formlogin")
+        label(for="imageUrl" class="label") Image
+        select(name="imageUrl" class="theme-construction")
+          option(value="/images/rooster.jpg") Chickens
+          option(value="/images/apples.jpg") Apples
+          option(value="/images/honey.jpg") Honey
+          option(value="/images/tomato.jpg") Tomatoes
+      div(class="formButtons" class="formlogin")
+        button(type="submit" class="button") Submit 
+        a(href="/" class="button") Cancel

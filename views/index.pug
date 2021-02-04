@@ -2,9 +2,23 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
+  meta(charset="UTF-8")
+  meta(charset="UTF-16")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  title= title
+  link(href="/card.css")
+  link(href="/mainFooter.css")
+
 
 block content
-  h1= title
+
+  .farm-feed__container
+    //- .farm-feed__fake-adds
+    .farm-feed__main
+      //- p.title-sub #{searchResults}
+      if (posts.length === 0)
+        p.search-text Your search did not match any results 😥
+        p.search-text Please try again!
+      each post in posts
+        include card.pug
+  include footer.pug

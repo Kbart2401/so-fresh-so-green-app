@@ -1,0 +1,33 @@
+extends layout.pug
+
+append head 
+    script(src="/javascripts/errors.js" type="module" defer)
+include utils.pug
+block content
+    if errors 
+        div(class="error-container" id="error-container")
+            div(id="exit") x
+            div(class="errorlist")
+                ul(class="list")
+                    each error in errors
+                        li= error
+    div(class="form-container")
+
+        div(class="form-title")= title
+        form(class="login" action=`/users/${user.id}` method="POST" class="sign-up")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            +field("Name", "name", "text", name)
+            +field("City", "city", "text", city)
+            +field("Email", "email", "email", email)
+            +field('Password', 'password', 'password')
+            +field('Confirm Password', 'confirm-password', 'password')
+            div(class="formlogin")
+                label(for="bio" class="label") Biography
+                textarea(class="formField" class="bioField" type="text" name="bio" id="bio" placeholder="Biography")= bio
+            label(for="imageUrl" class="label") Image
+            select(name="imageUrl" class="theme-construction")
+                option(value="/images/farmer-avatar.jpg") Male Farmer
+                option(value="/images/farmer-avatar-female.jpg") Female Farmer
+            div(class="formButtons" class="formlogin")
+                button(type="submit" class="button") Submit
+                a(href="/" class="button") Cancel

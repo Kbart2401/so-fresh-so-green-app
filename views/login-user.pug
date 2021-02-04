@@ -1,17 +1,22 @@
 extends layout.pug
 include utils.pug
 block content
-    if errors 
-        ul
-            each error in errors
-                li= error
-    form(action="/users/login" method="POST" class="login")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        +field("Email", "email", "email", email)
-        +field("Password", "password", "password")
-        div(class="form-group")
-            button(type="submit" class="button") Submit
-        div(class="form-group")
-            a(href="/users" class="button") New User? Sign Up!
-        div(class="form-group")
-            a(href="/" class="button") Cancel
+    if errors
+        div(class="error-container" id="error-container")
+            div(id="exit") x
+            div(class="errorlist")
+                ul(class="list")
+                    each error in errors
+                        li= error
+    div(class="form-container")
+        div(class="form-title")= title
+        form(action="/users/login" method="POST" class="login")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            +field("Email", "email", "email", email)
+            +field("Password", "password", "password")
+            div(class="submit")
+                button(type="submit" class="button" class="submitButton") Login
+            button(class="button" class="submitButton demo" value=csrfToken) Demo User
+            div( class="formButtons")
+                a(href="/users" class="button") Sign Up
+                a(href="/" class="button") Cancel

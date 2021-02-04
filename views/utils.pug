@@ -1,5 +1,5 @@
 mixin field(labelText, fieldName, fieldType, fieldValue)
-    div(class="form-group")
-        label(for=fieldName)= labelText
-        input(type=fieldType name=fieldName id=fieldName value=fieldValue)
+    div(class="formlogin")
+        label(for=fieldName class="label")= labelText
+        input(class="formField" type=fieldType name=fieldName id=fieldName value=fieldValue placeholder= labelText)
 

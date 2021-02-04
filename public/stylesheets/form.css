@@ -1,0 +1,234 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    top: 50px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    padding: 25px
+}
+
+.login{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formlogin {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    flex-direction: column;
+    box-sizing: border-box;
+    width:300px;
+}
+
+
+.form-title {
+    color:#368a42;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.label{
+    border: none;
+    color:#368a42;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+
+.formField {
+    width: 300px;
+    border: 3px solid #ffc200;
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    color: #9dbfaf;
+    font-weight: bold;
+    color: #368a42;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.formField:focus {
+    color: #368a42;
+}
+
+.bioField {
+    max-width: 300px;
+    max-height: 150px;
+    min-width: 300px;
+    min-height: 150px;
+    resize: none;
+}
+
+.button {
+    background-color: #368a42;
+    border: none;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 8px 12px;
+    text-decoration: none;
+        font-family: "Work Sans",
+        Arial,
+        Helvetica,
+        sans-serif;
+    width: 145px;
+    text-align: center;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin: 20px;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 20px;
+    flex-direction: row;
+}
+
+
+.submitButton {
+    width: 300px;
+}
+
+.submitButton.demo {
+    background-color: #ffc200;
+}
+
+.submitButton.demo:hover {
+    background-color: #48b658;
+}
+
+.error-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 200px;
+    overflow: scroll;
+    /* align-content: center; */
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    width: 200px;
+    max-width: 100%;
+    height: 200px;
+    padding: 10px;
+    z-index: 1;
+    scrollbar-width: none;
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    }
+
+    .error-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    #exit {
+        position: sticky;
+        top: -5px;
+        left: 170px;
+        font-family: "Work Sans",
+        Arial,
+        Helvetica,
+        sans-serif;
+        color: red;
+        font-size: 20px;
+        z-index: 2;
+    }
+    #exit:hover {
+        cursor: pointer;
+    }
+    .errorList {
+        -ms-overflow-style: none;
+    position: absolute;
+    width: 150px;
+    overflow: scroll;
+}
+
+.list {
+    color: darkred;
+    list-style: none;
+}
+.list > li {
+    margin: 5px;
+    text-align: center;
+    background-color: darksalmon;
+}
+
+.theme-construction {
+    --radius: 0;
+    --baseFg: #368a42;
+    --baseBg: #ffc200;
+    --accentFg: #ffc200;
+    --accentBg: #368a42;
+}
+
+select {
+    font-family: "Work Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    width: 300px;
+    -webkit-appearance: none;
+    appearance: none;
+    color: var(--baseFg);
+    border: 0px solid var(--baseFg);
+    line-height: 1;
+    outline: 0;
+    padding: 0.65em 2.5em 0.55em 0.75em;
+    border-radius: 10px;
+    background-color: var(--baseBg);
+    background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+        linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+        linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+        linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+    background-position: right 20px center, right bottom, right bottom, right bottom;
+}
+
+/* #error-container {
+    display: none;
+} */
