@@ -3,7 +3,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 105px;
 }
 
 .profile-header {
@@ -38,7 +38,7 @@
   margin-top: 30px;
 }
 
-.profile-header h3, p, .email {
+.profile-header h3, .profile-header p, .email {
   padding-left: 20px;
   padding-bottom: 5px;
   margin: 0;

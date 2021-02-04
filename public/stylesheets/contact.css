@@ -1,8 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body {
+/* body {
   font-family: "Open Sans", Helvetica, sans-serif;
   margin: 0;
+} */
+
+.contactContainer {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
 html {
@@ -20,6 +26,67 @@ html {
   column-count: 3;
   padding-left: 175px;
   padding-top: 25px;
+}
+
+.imageOne {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/robin.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  /* margin-left: 17px; */
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+.imageTwo {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/max.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  /* margin-left: 17px; */
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+.imageThree {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/kyle.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  /* margin-left: 17px; */
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+.imageFour {
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  background-image: url('../images/danny.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  /* margin-left: 17px; */
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  margin-bottom: -30px;
 }
 
 .img1 {
@@ -135,23 +202,38 @@ html {
   box-sizing: inherit;
 }
 
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
 .column {
-  float: left;
-  width: 25%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+  width: 20%;
+  margin-left: 30px;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 10px;
+  margin-left: 20px;
   background-color: #368a42;
-  width: 90%;
+  width: 100%;
+  height: 700px;
+  text-align: center;
+  padding-bottom: 5px;
 }
 
 .container {
-  padding: 0 16px;
-  padding-bottom: 30px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .container::after,
@@ -161,43 +243,87 @@ html {
   display: table;
 }
 
-.credits {
-  padding-left: 360px;
-  font-size: 32px;
-}
-
 .homie {
   color: #ffc200;
-  padding: 10px;
+  /* padding: 10px; */
   font-size: 30px;
+  margin: none;
+  margin-bottom: -50px;
+  padding-left: none;
 }
 
 .gitbutton {
   background-image: url("github.png");
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
-  height: 200px;
-  padding: 10px;
+  height: 120px;
+  width: 120px;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
 }
 
 .buttonb {
   background-image: url("inkedin.png");
-  background-size: 110% 105%;
-  background-position: -16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
-  height: 200px;
+  height: 120px;
+  width: 120px;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
 }
 
-.button:hover {
-  background-color: #ffc200;
+.linkText {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.linkHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  width: 140px;
+  background-color: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 6px solid white;
+  margin-bottom: 10px;
+}
+
+.linkHolder:hover {
+  border: 6px solid #ffc200;
+}
+
+.soloFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #368a42;
+  font-size: 15px;
+}
+
+.credits {
+  color: #ffc200;
+  font-size: 20px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 2px;
+}
+
+.soloText {
+  color: whitesmoke;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 650px) {

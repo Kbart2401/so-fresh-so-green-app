@@ -3,7 +3,7 @@ include utils.pug
 
 
 block content
-  if errors 
+  if errors
     div(class="error-container" id="error-container")
       div(id="exit") x
       div(class="errorlist")
@@ -29,7 +29,7 @@ block content
           option(value="/images/honey.jpg") Honey
           option(value="/images/tomato.jpg") Tomatoes
       div(class="submit")
-        button(type="submit" class="button" class="submitButton") Submit 
+        button(type="submit" class="button" class="submitButton") Submit
       div(class="formButtons" class="formlogin")
         a(href=`/posts/${post.id}/delete` method="DELETE" class="button") Delete
         a(href="/" class="button") Cancel

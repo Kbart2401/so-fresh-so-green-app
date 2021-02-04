@@ -80,6 +80,15 @@
   padding-top: 10px;
 }
 
+.announcementDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.announcementDiv {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .announcements {
   display: flex;
   flex-direction: row;
