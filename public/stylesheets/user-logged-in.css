@@ -32,7 +32,7 @@
   position: relative;
   /* top: 100%; */
   right: 60px;
-  color: white;
+  color: whitesmoke;
   font-size: 20px;
   height: 25px;
   /* margin-top: 50%; */
@@ -43,7 +43,7 @@
 }
 
 .nav-links {
-  background-color: rgb(243, 239, 239);
+  background-color: whitesmoke;
   position: absolute;
   /* margin-top: 50px; */
   width: 100px;

@@ -1,4 +1,6 @@
 .navbar {
+  /* position: sticky;
+  top: 0px; */
   height: 70px;
   width: 100%;
   background-color: #368a42;
@@ -6,9 +8,11 @@
   justify-content: space-around;
   align-items: center;
   font-family: "Work Sans", Arial, Helvetica, sans-serif;
-  color: white;
+  color: whitesmoke;
   min-width: 1000px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  background-image: none;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); */
 }
 
 .navbar :nth-child(2) {order: 3}
@@ -18,14 +22,16 @@
   color: #ffc200;
 }
 
-.createButton {
-  position: relative;
+/* .createButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
   background-color: #ffc200;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  color: white;
+  color: whitesmoke;
   border-radius: 5px;
   font-size: 15px;
   text-decoration: none;
@@ -36,7 +42,7 @@
 
 .createButton:hover {
   bottom: 2px;
-}
+} */
 
 .navbuttonfam {
   display: flex;
@@ -93,7 +99,7 @@
 
 .category {
   border: none;
-  color: white;
+  color: whitesmoke;
   border-radius: 5px;
   font-size: 15px;
   padding: 8px 12px;
@@ -116,4 +122,3 @@
   margin-top: 5px;
   margin-left: 10px;
 }
-

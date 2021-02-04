@@ -1,28 +1,33 @@
 .farm-feed__container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: auto;
-  /* border: 5px solid white; */
-  width: 1200px;
+  width: 100%;
+  height: 100%;
 }
 
 .farm-feed__container > div{
   padding: 15px;
   height: auto;
 }
-.farm-feed__fake-adds {
-  width: 325px;
-  /* background-color: white; */
-}
 
 .farm-feed__main {
-  width: 550px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.farm-feed__profiles {
-  width: 325px;
-  /* background-color: white; */
+.farm-feed__main::before {
+  content: '';
+  background-image: url('./textured.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
 }
 
 .title-sub {

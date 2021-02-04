@@ -2,14 +2,16 @@
 
 body {
   color: #333;
-  background: #fcfcfc;
+  background: whitesmoke;
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .faq-header {
   font-size: 42px;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted whitesmoke;
   padding: 24px;
 }
 
@@ -19,7 +21,7 @@ body {
 
 .faq-question {
   padding: 20px 0;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted whitesmoke;
 }
 
 .panel-title {
