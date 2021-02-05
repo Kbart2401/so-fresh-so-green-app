@@ -62,13 +62,40 @@ window.addEventListener('DOMContentLoaded', () => {
                             'Content-Type': 'application/json'
                         }
                     })
-                    const upvotes = await res.json();
-                    upvoteDiv.innerHTML = upvotes.upvotes;
-                    upvoteDiv.classList.add("downvoteDiv")
+                    if (res.ok) {
+                        const upvotes = await res.json();
+                        upvoteDiv.innerHTML = upvotes.upvotes;
+                        upvoteDiv.classList.add("downvoteDiv")
+                    }
+                    else {
+                        if (!document.querySelector('.screen-blur')) {
+                            let screenBlur = document.createElement('div')
+                            screenBlur.classList.add('screen-blur')
+                            let body = document.querySelector('body')
+                            body.appendChild(screenBlur)
+                            let errorContainer = document.createElement('div')
+                            errorContainer.classList.add('error-container')
+                            errorContainer.setAttribute('id', 'error-container')
+                            body.appendChild(errorContainer)
+                            errorContainer.innerHTML = `<div id="exit">x</div>
+                            <div class="errorlist" style="color: darkred; text-align: center">Please log in to upvote posts</div>`
+                        }
+                        else {
+                            document.querySelector('.screen-blur').classList.remove('hidden')
+                            document.querySelector('.error-container').classList.remove('hidden')
+                        }
+                        document.getElementById('exit')
+                            .addEventListener('click', e => {
+                                document.querySelector('.error-container').classList.add('hidden');
+                                document.querySelector('.screen-blur').classList.add('hidden');
+                            });
+                    }
                 })
 
             }
         })
+
+
 
     //delete a comment
     document.querySelectorAll('.commentsDiv')
@@ -125,7 +152,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 const commentList = document.querySelector(`.commentList${e.target.value}`);
                 if (commentList.classList.contains("commentListHidden")) {
                     commentList.classList.remove("commentListHidden")
-                    debugger
                     const res = await fetch(`/posts/${e.target.value}/comments`)
                     const comments = await res.json();
 
@@ -184,7 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.submitButton.demo')
         ?.addEventListener('click', async (e) => {
             e.preventDefault()
-            const res = await fetch('/users/login', {
+            await fetch('/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
