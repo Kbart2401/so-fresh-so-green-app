@@ -125,6 +125,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 const commentList = document.querySelector(`.commentList${e.target.value}`);
                 if (commentList.classList.contains("commentListHidden")) {
                     commentList.classList.remove("commentListHidden")
+                    debugger
                     const res = await fetch(`/posts/${e.target.value}/comments`)
                     const comments = await res.json();
 
