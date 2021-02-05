@@ -9,7 +9,6 @@ const { check, validationResult } = require("express-validator");
 const { logInUser, logoutUser } = require("../auth");
 const Op = Sequelize.Op;
 
-// const { db } = require("../config");
 /* GET users listing. */
 router.use(cookieParser());
 const csrfProtection = csrf({ cookie: true });

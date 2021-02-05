@@ -100,7 +100,7 @@ router.post('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
 //fetch comments
 router.get('/:id/comments', restoreUser, asyncHandler(async (req, res) => {
   const postId = parseInt(req.params.id, 10);
-  const userId = res.locals.user.id;
+  const userId = res.locals.user !== undefined ? res.locals.user.id : 'a'
   const comments = await Comment.findAll({ where: { postId }, include: [User] })
   // console.log(comments)
   return res.json({ comments, userId });

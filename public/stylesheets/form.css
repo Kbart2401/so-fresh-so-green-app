@@ -124,6 +124,15 @@
 .submitButton {
     width: 300px;
 }
+
+.submitButton.demo {
+    background-color: #ffc200;
+}
+
+.submitButton.demo:hover {
+    background-color: #48b658;
+}
+
 .screen-blur {
     width:100vw;
     height: 100vh;

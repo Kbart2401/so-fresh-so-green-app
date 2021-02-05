@@ -18,7 +18,8 @@ append head
             +field("Email", "email", "email", email)
             +field("Password", "password", "password")
             div(class="submit")
-                button(type="submit" class="button" class="submitButton") Submit
+                button(type="submit" class="button" class="submitButton") Login
+            button(class="button" class="submitButton demo" value=csrfToken) Demo User
             div( class="formButtons")
                 a(href="/users" class="button") Sign Up
                 a(href="/" class="button") Cancel
