@@ -78,6 +78,7 @@
   flex-direction: column;
   padding-left: 10px;
   padding-top: 10px;
+  /* background-color: aquamarine; */
 }
 
 .announcementDiv::-webkit-scrollbar {
@@ -92,11 +93,17 @@
 .announcements {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 0;
 }
 
 .announcement {
+  height: auto;
+  width: 100%;
   padding-left: 5px;
+  /* background-color: tomato; */
+  margin: 0;
 }
 
 .upvoteDiv {
@@ -115,6 +122,13 @@
   margin-top: 10px;
   border: none;
   border-radius: 10%;
+}
+
+.star {
+  margin: 0;
+  /* background-color: violet; */
+  height: 20px;
+  width: 20px;
 }
 
 .upvoteDiv:hover {
@@ -269,8 +283,10 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   border-top: 2px solid  #368A42;
+  background: transparent;
+  color: #ffc200;
 }
 
 .newComment {
@@ -295,6 +311,7 @@ span {
   width: 450px;
   border-left: 2px solid  #368A42;
   border-right: 2px solid  #368A42;
+  border-bottom: 2px solid #368A42;
   padding-bottom: 5px;
   background: linear-gradient( rgb(250, 247, 247) 0.5%,  rgb(241, 234, 236) 99.5%);
 }
@@ -310,10 +327,10 @@ span {
   width:100%;
   max-width: 265px;
   text-align: start;
-      font-family: "Work Sans",
-      Arial,
-      Helvetica,
-      sans-serif;
+  font-family: "Work Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
 }
 
 .newComment {
@@ -428,6 +445,7 @@ input:focus {
   background-color: #ffc200;
   box-shadow: 0px 0px 10px#ffc200;
   margin: 4px;
+  margin-top: 9px;
 }
 
 .circleUserDiv {
