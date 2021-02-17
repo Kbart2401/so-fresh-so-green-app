@@ -15,14 +15,14 @@
     animation-name: tweakOut;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes tweakOut {
     0% {transform: rotate(0deg)}
-    25% {transform: rotate(25deg)}
-    50% {transform: rotate(-25deg)}
-    75% {transform: rotate(55deg);}
-    10% {transform: rotate(-550deg);}
+    33% {transform: rotate(20deg)}
+    66% {transform: rotate(-20deg)}
+    100% {transform: rotate(0deg);}
 }
 
 .devText {

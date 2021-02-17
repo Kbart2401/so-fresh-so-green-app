@@ -10,7 +10,7 @@
                 each announcement in post.announcements
                     .announcementDiv-announcements
                         .announcements
-                            span ✵
+                            span(class='star') ✵
                             p(class="announcement")=  announcement
             button.upvoteDiv(value=post.id)= post.Users.length
                 //- span(class='voteSpan') ▴
